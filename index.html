@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GCalSyncLNTeams</title>
+<meta name="description" content="Синхронизация календарей Google, Lotus Notes (HCL Domino) и Microsoft Teams/Outlook на Android.">
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header><img src="icon.svg" alt=""><div><h1>GCalSyncLNTeams</h1><div class="muted">Google Calendar · Lotus Notes · Teams/Outlook</div></div></header>
+
+<p>Android-приложение, которое переносит события между Google Календарём, календарём Lotus Notes (через Domino REST API) и календарём Microsoft Teams/Outlook (через Microsoft Graph). Созданные, изменённые и удалённые события переходят в другие календари; перед первым применением всё видно в предпросмотре.</p>
+
+<p><a class="button" href="https://github.com/gudim/GCal2LN2Teams/releases/latest">Скачать APK</a></p>
+
+<div class="card">
+<h3>Что умеет</h3>
+<ul>
+<li>Копирует события в обе стороны между любыми двумя или всеми тремя календарями.</li>
+<li>Переносит изменения названия, времени, места и описания; удаление оригинала удаляет копии.</li>
+<li>Находит одну и ту же встречу в разных календарях и спрашивает, связать ли их.</li>
+<li>Синхронизирует в фоне (раз в 15 минут, час или 4 часа) и сообщает о вопросах уведомлением.</li>
+<li>Раз в неделю проверяет, не вышла ли новая версия.</li>
+</ul>
+<h3>Установка</h3>
+<p>Нужен Android 10 или новее. Скачайте APK из <a href="https://github.com/gudim/GCal2LN2Teams/releases/latest">последнего выпуска</a>, откройте его и разрешите установку. Подробно: <a href="https://github.com/gudim/GCal2LN2Teams/blob/main/mobile/INSTALL.md">инструкция</a>.</p>
+</div>
+
+<p>Данные остаются на телефоне: приложение обращается к календарям напрямую, без промежуточных серверов. <a href="privacy.html">Политика конфиденциальности</a>.</p>
+
+<hr>
+
+<h2 lang="en">English</h2>
+<p lang="en">GCalSyncLNTeams is an Android app that keeps Google Calendar, HCL Notes/Domino and Microsoft Teams/Outlook calendars in sync. New, changed and deleted events are carried between the calendars you choose, with a preview before anything is written. Everything runs on your phone; the app talks to each calendar service directly and has no server of its own. See the <a href="privacy.html">privacy policy</a>.</p>
+
+<footer>
+<a href="https://github.com/gudim/GCal2LN2Teams">Исходный код</a> ·
+<a href="https://github.com/gudim/GCal2LN2Teams/issues">Вопросы и ошибки</a> ·
+<a href="privacy.html">Конфиденциальность / Privacy</a>
+</footer>
+</main>
+</body>
+</html>
