@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Название в лаунчере. Тексты экранов лежат в shared/src/commonMain/composeResources. -->
+    <string name="app_name">Синхронизация календарей</string>
+
+    <!-- Уведомления фоновой синхронизации -->
+    <string name="notification_channel_questions">Вопросы</string>
+    <string name="notification_channel_questions_description">Открытые вопросы после фоновой синхронизации: на них отвечают в приложении</string>
+    <string name="notification_channel_connection">Проблемы с подключением</string>
+    <string name="notification_channel_connection_description">Lotus выключен или недоступен, нужен вход в Google</string>
+    <string name="notification_channel_summary">Итог фоновой синхронизации</string>
+    <string name="notification_channel_summary_description">Тихое уведомление после каждой фоновой синхронизации (включается в настройках приложения)</string>
+    <string name="notification_summary_title">Фоновая синхронизация</string>
+    <string name="notification_summary_no_changes">Изменений нет</string>
+    <string name="notification_summary_lotus_unavailable">Lotus не ответил</string>
+    <string name="notification_summary_failed">Синхронизация не выполнена: %1$s</string>
+    <string name="notification_summary_created">создано %1$d</string>
+    <string name="notification_summary_updated">обновлено %1$d</string>
+    <string name="notification_summary_deleted">удалено %1$d</string>
+    <string name="notification_summary_linked">связано %1$d</string>
+    <string name="notification_summary_questions">вопросов %1$d</string>
+    <string name="notification_summary_errors">ошибок %1$d</string>
+    <plurals name="notification_questions_title">
+        <item quantity="one">%d открытый вопрос</item>
+        <item quantity="few">%d открытых вопроса</item>
+        <item quantity="many">%d открытых вопросов</item>
+        <item quantity="other">%d открытого вопроса</item>
+    </plurals>
+    <string name="notification_questions_text">Фоновая синхронизация выполнила всё остальное. Откройте приложение, чтобы ответить.</string>
+    <string name="notification_lotus_disabled_title">Lotus выключен</string>
+    <string name="notification_lotus_disabled_text">Domino не принял пароль. Чтобы не заблокировать учётную запись, Lotus выключен до повторного ввода пароля.</string>
+    <string name="notification_lotus_unreachable_title">Lotus недоступен больше суток</string>
+    <string name="notification_lotus_unreachable_text">Сервер Domino не отвечает. Проверьте сеть (VPN) и адрес сервера.</string>
+    <string name="notification_google_sign_in_title">Нужен вход в Google</string>
+    <string name="notification_google_sign_in_text">Google просит подтвердить доступ к календарю. Откройте приложение и войдите снова.</string>
+    <string name="notification_channel_updates">Новые версии</string>
+    <string name="notification_channel_updates_description">Вышла новая версия приложения (проверка раз в неделю)</string>
+    <string name="notification_update_title">Вышла версия %1$s</string>
+    <string name="notification_update_text">Нажмите, чтобы скачать. Установите поверх текущей: настройки и связи сохранятся.</string>
+</resources>

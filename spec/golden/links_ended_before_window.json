@@ -1,0 +1,223 @@
+{
+  "description": "Связи, у которых обе стороны по снимку кончились до окна, не проверяются (get не вызывается). Недавняя связь с удалёнными сторонами убирается (unlink).",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [],
+        "google": []
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "google:g-old->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2025-12-20T11:00:00+00:00",
+            "location": "",
+            "start": "2025-12-20T10:00:00+00:00",
+            "title": "Давно"
+          },
+          "source_id": "g-old",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2025-12-20T11:00:00+00:00",
+            "location": "",
+            "start": "2025-12-20T10:00:00+00:00",
+            "title": "Давно"
+          },
+          "target_id": "d-old",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "google:g-oldday->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-01-01",
+            "location": "",
+            "start": "2025-12-31",
+            "title": "Давно весь день"
+          },
+          "source_id": "g-oldday",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-01-01",
+            "location": "",
+            "start": "2025-12-31",
+            "title": "Давно весь день"
+          },
+          "target_id": "d-oldday",
+          "target_system": "domino"
+        }
+      ],
+      "report": []
+    },
+    "collect": {
+      "fetched": [
+        {
+          "event": null,
+          "id": "d-recent",
+          "system": "domino"
+        },
+        {
+          "event": null,
+          "id": "g-recent",
+          "system": "google"
+        }
+      ],
+      "listed": {
+        "domino": [],
+        "google": []
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": null,
+          "fallback": [],
+          "key": "unlink:google:g-recent->domino",
+          "kind": "unlink",
+          "link": {
+            "kept": false,
+            "key": "google:g-recent->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Недавно"
+            },
+            "source_id": "g-recent",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Недавно"
+            },
+            "target_id": "d-recent",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": true,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "unlink:google:g-recent->domino"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [],
+      "google": []
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [
+      {
+        "kept": false,
+        "key": "google:g-old->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2025-12-20T11:00:00+00:00",
+          "location": "",
+          "start": "2025-12-20T10:00:00+00:00",
+          "title": "Давно"
+        },
+        "source_id": "g-old",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2025-12-20T11:00:00+00:00",
+          "location": "",
+          "start": "2025-12-20T10:00:00+00:00",
+          "title": "Давно"
+        },
+        "target_id": "d-old",
+        "target_system": "domino"
+      },
+      {
+        "kept": false,
+        "key": "google:g-oldday->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-01-01",
+          "location": "",
+          "start": "2025-12-31",
+          "title": "Давно весь день"
+        },
+        "source_id": "g-oldday",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-01-01",
+          "location": "",
+          "start": "2025-12-31",
+          "title": "Давно весь день"
+        },
+        "target_id": "d-oldday",
+        "target_system": "domino"
+      },
+      {
+        "kept": false,
+        "key": "google:g-recent->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Недавно"
+        },
+        "source_id": "g-recent",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Недавно"
+        },
+        "target_id": "d-recent",
+        "target_system": "domino"
+      }
+    ],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "links_ended_before_window"
+}

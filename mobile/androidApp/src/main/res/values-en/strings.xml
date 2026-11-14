@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calendar Sync</string>
+
+    <string name="notification_channel_questions">Questions</string>
+    <string name="notification_channel_questions_description">Open questions after background sync: answer them in the app</string>
+    <string name="notification_channel_connection">Connection problems</string>
+    <string name="notification_channel_connection_description">Lotus is off or unreachable, Google sign-in needed</string>
+    <string name="notification_channel_summary">Background sync result</string>
+    <string name="notification_channel_summary_description">A silent notification after every background sync (turned on in the app settings)</string>
+    <string name="notification_summary_title">Background sync</string>
+    <string name="notification_summary_no_changes">No changes</string>
+    <string name="notification_summary_lotus_unavailable">Lotus did not respond</string>
+    <string name="notification_summary_failed">Sync failed: %1$s</string>
+    <string name="notification_summary_created">created %1$d</string>
+    <string name="notification_summary_updated">updated %1$d</string>
+    <string name="notification_summary_deleted">deleted %1$d</string>
+    <string name="notification_summary_linked">linked %1$d</string>
+    <string name="notification_summary_questions">questions %1$d</string>
+    <string name="notification_summary_errors">errors %1$d</string>
+    <plurals name="notification_questions_title">
+        <item quantity="one">%d open question</item>
+        <item quantity="other">%d open questions</item>
+    </plurals>
+    <string name="notification_questions_text">Background sync did everything else. Open the app to answer.</string>
+    <string name="notification_lotus_disabled_title">Lotus turned off</string>
+    <string name="notification_lotus_disabled_text">Domino rejected the password. To avoid locking the account, Lotus stays off until you enter the password again.</string>
+    <string name="notification_lotus_unreachable_title">Lotus unreachable for over a day</string>
+    <string name="notification_lotus_unreachable_text">The Domino server does not respond. Check the network (VPN) and the server address.</string>
+    <string name="notification_google_sign_in_title">Google sign-in needed</string>
+    <string name="notification_google_sign_in_text">Google asks to confirm calendar access. Open the app and sign in again.</string>
+    <string name="notification_channel_updates">New versions</string>
+    <string name="notification_channel_updates_description">A new version of the app is out (checked once a week)</string>
+    <string name="notification_update_title">Version %1$s is out</string>
+    <string name="notification_update_text">Tap to download. Install it over this one: settings and links are kept.</string>
+</resources>

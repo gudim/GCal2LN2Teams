@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Фон окна и заставки = background тёмной палитры по умолчанию (GcalDarkColors в shared). -->
+    <color name="window_background">#FF111318</color>
+    <!-- Светлые значки на тёмных системных панелях. -->
+    <bool name="light_system_bars">false</bool>
+</resources>

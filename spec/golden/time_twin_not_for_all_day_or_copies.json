@@ -1,0 +1,761 @@
+{
+  "description": "Вопроса по времени нет: у событий на весь день (праздники совпадают часто), у копии и оригинала (копии не оригиналы), при разном конце.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-13T14:00:00Z",
+            "has_attendees": false,
+            "id": "d-copy",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T13:00:00Z",
+            "title": "Из Google",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-14",
+            "has_attendees": false,
+            "id": "d-day",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13",
+            "title": "Праздник",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T18:00:00Z",
+            "has_attendees": false,
+            "id": "d-long",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T16:00:00Z",
+            "title": "Длинная",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-14",
+            "has_attendees": false,
+            "id": "domino-new-1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13",
+            "title": "Holiday",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T17:00:00Z",
+            "has_attendees": false,
+            "id": "domino-new-2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13T16:00:00Z",
+            "title": "Короткая",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T14:00:00Z",
+            "has_attendees": false,
+            "id": "domino-new-3",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13T13:00:00Z",
+            "title": "Своя",
+            "uid": null
+          }
+        ],
+        "teams": [
+          {
+            "description": "",
+            "end": "2026-11-14",
+            "has_attendees": false,
+            "id": "t-day",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13",
+            "title": "Holiday",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T17:00:00Z",
+            "has_attendees": false,
+            "id": "t-short",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T16:00:00Z",
+            "title": "Короткая",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T14:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T13:00:00Z",
+            "title": "Своя",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-14",
+            "has_attendees": false,
+            "id": "teams-new-1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13",
+            "title": "Праздник",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T18:00:00Z",
+            "has_attendees": false,
+            "id": "teams-new-2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T16:00:00Z",
+            "title": "Длинная",
+            "uid": null
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "domino:d-day->teams",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-14",
+            "location": "",
+            "start": "2026-11-13",
+            "title": "Праздник"
+          },
+          "source_id": "d-day",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-14",
+            "location": "",
+            "start": "2026-11-13",
+            "title": "Праздник"
+          },
+          "target_id": "teams-new-1",
+          "target_system": "teams"
+        },
+        {
+          "kept": false,
+          "key": "domino:d-long->teams",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T18:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T16:00:00+00:00",
+            "title": "Длинная"
+          },
+          "source_id": "d-long",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T18:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T16:00:00+00:00",
+            "title": "Длинная"
+          },
+          "target_id": "teams-new-2",
+          "target_system": "teams"
+        },
+        {
+          "kept": false,
+          "key": "teams:t-day->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-14",
+            "location": "",
+            "start": "2026-11-13",
+            "title": "Holiday"
+          },
+          "source_id": "t-day",
+          "source_system": "teams",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-14",
+            "location": "",
+            "start": "2026-11-13",
+            "title": "Holiday"
+          },
+          "target_id": "domino-new-1",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "teams:t-short->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T17:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T16:00:00+00:00",
+            "title": "Короткая"
+          },
+          "source_id": "t-short",
+          "source_system": "teams",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T17:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T16:00:00+00:00",
+            "title": "Короткая"
+          },
+          "target_id": "domino-new-2",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "teams:t1->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T14:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T13:00:00+00:00",
+            "title": "Своя"
+          },
+          "source_id": "t1",
+          "source_system": "teams",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T14:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T13:00:00+00:00",
+            "title": "Своя"
+          },
+          "target_id": "domino-new-3",
+          "target_system": "domino"
+        }
+      ],
+      "report": [
+        {
+          "created": 2,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "domino",
+          "target": "teams",
+          "updated": 0
+        },
+        {
+          "created": 3,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "teams",
+          "target": "domino",
+          "updated": 0
+        }
+      ]
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [
+          "d-copy",
+          "d-day",
+          "d-long"
+        ],
+        "teams": [
+          "t-day",
+          "t-short",
+          "t1"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-14",
+            "has_attendees": false,
+            "id": "d-day",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13",
+            "title": "Праздник",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:domino:d-day->teams",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "domino:d-day->teams",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "d-day",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "teams"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "teams"
+            }
+          ],
+          "key": "domino:d-day>teams",
+          "kind": "create",
+          "link": null,
+          "origin": "domino",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "teams"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T18:00:00Z",
+            "has_attendees": false,
+            "id": "d-long",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T16:00:00Z",
+            "title": "Длинная",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:domino:d-long->teams",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "domino:d-long->teams",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "d-long",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "teams"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "teams"
+            }
+          ],
+          "key": "domino:d-long>teams",
+          "kind": "create",
+          "link": null,
+          "origin": "domino",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "teams"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-14",
+            "has_attendees": false,
+            "id": "t-day",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13",
+            "title": "Holiday",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:teams:t-day->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "teams:t-day->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "t-day",
+                "source_system": "teams",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "teams:t-day>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "teams",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T17:00:00Z",
+            "has_attendees": false,
+            "id": "t-short",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13T16:00:00Z",
+            "title": "Короткая",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:teams:t-short->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "teams:t-short->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "t-short",
+                "source_system": "teams",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "teams:t-short>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "teams",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T14:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13T13:00:00Z",
+            "title": "Своя",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:teams:t1->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "teams:t1->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "t1",
+                "source_system": "teams",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "teams:t1>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "teams",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "domino:d-day>teams",
+      "domino:d-long>teams",
+      "teams:t-day>domino",
+      "teams:t-short>domino",
+      "teams:t1>domino"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T14:00:00Z",
+          "has_attendees": false,
+          "id": "d-copy",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-13T13:00:00Z",
+          "title": "Из Google",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-14",
+          "has_attendees": false,
+          "id": "d-day",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13",
+          "title": "Праздник",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-13T18:00:00Z",
+          "has_attendees": false,
+          "id": "d-long",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T16:00:00Z",
+          "title": "Длинная",
+          "uid": null
+        }
+      ],
+      "teams": [
+        {
+          "description": "",
+          "end": "2026-11-14",
+          "has_attendees": false,
+          "id": "t-day",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13",
+          "title": "Holiday",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-13T17:00:00Z",
+          "has_attendees": false,
+          "id": "t-short",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T16:00:00Z",
+          "title": "Короткая",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-13T14:00:00Z",
+          "has_attendees": false,
+          "id": "t1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T13:00:00Z",
+          "title": "Своя",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "domino-teams",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "domino",
+        "teams"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "time_twin_not_for_all_day_or_copies"
+}

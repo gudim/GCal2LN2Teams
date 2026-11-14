@@ -1,0 +1,808 @@
+{
+  "description": "Оригинал в каждой системе копируется в две другие: шесть маршрутов. Частное событие копируется со всеми полями.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-13T13:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T12:00:00Z",
+            "title": "Обед с командой",
+            "uid": null
+          },
+          {
+            "description": "Повестка\nпункт 1",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "domino-new-1",
+            "ignored": false,
+            "location": "Комната 1",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": true,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Планёрка",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T15:00:00Z",
+            "has_attendees": false,
+            "id": "domino-new-2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13T14:00:00Z",
+            "title": "Ретро",
+            "uid": null
+          }
+        ],
+        "google": [
+          {
+            "description": "Повестка\nпункт 1",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "Комната 1",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": true,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Планёрка",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T13:00:00Z",
+            "has_attendees": false,
+            "id": "google-new-1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T12:00:00Z",
+            "title": "Обед с командой",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T15:00:00Z",
+            "has_attendees": false,
+            "id": "google-new-2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13T14:00:00Z",
+            "title": "Ретро",
+            "uid": null
+          }
+        ],
+        "teams": [
+          {
+            "description": "",
+            "end": "2026-11-13T15:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T14:00:00Z",
+            "title": "Ретро",
+            "uid": null
+          },
+          {
+            "description": "Повестка\nпункт 1",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "teams-new-1",
+            "ignored": false,
+            "location": "Комната 1",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": true,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Планёрка",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T13:00:00Z",
+            "has_attendees": false,
+            "id": "teams-new-2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T12:00:00Z",
+            "title": "Обед с командой",
+            "uid": null
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "domino:d1->google",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T13:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T12:00:00+00:00",
+            "title": "Обед с командой"
+          },
+          "source_id": "d1",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T13:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T12:00:00+00:00",
+            "title": "Обед с командой"
+          },
+          "target_id": "google-new-1",
+          "target_system": "google"
+        },
+        {
+          "kept": false,
+          "key": "domino:d1->teams",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T13:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T12:00:00+00:00",
+            "title": "Обед с командой"
+          },
+          "source_id": "d1",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T13:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T12:00:00+00:00",
+            "title": "Обед с командой"
+          },
+          "target_id": "teams-new-2",
+          "target_system": "teams"
+        },
+        {
+          "kept": false,
+          "key": "google:g1->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "Повестка\nпункт 1",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "Комната 1",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Планёрка"
+          },
+          "source_id": "g1",
+          "source_system": "google",
+          "target_fields": {
+            "description": "Повестка\nпункт 1",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "Комната 1",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Планёрка"
+          },
+          "target_id": "domino-new-1",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "google:g1->teams",
+          "kind": "copy",
+          "source_fields": {
+            "description": "Повестка\nпункт 1",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "Комната 1",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Планёрка"
+          },
+          "source_id": "g1",
+          "source_system": "google",
+          "target_fields": {
+            "description": "Повестка\nпункт 1",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "Комната 1",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Планёрка"
+          },
+          "target_id": "teams-new-1",
+          "target_system": "teams"
+        },
+        {
+          "kept": false,
+          "key": "teams:t1->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T15:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T14:00:00+00:00",
+            "title": "Ретро"
+          },
+          "source_id": "t1",
+          "source_system": "teams",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T15:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T14:00:00+00:00",
+            "title": "Ретро"
+          },
+          "target_id": "domino-new-2",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "teams:t1->google",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T15:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T14:00:00+00:00",
+            "title": "Ретро"
+          },
+          "source_id": "t1",
+          "source_system": "teams",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T15:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T14:00:00+00:00",
+            "title": "Ретро"
+          },
+          "target_id": "google-new-2",
+          "target_system": "google"
+        }
+      ],
+      "report": [
+        {
+          "created": 1,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "domino",
+          "target": "google",
+          "updated": 0
+        },
+        {
+          "created": 1,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "domino",
+          "target": "teams",
+          "updated": 0
+        },
+        {
+          "created": 1,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "google",
+          "target": "domino",
+          "updated": 0
+        },
+        {
+          "created": 1,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "google",
+          "target": "teams",
+          "updated": 0
+        },
+        {
+          "created": 1,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "teams",
+          "target": "domino",
+          "updated": 0
+        },
+        {
+          "created": 1,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "teams",
+          "target": "google",
+          "updated": 0
+        }
+      ]
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [
+          "d1"
+        ],
+        "google": [
+          "g1"
+        ],
+        "teams": [
+          "t1"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "Повестка\nпункт 1",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "Комната 1",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": true,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Планёрка",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:google:g1->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "google:g1->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "g1",
+                "source_system": "google",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "google:g1>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T13:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T12:00:00Z",
+            "title": "Обед с командой",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:domino:d1->google",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "domino:d1->google",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "d1",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "google"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "google"
+            }
+          ],
+          "key": "domino:d1>google",
+          "kind": "create",
+          "link": null,
+          "origin": "domino",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "google"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "Повестка\nпункт 1",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "Комната 1",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": true,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Планёрка",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:google:g1->teams",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "google:g1->teams",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "g1",
+                "source_system": "google",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "teams"
+              },
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "teams"
+            }
+          ],
+          "key": "google:g1>teams",
+          "kind": "create",
+          "link": null,
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "teams"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T15:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13T14:00:00Z",
+            "title": "Ретро",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:teams:t1->google",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "teams:t1->google",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "t1",
+                "source_system": "teams",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "google"
+              },
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "google"
+            }
+          ],
+          "key": "teams:t1>google",
+          "kind": "create",
+          "link": null,
+          "origin": "teams",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "google"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T13:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T12:00:00Z",
+            "title": "Обед с командой",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:domino:d1->teams",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "domino:d1->teams",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "d1",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "teams"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "teams"
+            }
+          ],
+          "key": "domino:d1>teams",
+          "kind": "create",
+          "link": null,
+          "origin": "domino",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "teams"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T15:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-13T14:00:00Z",
+            "title": "Ретро",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:teams:t1->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "teams:t1->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "t1",
+                "source_system": "teams",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "teams:t1>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "teams",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "google:g1>domino",
+      "domino:d1>google",
+      "google:g1>teams",
+      "teams:t1>google",
+      "domino:d1>teams",
+      "teams:t1>domino"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T13:00:00Z",
+          "has_attendees": false,
+          "id": "d1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T12:00:00Z",
+          "title": "Обед с командой",
+          "uid": null
+        }
+      ],
+      "google": [
+        {
+          "description": "Повестка\nпункт 1",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g1",
+          "ignored": false,
+          "location": "Комната 1",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": true,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Планёрка",
+          "uid": null
+        }
+      ],
+      "teams": [
+        {
+          "description": "",
+          "end": "2026-11-13T15:00:00Z",
+          "has_attendees": false,
+          "id": "t1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T14:00:00Z",
+          "title": "Ретро",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "all",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ],
+      [
+        "google",
+        "teams"
+      ],
+      [
+        "domino",
+        "teams"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "create_all_directions"
+}

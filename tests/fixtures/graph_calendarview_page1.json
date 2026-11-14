@@ -1,0 +1,115 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('me')/calendarView(id,subject,body,bodyPreview,location,start,end,isAllDay,isCancelled,iCalUId,type,originalStart,isOrganizer,attendees,sensitivity,lastModifiedDateTime,responseStatus,singleValueExtendedProperties())",
+  "@odata.nextLink": "https://graph.microsoft.com/v1.0/me/calendarView?startDateTime=2026-11-01T00%3a00%3a00Z&endDateTime=2026-12-01T00%3a00%3a00Z&%24select=id%2csubject&%24top=100&%24skip=100",
+  "value": [
+    {
+      "id": "AAMkAGI1-timed",
+      "subject": "Design review",
+      "bodyPreview": "Agenda",
+      "body": {
+        "contentType": "text",
+        "content": "Agenda\r\n"
+      },
+      "location": {
+        "displayName": "Teams Meeting"
+      },
+      "isAllDay": false,
+      "isCancelled": false,
+      "start": {
+        "dateTime": "2026-11-13T22:00:00.0000000",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2026-11-13T22:45:00.0000000",
+        "timeZone": "UTC"
+      },
+      "iCalUId": "040000008200E00074C5B7101A82E00800000000timed",
+      "type": "singleInstance",
+      "isOrganizer": true,
+      "attendees": [],
+      "sensitivity": "normal",
+      "lastModifiedDateTime": "2026-11-10T08:15:30.1234567Z",
+      "responseStatus": {
+        "response": "organizer",
+        "time": "0001-01-01T00:00:00Z"
+      }
+    },
+    {
+      "id": "AAMkAGI1-allday",
+      "subject": "Conference",
+      "bodyPreview": "",
+      "body": {
+        "contentType": "text",
+        "content": ""
+      },
+      "location": {
+        "displayName": ""
+      },
+      "isAllDay": true,
+      "isCancelled": false,
+      "start": {
+        "dateTime": "2026-11-20T00:00:00.0000000",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2026-11-22T00:00:00.0000000",
+        "timeZone": "UTC"
+      },
+      "iCalUId": "040000008200E00074C5B7101A82E00800000000allday",
+      "type": "singleInstance",
+      "isOrganizer": true,
+      "attendees": [],
+      "sensitivity": "private",
+      "lastModifiedDateTime": "2026-11-01T10:00:00Z",
+      "responseStatus": {
+        "response": "organizer",
+        "time": "0001-01-01T00:00:00Z"
+      }
+    },
+    {
+      "id": "AAMkAGI1-occurrence",
+      "subject": "Partner sync",
+      "bodyPreview": "Hello team",
+      "body": {
+        "contentType": "html",
+        "content": "<html><head><style>p{margin:0}</style></head><body><div>Hello&nbsp;team<br>Line&amp;two</div><p>Third</p></body></html>"
+      },
+      "location": {
+        "displayName": "Microsoft Teams Meeting"
+      },
+      "isAllDay": false,
+      "isCancelled": false,
+      "iCalUId": "040000008200E00074C5B7101A82E00807EA0B11series",
+      "type": "occurrence",
+      "originalStart": "2026-11-17T07:00:00Z",
+      "isOrganizer": false,
+      "attendees": [
+        {
+          "type": "required",
+          "status": {
+            "response": "declined",
+            "time": "2026-11-02T10:00:00Z"
+          },
+          "emailAddress": {
+            "name": "Me",
+            "address": "me@example.com"
+          }
+        }
+      ],
+      "sensitivity": "confidential",
+      "lastModifiedDateTime": "2026-11-05T12:00:00Z",
+      "responseStatus": {
+        "response": "declined",
+        "time": "2026-11-02T10:00:00Z"
+      },
+      "start": {
+        "dateTime": "2026-11-17T07:30:00.0000000",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2026-11-17T08:00:00.0000000",
+        "timeZone": "UTC"
+      }
+    }
+  ]
+}

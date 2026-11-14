@@ -1,0 +1,193 @@
+{
+  "description": "Копии без связи (сделаны до появления связей) узнаются по source + название + начало (в UTC, 01:00 МСК = 22:00 UTC). Ни копий, ни связей не создаётся.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-13T23:00:00Z",
+            "has_attendees": false,
+            "id": "d-copy",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T22:00:00Z",
+            "title": "Релиз",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Созвон",
+            "uid": null
+          }
+        ],
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g-copy",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Созвон",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T23:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T22:00:00Z",
+            "title": "Релиз",
+            "uid": null
+          }
+        ]
+      },
+      "links": [],
+      "report": []
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [
+          "d-copy",
+          "d1"
+        ],
+        "google": [
+          "g-copy",
+          "g1"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": []
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T23:00:00Z",
+          "has_attendees": false,
+          "id": "d-copy",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-13T22:00:00Z",
+          "title": "Релиз",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "d1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Созвон",
+          "uid": null
+        }
+      ],
+      "google": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g-copy",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "domino",
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Созвон",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-13T23:00:00Z",
+          "has_attendees": false,
+          "id": "g1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T22:00:00Z",
+          "title": "Релиз",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "legacy_match_by_marker"
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Иконка, вариант A: лист календаря со стрелками синхронизации (100-единичная сетка в safe zone 108 dp). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <group android:pivotX="50" android:pivotY="49" android:scaleX="0.9" android:scaleY="0.9"
+        android:translateX="4" android:translateY="5">
+        <path android:pathData="M32,28 H68 A8,8 0 0 1 76,36 V68 A8,8 0 0 1 68,76 H32 A8,8 0 0 1 24,68 V36 A8,8 0 0 1 32,28 Z" android:strokeColor="#FFFFFFFF" android:strokeWidth="5" android:fillColor="#00000000"/>
+        <path android:pathData="M24,42 H76" android:strokeColor="#FFFFFFFF" android:strokeWidth="5"/>
+        <path android:pathData="M38,21 V32 M62,21 V32" android:strokeColor="#FFFFFFFF" android:strokeWidth="5" android:strokeLineCap="round"/>
+        <path android:pathData="M41.5,56.9 A9,9 0 0 1 58.5,56.9 M58.5,63.1 A9,9 0 0 1 41.5,63.1"
+            android:strokeColor="#FFFFFFFF" android:strokeWidth="4" android:strokeLineCap="round" android:fillColor="#00000000"/>
+        <path android:pathData="M59.8,51.6 L58.5,56.9 L53.4,55.4 M40.2,68.4 L41.5,63.1 L46.6,64.6"
+            android:strokeColor="#FFFFFFFF" android:strokeWidth="4" android:strokeLineCap="round" android:strokeLineJoin="round" android:fillColor="#00000000"/>
+    </group>
+</vector>

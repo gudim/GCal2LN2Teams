@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- «Разрешить работу в фоне» в настройках: системный запрос снять оптимизацию батареи.
+         Приложение распространяется внутри компании, а не через Google Play, где это ограничено. -->
+    <uses-permission
+        android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+        tools:ignore="BatteryLife" />
+
+    <!-- allowBackup=false: секреты зашифрованы ключом Keystore, который в копию не попадает;
+         восстановленные из копии секреты всё равно не расшифровались бы. -->
+    <application
+        android:name=".GcalApp"
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Gcal">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Возврат из браузера после входа Teams (app.gcaltolotus://signed-in): закрывает
+             вкладку входа и показывает приложение. Ничего не принимает и не показывает. -->
+        <activity
+            android:name=".auth.ReturnToAppActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="app.gcaltolotus" android:host="signed-in" />
+            </intent-filter>
+        </activity>
+    </application>
+
+    <!-- Custom Tabs: найти браузер с поддержкой CustomTabsService (видимость пакетов, Android 11+). -->
+    <queries>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
+        </intent>
+    </queries>
+
+</manifest>

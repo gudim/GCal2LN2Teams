@@ -1,0 +1,1195 @@
+{
+  "description": "Исчезло больше 5 оригиналов: все удаления без галочек и видимы, предупреждение.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d0",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Событие 0",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-14T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-14T10:00:00Z",
+            "title": "Событие 1",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-15T11:00:00Z",
+            "has_attendees": false,
+            "id": "d2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-15T10:00:00Z",
+            "title": "Событие 2",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-16T11:00:00Z",
+            "has_attendees": false,
+            "id": "d3",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-16T10:00:00Z",
+            "title": "Событие 3",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-17T11:00:00Z",
+            "has_attendees": false,
+            "id": "d4",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-17T10:00:00Z",
+            "title": "Событие 4",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-18T11:00:00Z",
+            "has_attendees": false,
+            "id": "d5",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-18T10:00:00Z",
+            "title": "Событие 5",
+            "uid": null
+          }
+        ],
+        "google": []
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "google:g0->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Событие 0"
+          },
+          "source_id": "g0",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Событие 0"
+          },
+          "target_id": "d0",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "google:g1->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-14T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-14T10:00:00+00:00",
+            "title": "Событие 1"
+          },
+          "source_id": "g1",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-14T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-14T10:00:00+00:00",
+            "title": "Событие 1"
+          },
+          "target_id": "d1",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "google:g2->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-15T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-15T10:00:00+00:00",
+            "title": "Событие 2"
+          },
+          "source_id": "g2",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-15T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-15T10:00:00+00:00",
+            "title": "Событие 2"
+          },
+          "target_id": "d2",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "google:g3->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-16T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-16T10:00:00+00:00",
+            "title": "Событие 3"
+          },
+          "source_id": "g3",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-16T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-16T10:00:00+00:00",
+            "title": "Событие 3"
+          },
+          "target_id": "d3",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "google:g4->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-17T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-17T10:00:00+00:00",
+            "title": "Событие 4"
+          },
+          "source_id": "g4",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-17T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-17T10:00:00+00:00",
+            "title": "Событие 4"
+          },
+          "target_id": "d4",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "google:g5->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-18T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-18T10:00:00+00:00",
+            "title": "Событие 5"
+          },
+          "source_id": "g5",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-18T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-18T10:00:00+00:00",
+            "title": "Событие 5"
+          },
+          "target_id": "d5",
+          "target_system": "domino"
+        }
+      ],
+      "report": []
+    },
+    "collect": {
+      "fetched": [
+        {
+          "event": null,
+          "id": "g0",
+          "system": "google"
+        },
+        {
+          "event": null,
+          "id": "g1",
+          "system": "google"
+        },
+        {
+          "event": null,
+          "id": "g2",
+          "system": "google"
+        },
+        {
+          "event": null,
+          "id": "g3",
+          "system": "google"
+        },
+        {
+          "event": null,
+          "id": "g4",
+          "system": "google"
+        },
+        {
+          "event": null,
+          "id": "g5",
+          "system": "google"
+        }
+      ],
+      "listed": {
+        "domino": [
+          "d0",
+          "d1",
+          "d2",
+          "d3",
+          "d4",
+          "d5"
+        ],
+        "google": []
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d0",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Событие 0",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d0",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g0->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Событие 0"
+            },
+            "source_id": "g0",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Событие 0"
+            },
+            "target_id": "d0",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-14T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-14T10:00:00Z",
+            "title": "Событие 1",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d1",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g1->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-14T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-14T10:00:00+00:00",
+              "title": "Событие 1"
+            },
+            "source_id": "g1",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-14T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-14T10:00:00+00:00",
+              "title": "Событие 1"
+            },
+            "target_id": "d1",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-15T11:00:00Z",
+            "has_attendees": false,
+            "id": "d2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-15T10:00:00Z",
+            "title": "Событие 2",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d2",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g2->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-15T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-15T10:00:00+00:00",
+              "title": "Событие 2"
+            },
+            "source_id": "g2",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-15T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-15T10:00:00+00:00",
+              "title": "Событие 2"
+            },
+            "target_id": "d2",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-16T11:00:00Z",
+            "has_attendees": false,
+            "id": "d3",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-16T10:00:00Z",
+            "title": "Событие 3",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d3",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g3->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-16T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-16T10:00:00+00:00",
+              "title": "Событие 3"
+            },
+            "source_id": "g3",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-16T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-16T10:00:00+00:00",
+              "title": "Событие 3"
+            },
+            "target_id": "d3",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-17T11:00:00Z",
+            "has_attendees": false,
+            "id": "d4",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-17T10:00:00Z",
+            "title": "Событие 4",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d4",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g4->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-17T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-17T10:00:00+00:00",
+              "title": "Событие 4"
+            },
+            "source_id": "g4",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-17T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-17T10:00:00+00:00",
+              "title": "Событие 4"
+            },
+            "target_id": "d4",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-18T11:00:00Z",
+            "has_attendees": false,
+            "id": "d5",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-18T10:00:00Z",
+            "title": "Событие 5",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d5",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g5->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-18T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-18T10:00:00+00:00",
+              "title": "Событие 5"
+            },
+            "source_id": "g5",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-18T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-18T10:00:00+00:00",
+              "title": "Событие 5"
+            },
+            "target_id": "d5",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": [
+        "Исчезло много событий (6): удаления не выбраны, проверьте их"
+      ]
+    },
+    "replan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d0",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Событие 0",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d0",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g0->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Событие 0"
+            },
+            "source_id": "g0",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Событие 0"
+            },
+            "target_id": "d0",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-14T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-14T10:00:00Z",
+            "title": "Событие 1",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d1",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g1->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-14T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-14T10:00:00+00:00",
+              "title": "Событие 1"
+            },
+            "source_id": "g1",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-14T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-14T10:00:00+00:00",
+              "title": "Событие 1"
+            },
+            "target_id": "d1",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-15T11:00:00Z",
+            "has_attendees": false,
+            "id": "d2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-15T10:00:00Z",
+            "title": "Событие 2",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d2",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g2->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-15T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-15T10:00:00+00:00",
+              "title": "Событие 2"
+            },
+            "source_id": "g2",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-15T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-15T10:00:00+00:00",
+              "title": "Событие 2"
+            },
+            "target_id": "d2",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-16T11:00:00Z",
+            "has_attendees": false,
+            "id": "d3",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-16T10:00:00Z",
+            "title": "Событие 3",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d3",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g3->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-16T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-16T10:00:00+00:00",
+              "title": "Событие 3"
+            },
+            "source_id": "g3",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-16T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-16T10:00:00+00:00",
+              "title": "Событие 3"
+            },
+            "target_id": "d3",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-17T11:00:00Z",
+            "has_attendees": false,
+            "id": "d4",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-17T10:00:00Z",
+            "title": "Событие 4",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d4",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g4->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-17T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-17T10:00:00+00:00",
+              "title": "Событие 4"
+            },
+            "source_id": "g4",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-17T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-17T10:00:00+00:00",
+              "title": "Событие 4"
+            },
+            "target_id": "d4",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-18T11:00:00Z",
+            "has_attendees": false,
+            "id": "d5",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-18T10:00:00Z",
+            "title": "Событие 5",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d5",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g5->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-18T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-18T10:00:00+00:00",
+              "title": "Событие 5"
+            },
+            "source_id": "g5",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-18T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-18T10:00:00+00:00",
+              "title": "Событие 5"
+            },
+            "target_id": "d5",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": false,
+          "silent": false,
+          "subject": "copy",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": [
+        "Исчезло много событий (6): удаления не выбраны, проверьте их"
+      ]
+    },
+    "select": []
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "d0",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Событие 0",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-14T11:00:00Z",
+          "has_attendees": false,
+          "id": "d1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-14T10:00:00Z",
+          "title": "Событие 1",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-15T11:00:00Z",
+          "has_attendees": false,
+          "id": "d2",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-15T10:00:00Z",
+          "title": "Событие 2",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-16T11:00:00Z",
+          "has_attendees": false,
+          "id": "d3",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-16T10:00:00Z",
+          "title": "Событие 3",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-17T11:00:00Z",
+          "has_attendees": false,
+          "id": "d4",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-17T10:00:00Z",
+          "title": "Событие 4",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-18T11:00:00Z",
+          "has_attendees": false,
+          "id": "d5",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-18T10:00:00Z",
+          "title": "Событие 5",
+          "uid": null
+        }
+      ],
+      "google": []
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [
+      {
+        "kept": false,
+        "key": "google:g0->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Событие 0"
+        },
+        "source_id": "g0",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Событие 0"
+        },
+        "target_id": "d0",
+        "target_system": "domino"
+      },
+      {
+        "kept": false,
+        "key": "google:g1->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-14T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-14T10:00:00+00:00",
+          "title": "Событие 1"
+        },
+        "source_id": "g1",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-14T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-14T10:00:00+00:00",
+          "title": "Событие 1"
+        },
+        "target_id": "d1",
+        "target_system": "domino"
+      },
+      {
+        "kept": false,
+        "key": "google:g2->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-15T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-15T10:00:00+00:00",
+          "title": "Событие 2"
+        },
+        "source_id": "g2",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-15T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-15T10:00:00+00:00",
+          "title": "Событие 2"
+        },
+        "target_id": "d2",
+        "target_system": "domino"
+      },
+      {
+        "kept": false,
+        "key": "google:g3->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-16T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-16T10:00:00+00:00",
+          "title": "Событие 3"
+        },
+        "source_id": "g3",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-16T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-16T10:00:00+00:00",
+          "title": "Событие 3"
+        },
+        "target_id": "d3",
+        "target_system": "domino"
+      },
+      {
+        "kept": false,
+        "key": "google:g4->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-17T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-17T10:00:00+00:00",
+          "title": "Событие 4"
+        },
+        "source_id": "g4",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-17T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-17T10:00:00+00:00",
+          "title": "Событие 4"
+        },
+        "target_id": "d4",
+        "target_system": "domino"
+      },
+      {
+        "kept": false,
+        "key": "google:g5->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-18T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-18T10:00:00+00:00",
+          "title": "Событие 5"
+        },
+        "source_id": "g5",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-18T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-18T10:00:00+00:00",
+          "title": "Событие 5"
+        },
+        "target_id": "d5",
+        "target_system": "domino"
+      }
+    ],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "mass_delete_by_count"
+}

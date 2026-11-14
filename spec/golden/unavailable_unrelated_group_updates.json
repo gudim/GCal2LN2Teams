@@ -1,0 +1,429 @@
+{
+  "description": "Lotus недоступен. Оригинал Teams t3 связан только с Google: его правка обновляет копию как обычно, а замороженная группа (двойник Lotus) не трогается.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g-ln",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Встреча",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-14T11:00:00Z",
+            "has_attendees": false,
+            "id": "g-mt",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-14T10:00:00Z",
+            "title": "Обзор v2",
+            "uid": null
+          }
+        ],
+        "teams": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": false,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Встреча (Teams)",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-14T11:00:00Z",
+            "has_attendees": false,
+            "id": "t3",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-14T10:00:00Z",
+            "title": "Обзор v2",
+            "uid": null
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "domino:d1->google",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Встреча"
+          },
+          "source_id": "d1",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Встреча"
+          },
+          "target_id": "g-ln",
+          "target_system": "google"
+        },
+        {
+          "kept": false,
+          "key": "teams:t3->google",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-14T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-14T10:00:00+00:00",
+            "title": "Обзор v2"
+          },
+          "source_id": "t3",
+          "source_system": "teams",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-14T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-14T10:00:00+00:00",
+            "title": "Обзор v2"
+          },
+          "target_id": "g-mt",
+          "target_system": "google"
+        },
+        {
+          "kept": false,
+          "key": "twin:domino:d1->teams:t1",
+          "kind": "twin",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Встреча"
+          },
+          "source_id": "d1",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Встреча (Teams)"
+          },
+          "target_id": "t1",
+          "target_system": "teams"
+        }
+      ],
+      "report": [
+        {
+          "created": 0,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "teams",
+          "target": "google",
+          "updated": 1
+        }
+      ]
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "google": [
+          "g-ln",
+          "g-mt"
+        ],
+        "teams": [
+          "t1",
+          "t3"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [
+            "title"
+          ],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-14T11:00:00Z",
+            "has_attendees": false,
+            "id": "g-mt",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "teams",
+            "start": "2026-11-14T10:00:00Z",
+            "title": "Обзор v2",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "update:google:g-mt",
+          "kind": "update",
+          "link": null,
+          "origin": "teams",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "google"
+        },
+        {
+          "changed": [],
+          "depends_on": [
+            "update:google:g-mt"
+          ],
+          "event": null,
+          "fallback": [],
+          "key": "link:teams:t3->google",
+          "kind": "link",
+          "link": {
+            "kept": false,
+            "key": "teams:t3->google",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-14T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-14T10:00:00+00:00",
+              "title": "Обзор v2"
+            },
+            "source_id": "t3",
+            "source_system": "teams",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-14T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-14T10:00:00+00:00",
+              "title": "Обзор v2"
+            },
+            "target_id": "g-mt",
+            "target_system": "google"
+          },
+          "origin": "teams",
+          "reason": "",
+          "selected": true,
+          "silent": true,
+          "subject": "",
+          "target": "google"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "update:google:g-mt",
+      "link:teams:t3->google"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "google": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g-ln",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "domino",
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Встреча",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-14T11:00:00Z",
+          "has_attendees": false,
+          "id": "g-mt",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "teams",
+          "start": "2026-11-14T10:00:00Z",
+          "title": "Обзор",
+          "uid": null
+        }
+      ],
+      "teams": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "t1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": false,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Встреча (Teams)",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-14T11:00:00Z",
+          "has_attendees": false,
+          "id": "t3",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-14T10:00:00Z",
+          "title": "Обзор v2",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "all",
+    "failures": [],
+    "links": [
+      {
+        "kept": false,
+        "key": "domino:d1->google",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Встреча"
+        },
+        "source_id": "d1",
+        "source_system": "domino",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Встреча"
+        },
+        "target_id": "g-ln",
+        "target_system": "google"
+      },
+      {
+        "kept": false,
+        "key": "teams:t3->google",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-14T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-14T10:00:00+00:00",
+          "title": "Обзор"
+        },
+        "source_id": "t3",
+        "source_system": "teams",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-14T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-14T10:00:00+00:00",
+          "title": "Обзор"
+        },
+        "target_id": "g-mt",
+        "target_system": "google"
+      },
+      {
+        "kept": false,
+        "key": "twin:domino:d1->teams:t1",
+        "kind": "twin",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Встреча"
+        },
+        "source_id": "d1",
+        "source_system": "domino",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Встреча (Teams)"
+        },
+        "target_id": "t1",
+        "target_system": "teams"
+      }
+    ],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ],
+      [
+        "google",
+        "teams"
+      ],
+      [
+        "domino",
+        "teams"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "unavailable": [
+      "domino"
+    ],
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "unavailable_unrelated_group_updates"
+}

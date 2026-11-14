@@ -1,0 +1,394 @@
+{
+  "description": "Весь день: конец исключён. Событие, кончающееся в день начала окна, не читается; пересекающее начало окна — читается и копируется датами.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-14",
+            "has_attendees": false,
+            "id": "domino-new-1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13",
+            "title": "Праздник",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-01-02",
+            "has_attendees": false,
+            "id": "domino-new-2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2025-12-31",
+            "title": "Новый год",
+            "uid": null
+          }
+        ],
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-14",
+            "has_attendees": false,
+            "id": "g-holiday",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13",
+            "title": "Праздник",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-01-01T00:00:00Z",
+            "has_attendees": false,
+            "id": "g-night",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2025-12-31T23:00:00Z",
+            "title": "Ночь",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-01-01",
+            "has_attendees": false,
+            "id": "g-old",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2025-12-31",
+            "title": "Старое",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-01-02",
+            "has_attendees": false,
+            "id": "g-straddle",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2025-12-31",
+            "title": "Новый год",
+            "uid": null
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "google:g-holiday->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-14",
+            "location": "",
+            "start": "2026-11-13",
+            "title": "Праздник"
+          },
+          "source_id": "g-holiday",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-14",
+            "location": "",
+            "start": "2026-11-13",
+            "title": "Праздник"
+          },
+          "target_id": "domino-new-1",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "google:g-straddle->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-01-02",
+            "location": "",
+            "start": "2025-12-31",
+            "title": "Новый год"
+          },
+          "source_id": "g-straddle",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-01-02",
+            "location": "",
+            "start": "2025-12-31",
+            "title": "Новый год"
+          },
+          "target_id": "domino-new-2",
+          "target_system": "domino"
+        }
+      ],
+      "report": [
+        {
+          "created": 2,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "google",
+          "target": "domino",
+          "updated": 0
+        }
+      ]
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [],
+        "google": [
+          "g-holiday",
+          "g-straddle"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-14",
+            "has_attendees": false,
+            "id": "g-holiday",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13",
+            "title": "Праздник",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:google:g-holiday->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "google:g-holiday->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "g-holiday",
+                "source_system": "google",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "google:g-holiday>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-01-02",
+            "has_attendees": false,
+            "id": "g-straddle",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2025-12-31",
+            "title": "Новый год",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:google:g-straddle->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "google:g-straddle->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "g-straddle",
+                "source_system": "google",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "google:g-straddle>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "google:g-holiday>domino",
+      "google:g-straddle>domino"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [],
+      "google": [
+        {
+          "description": "",
+          "end": "2026-11-14",
+          "has_attendees": false,
+          "id": "g-holiday",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13",
+          "title": "Праздник",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-01-01T00:00:00Z",
+          "has_attendees": false,
+          "id": "g-night",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2025-12-31T23:00:00Z",
+          "title": "Ночь",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-01-01",
+          "has_attendees": false,
+          "id": "g-old",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2025-12-31",
+          "title": "Старое",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-01-02",
+          "has_attendees": false,
+          "id": "g-straddle",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2025-12-31",
+          "title": "Новый год",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "all_day_exclusive_end"
+}

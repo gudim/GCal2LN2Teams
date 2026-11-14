@@ -1,0 +1,431 @@
+{
+  "description": "Два кандидата в Google на одного в Lotus: пара — первый с первым, второй копируется.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Обед",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "domino-new-1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Обед",
+            "uid": null
+          }
+        ],
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Обед",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Обед",
+            "uid": null
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "google:g2->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Обед"
+          },
+          "source_id": "g2",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Обед"
+          },
+          "target_id": "domino-new-1",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "twin:google:g1->domino:d1",
+          "kind": "twin",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Обед"
+          },
+          "source_id": "g1",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Обед"
+          },
+          "target_id": "d1",
+          "target_system": "domino"
+        }
+      ],
+      "report": [
+        {
+          "created": 1,
+          "deleted": 0,
+          "errors": [],
+          "linked": 1,
+          "origin": "google",
+          "target": "domino",
+          "updated": 0
+        }
+      ]
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [
+          "d1"
+        ],
+        "google": [
+          "g1",
+          "g2"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Обед",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "g1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": true,
+                "original_start": null,
+                "private": false,
+                "source": "google",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "Обед",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "google:g1>domino",
+              "kind": "create",
+              "link": null,
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "domino"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "d1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": true,
+                "original_start": null,
+                "private": false,
+                "source": "domino",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "Обед",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "domino:d1>google",
+              "kind": "create",
+              "link": null,
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "google"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:distinct:google:g1->domino:d1",
+              "kind": "link",
+              "link": {
+                "kept": false,
+                "key": "distinct:google:g1->domino:d1",
+                "kind": "distinct",
+                "source_fields": null,
+                "source_id": "g1",
+                "source_system": "google",
+                "target_fields": null,
+                "target_id": "d1",
+                "target_system": "domino"
+              },
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "twin:twin:google:g1->domino:d1",
+          "kind": "twin",
+          "link": {
+            "kept": false,
+            "key": "twin:google:g1->domino:d1",
+            "kind": "twin",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Обед"
+            },
+            "source_id": "g1",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Обед"
+            },
+            "target_id": "d1",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "одинаковые название и начало: это одна встреча?",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Обед",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:google:g2->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "google:g2->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "g2",
+                "source_system": "google",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "google:g2>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "twin:twin:google:g1->domino:d1",
+      "google:g2>domino"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "d1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Обед",
+          "uid": null
+        }
+      ],
+      "google": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Обед",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g2",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Обед",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "twins_ambiguous_first_to_first"
+}

@@ -1,0 +1,318 @@
+{
+  "description": "Экземпляры серии — двойники по UID + исходному началу, даже если экземпляр перенесён.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-11-13T10:00:00Z",
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Еженедельная",
+            "uid": "S"
+          },
+          {
+            "description": "",
+            "end": "2026-11-20T12:00:00Z",
+            "has_attendees": false,
+            "id": "d2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-11-20T10:00:00Z",
+            "private": false,
+            "source": null,
+            "start": "2026-11-20T11:00:00Z",
+            "title": "Еженедельная",
+            "uid": "S"
+          }
+        ],
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-11-13T10:00:00Z",
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Еженедельная",
+            "uid": "S"
+          },
+          {
+            "description": "",
+            "end": "2026-11-20T11:00:00Z",
+            "has_attendees": false,
+            "id": "g2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-11-20T10:00:00Z",
+            "private": false,
+            "source": null,
+            "start": "2026-11-20T10:00:00Z",
+            "title": "Еженедельная",
+            "uid": "S"
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "twin:google:g1->domino:d1",
+          "kind": "twin",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Еженедельная"
+          },
+          "source_id": "g1",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Еженедельная"
+          },
+          "target_id": "d1",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "twin:google:g2->domino:d2",
+          "kind": "twin",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-20T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-20T10:00:00+00:00",
+            "title": "Еженедельная"
+          },
+          "source_id": "g2",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-20T12:00:00+00:00",
+            "location": "",
+            "start": "2026-11-20T11:00:00+00:00",
+            "title": "Еженедельная"
+          },
+          "target_id": "d2",
+          "target_system": "domino"
+        }
+      ],
+      "report": []
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [
+          "d1",
+          "d2"
+        ],
+        "google": [
+          "g1",
+          "g2"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": null,
+          "fallback": [],
+          "key": "link:twin:google:g1->domino:d1",
+          "kind": "link",
+          "link": {
+            "kept": false,
+            "key": "twin:google:g1->domino:d1",
+            "kind": "twin",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Еженедельная"
+            },
+            "source_id": "g1",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Еженедельная"
+            },
+            "target_id": "d1",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": true,
+          "subject": "",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": null,
+          "fallback": [],
+          "key": "link:twin:google:g2->domino:d2",
+          "kind": "link",
+          "link": {
+            "kept": false,
+            "key": "twin:google:g2->domino:d2",
+            "kind": "twin",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-20T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-20T10:00:00+00:00",
+              "title": "Еженедельная"
+            },
+            "source_id": "g2",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-20T12:00:00+00:00",
+              "location": "",
+              "start": "2026-11-20T11:00:00+00:00",
+              "title": "Еженедельная"
+            },
+            "target_id": "d2",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": true,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "link:twin:google:g1->domino:d1",
+      "link:twin:google:g2->domino:d2"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "d1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": "2026-11-13T10:00:00Z",
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Еженедельная",
+          "uid": "S"
+        },
+        {
+          "description": "",
+          "end": "2026-11-20T12:00:00Z",
+          "has_attendees": false,
+          "id": "d2",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": "2026-11-20T10:00:00Z",
+          "private": false,
+          "source": null,
+          "start": "2026-11-20T11:00:00Z",
+          "title": "Еженедельная",
+          "uid": "S"
+        }
+      ],
+      "google": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": "2026-11-13T10:00:00Z",
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Еженедельная",
+          "uid": "S"
+        },
+        {
+          "description": "",
+          "end": "2026-11-20T11:00:00Z",
+          "has_attendees": false,
+          "id": "g2",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": "2026-11-20T10:00:00Z",
+          "private": false,
+          "source": null,
+          "start": "2026-11-20T10:00:00Z",
+          "title": "Еженедельная",
+          "uid": "S"
+        }
+      ]
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "recurring_instances_twin_per_instance"
+}

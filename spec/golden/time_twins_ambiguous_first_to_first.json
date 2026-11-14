@@ -1,0 +1,546 @@
+{
+  "description": "Два кандидата по времени в Lotus на одну встречу в Teams: вопрос — первый с первым (как у названия), второй копируется как обычно.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Планёрка",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Созвон",
+            "uid": null
+          }
+        ],
+        "teams": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Standup",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "teams-new-1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Созвон",
+            "uid": null
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "domino:d2->teams",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Созвон"
+          },
+          "source_id": "d2",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Созвон"
+          },
+          "target_id": "teams-new-1",
+          "target_system": "teams"
+        }
+      ],
+      "report": [
+        {
+          "created": 1,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "domino",
+          "target": "teams",
+          "updated": 0
+        }
+      ]
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [
+          "d1",
+          "d2"
+        ],
+        "teams": [
+          "t1"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Standup",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "d1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": true,
+                "original_start": null,
+                "private": false,
+                "source": "domino",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "Планёрка",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "domino:d1>teams",
+              "kind": "create",
+              "link": null,
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "teams"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "t1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": true,
+                "original_start": null,
+                "private": false,
+                "source": "teams",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "Standup",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "teams:t1>domino",
+              "kind": "create",
+              "link": null,
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "domino"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:distinct:domino:d1->teams:t1",
+              "kind": "link",
+              "link": {
+                "kept": false,
+                "key": "distinct:domino:d1->teams:t1",
+                "kind": "distinct",
+                "source_fields": null,
+                "source_id": "d1",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": "t1",
+                "target_system": "teams"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "teams"
+            }
+          ],
+          "key": "twin:twin:domino:d1->teams:t1",
+          "kind": "twin",
+          "link": {
+            "kept": false,
+            "key": "twin:domino:d1->teams:t1",
+            "kind": "twin",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Планёрка"
+            },
+            "source_id": "d1",
+            "source_system": "domino",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Standup"
+            },
+            "target_id": "t1",
+            "target_system": "teams"
+          },
+          "origin": "domino",
+          "reason": "одинаковые начало и конец, разные названия: это одна встреча?",
+          "selected": false,
+          "silent": false,
+          "subject": "",
+          "target": "teams"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Созвон",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:domino:d2->teams",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "domino:d2->teams",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "d2",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "teams"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "teams"
+            }
+          ],
+          "key": "domino:d2>teams",
+          "kind": "create",
+          "link": null,
+          "origin": "domino",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "teams"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Standup",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "d1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": true,
+                "original_start": null,
+                "private": false,
+                "source": "domino",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "Планёрка",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "domino:d1>teams",
+              "kind": "create",
+              "link": null,
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "teams"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "t1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": true,
+                "original_start": null,
+                "private": false,
+                "source": "teams",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "Standup",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "teams:t1>domino",
+              "kind": "create",
+              "link": null,
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "domino"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:distinct:domino:d1->teams:t1",
+              "kind": "link",
+              "link": {
+                "kept": false,
+                "key": "distinct:domino:d1->teams:t1",
+                "kind": "distinct",
+                "source_fields": null,
+                "source_id": "d1",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": "t1",
+                "target_system": "teams"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "teams"
+            }
+          ],
+          "key": "twin:twin:domino:d1->teams:t1",
+          "kind": "twin",
+          "link": {
+            "kept": false,
+            "key": "twin:domino:d1->teams:t1",
+            "kind": "twin",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Планёрка"
+            },
+            "source_id": "d1",
+            "source_system": "domino",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Standup"
+            },
+            "target_id": "t1",
+            "target_system": "teams"
+          },
+          "origin": "domino",
+          "reason": "одинаковые начало и конец, разные названия: это одна встреча?",
+          "selected": false,
+          "silent": false,
+          "subject": "",
+          "target": "teams"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "domino:d2>teams"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "d1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Планёрка",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "d2",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Созвон",
+          "uid": null
+        }
+      ],
+      "teams": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "t1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Standup",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "domino-teams",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "domino",
+        "teams"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "time_twins_ambiguous_first_to_first"
+}

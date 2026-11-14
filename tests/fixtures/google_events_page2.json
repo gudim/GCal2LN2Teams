@@ -1,0 +1,52 @@
+{
+  "kind": "calendar#events",
+  "items": [
+    {
+      "id": "g-copy",
+      "status": "confirmed",
+      "updated": "2026-11-02T09:00:00.000Z",
+      "summary": "[LN] Budget review",
+      "start": {"dateTime": "2026-11-13T09:00:00Z"},
+      "end": {"dateTime": "2026-11-13T10:00:00Z"}
+    },
+    {
+      "id": "g-hidden-copy",
+      "status": "confirmed",
+      "updated": "2026-11-02T09:00:00.000Z",
+      "summary": "Standup renamed by user",
+      "extendedProperties": {
+        "private": {"gcalsync_origin": "teams", "gcalsync_origin_id": "AAMkAGI1-timed"}
+      },
+      "start": {"dateTime": "2026-11-13T07:00:00Z"},
+      "end": {"dateTime": "2026-11-13T07:15:00Z"}
+    },
+    {
+      "id": "g-team",
+      "status": "confirmed",
+      "updated": "2026-11-03T09:00:00.000Z",
+      "summary": "Planning",
+      "eventType": "focusTime",
+      "organizer": {"email": "me@example.com", "self": true},
+      "attendees": [
+        {"email": "me@example.com", "self": true, "organizer": true, "responseStatus": "accepted"},
+        {"email": "colleague@example.com", "responseStatus": "needsAction"}
+      ],
+      "start": {"dateTime": "2026-11-18T09:00:00Z"},
+      "end": {"dateTime": "2026-11-18T10:00:00Z"}
+    },
+    {
+      "id": "g-wl",
+      "status": "confirmed",
+      "summary": "Office",
+      "eventType": "workingLocation",
+      "start": {"date": "2026-11-19"},
+      "end": {"date": "2026-11-20"}
+    },
+    {
+      "id": "g-gone",
+      "status": "cancelled",
+      "recurringEventId": "g-meeting",
+      "originalStartTime": {"dateTime": "2026-11-24T07:00:00Z"}
+    }
+  ]
+}

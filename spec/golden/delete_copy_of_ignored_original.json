@@ -1,0 +1,232 @@
+{
+  "description": "Оригинал стал служебным/отклонённым (ignored): копия удаляется; ignored-событие без копии не копируется.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [],
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": true,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Обзор",
+            "uid": null
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g2",
+            "ignored": true,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Отклонено",
+            "uid": null
+          }
+        ]
+      },
+      "links": [],
+      "report": [
+        {
+          "created": 0,
+          "deleted": 1,
+          "errors": [],
+          "linked": 0,
+          "origin": "google",
+          "target": "domino",
+          "updated": 0
+        }
+      ]
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [
+          "d1"
+        ],
+        "google": [
+          "g1",
+          "g2"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Обзор",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "delete:domino:d1",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "google:g1->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Обзор"
+            },
+            "source_id": "g1",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Обзор"
+            },
+            "target_id": "d1",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "оригинал удалён",
+          "selected": true,
+          "silent": true,
+          "subject": "copy",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "delete:domino:d1"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "d1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Обзор",
+          "uid": null
+        }
+      ],
+      "google": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g1",
+          "ignored": true,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Обзор",
+          "uid": null
+        },
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g2",
+          "ignored": true,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Отклонено",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [
+      {
+        "kept": false,
+        "key": "google:g1->domino",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Обзор"
+        },
+        "source_id": "g1",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Обзор"
+        },
+        "target_id": "d1",
+        "target_system": "domino"
+      }
+    ],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "delete_copy_of_ignored_original"
+}

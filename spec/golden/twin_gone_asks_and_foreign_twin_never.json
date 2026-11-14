@@ -1,0 +1,360 @@
+{
+  "description": "Двойники удалены в Lotus: вопрос об удалении своего двойника в Google, чужой не трогаем. Пользователь отказался: обе связи kept.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [],
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Синк",
+            "uid": "U1"
+          },
+          {
+            "description": "",
+            "end": "2026-11-13T13:00:00Z",
+            "has_attendees": false,
+            "id": "g2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": false,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T12:00:00Z",
+            "title": "Приглашение",
+            "uid": "U2"
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": true,
+          "key": "twin:google:g1->domino:d1",
+          "kind": "twin",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Синк"
+          },
+          "source_id": "g1",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Синк"
+          },
+          "target_id": "d1",
+          "target_system": "domino"
+        },
+        {
+          "kept": true,
+          "key": "twin:google:g2->domino:d2",
+          "kind": "twin",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T13:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T12:00:00+00:00",
+            "title": "Приглашение"
+          },
+          "source_id": "g2",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T13:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T12:00:00+00:00",
+            "title": "Приглашение"
+          },
+          "target_id": "d2",
+          "target_system": "domino"
+        }
+      ],
+      "report": []
+    },
+    "collect": {
+      "fetched": [
+        {
+          "event": null,
+          "id": "d1",
+          "system": "domino"
+        },
+        {
+          "event": null,
+          "id": "d2",
+          "system": "domino"
+        }
+      ],
+      "listed": {
+        "domino": [],
+        "google": [
+          "g1",
+          "g2"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Синк",
+            "uid": "U1"
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:twin:google:g1->domino:d1",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "twin:google:g1->domino:d1",
+                "kind": "twin",
+                "source_fields": {
+                  "description": "",
+                  "end": "2026-11-13T11:00:00+00:00",
+                  "location": "",
+                  "start": "2026-11-13T10:00:00+00:00",
+                  "title": "Синк"
+                },
+                "source_id": "g1",
+                "source_system": "google",
+                "target_fields": {
+                  "description": "",
+                  "end": "2026-11-13T11:00:00+00:00",
+                  "location": "",
+                  "start": "2026-11-13T10:00:00+00:00",
+                  "title": "Синк"
+                },
+                "target_id": "d1",
+                "target_system": "domino"
+              },
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "delete:google:g1",
+          "kind": "delete",
+          "link": {
+            "kept": false,
+            "key": "twin:google:g1->domino:d1",
+            "kind": "twin",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Синк"
+            },
+            "source_id": "g1",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Синк"
+            },
+            "target_id": "d1",
+            "target_system": "domino"
+          },
+          "origin": "domino",
+          "reason": "двойник удалён — удалить и этот?",
+          "selected": false,
+          "silent": false,
+          "subject": "twin",
+          "target": "google"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": null,
+          "fallback": [],
+          "key": "link:twin:google:g2->domino:d2",
+          "kind": "link",
+          "link": {
+            "kept": true,
+            "key": "twin:google:g2->domino:d2",
+            "kind": "twin",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T13:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T12:00:00+00:00",
+              "title": "Приглашение"
+            },
+            "source_id": "g2",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T13:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T12:00:00+00:00",
+              "title": "Приглашение"
+            },
+            "target_id": "d2",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": true,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "link:twin:google:g1->domino:d1",
+      "link:twin:google:g2->domino:d2"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [],
+      "google": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Синк",
+          "uid": "U1"
+        },
+        {
+          "description": "",
+          "end": "2026-11-13T13:00:00Z",
+          "has_attendees": false,
+          "id": "g2",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": false,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T12:00:00Z",
+          "title": "Приглашение",
+          "uid": "U2"
+        }
+      ]
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [
+      {
+        "kept": false,
+        "key": "twin:google:g1->domino:d1",
+        "kind": "twin",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Синк"
+        },
+        "source_id": "g1",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Синк"
+        },
+        "target_id": "d1",
+        "target_system": "domino"
+      },
+      {
+        "kept": false,
+        "key": "twin:google:g2->domino:d2",
+        "kind": "twin",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-13T13:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T12:00:00+00:00",
+          "title": "Приглашение"
+        },
+        "source_id": "g2",
+        "source_system": "google",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-13T13:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T12:00:00+00:00",
+          "title": "Приглашение"
+        },
+        "target_id": "d2",
+        "target_system": "domino"
+      }
+    ],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": [],
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "twin_gone_asks_and_foreign_twin_never"
+}

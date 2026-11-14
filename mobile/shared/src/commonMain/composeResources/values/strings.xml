@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Синхронизация календарей</string>
+
+    <!-- Общее -->
+    <string name="system_google">Google</string>
+    <string name="system_lotus">Lotus</string>
+    <string name="system_teams">Teams</string>
+    <string name="route_label">%1$s → %2$s</string>
+    <string name="action_back">Назад</string>
+    <string name="action_open_connections">Подключения</string>
+    <string name="progress_busy">Выполняется…</string>
+    <string name="nothing_changed">Ничего не изменено</string>
+    <plurals name="count_created">
+        <item quantity="one">%1$d копия создана</item>
+        <item quantity="few">%1$d копии создано</item>
+        <item quantity="many">%1$d копий создано</item>
+        <item quantity="other">%1$d копии создано</item>
+    </plurals>
+    <plurals name="count_updated">
+        <item quantity="one">%1$d событие обновлено</item>
+        <item quantity="few">%1$d события обновлено</item>
+        <item quantity="many">%1$d событий обновлено</item>
+        <item quantity="other">%1$d события обновлено</item>
+    </plurals>
+    <plurals name="count_deleted">
+        <item quantity="one">%1$d событие удалено</item>
+        <item quantity="few">%1$d события удалено</item>
+        <item quantity="many">%1$d событий удалено</item>
+        <item quantity="other">%1$d события удалено</item>
+    </plurals>
+    <plurals name="count_linked">
+        <item quantity="one">%1$d пара двойников связана</item>
+        <item quantity="few">%1$d пары двойников связано</item>
+        <item quantity="many">%1$d пар двойников связано</item>
+        <item quantity="other">%1$d пары двойников связано</item>
+    </plurals>
+
+    <!-- Нижняя панель -->
+    <string name="tab_status">Состояние</string>
+    <string name="tab_sync">Обмен</string>
+    <string name="tab_connections">Аккаунты</string>
+    <string name="tab_settings">Настройки</string>
+
+    <!-- Состояние -->
+    <string name="status_title">Состояние</string>
+    <string name="status_domino_disabled">Lotus выключен: сервер отверг пароль. Введите пароль заново в «Подключениях», иначе Lotus не синхронизируется.</string>
+    <string name="domino_unavailable_run">Lotus недоступен в этом запуске: %1$s</string>
+    <string name="status_domino_unavailable">Lotus не ответил при последнем запуске. Проверьте сеть или VPN.</string>
+    <string name="status_unavailable_other">%1$s не ответил при последнем запуске.</string>
+    <plurals name="status_open_questions">
+        <item quantity="one">%1$d вопрос ждёт вашего решения</item>
+        <item quantity="few">%1$d вопроса ждут вашего решения</item>
+        <item quantity="many">%1$d вопросов ждут вашего решения</item>
+        <item quantity="other">%1$d вопроса ждут вашего решения</item>
+    </plurals>
+    <string name="status_open_preview">Открыть предпросмотр</string>
+    <string name="status_last_run">Последний запуск</string>
+    <string name="status_never">Синхронизация ещё не запускалась</string>
+    <string name="status_last_run_manual">Вручную, %1$s</string>
+    <string name="status_last_run_background">В фоне, %1$s</string>
+    <string name="status_failed">Не выполнен: %1$s</string>
+    <string name="status_errors">Ошибок: %1$d</string>
+    <string name="status_background_every">Фоновая синхронизация: %1$s</string>
+    <string name="status_background_off">Фоновая синхронизация выключена</string>
+    <string name="status_background_next">Следующая фоновая синхронизация — около %1$s</string>
+    <string name="status_background_soon">Следующая фоновая синхронизация — скоро</string>
+    <string name="status_background_pending">Фоновая синхронизация выключена — включится после первого ручного запуска</string>
+    <string name="status_sync_now">Синхронизировать сейчас</string>
+
+    <!-- Синхронизация -->
+    <string name="sync_title">Синхронизация</string>
+    <string name="routes_title">Маршруты</string>
+    <string name="routes_hint">Откуда → куда. Переносятся новые события, изменения и удаления.</string>
+    <string name="routes_none">Выберите хотя бы один маршрут</string>
+    <string name="sync_preview">Предпросмотр</string>
+    <string name="sync_preview_hint">Сначала покажем список: без вашего подтверждения ничего не меняется.</string>
+    <string name="sync_loading">Читаем календари и сверяем копии…</string>
+    <string name="sync_applying">Применяем…</string>
+    <string name="sync_back_to_routes">← Маршруты</string>
+    <string name="sync_preview_rebuilt">Пока вы смотрели предпросмотр, прошла фоновая синхронизация — предпросмотр обновлён, проверьте и примените ещё раз</string>
+    <string name="sync_background_running">Идёт фоновая синхронизация. Пока она не закончится, «Предпросмотр» и «Применить» ничего не делают.</string>
+    <string name="sync_domino_disabled_now">Lotus отверг пароль и выключен до повторного ввода пароля. Остальные системы синхронизируются.</string>
+    <string name="skipped_not_configured">%1$s не участвует: нет входа или не заполнены настройки</string>
+    <string name="skipped_domino_disabled">Lotus выключен после неверного пароля: введите пароль в «Подключениях»</string>
+    <string name="sync_warnings">Внимание:</string>
+    <string name="sync_nothing">Синхронизировать нечего</string>
+    <string name="sync_nothing_hint">Новых, изменённых и удалённых событий за период нет.</string>
+    <string name="sync_questions_note">Галочка — сделать. Снятая галочка у создания копии значит «не копировать», у вопроса (выделен цветом) — «нет». После «Применить» это запомнится, и снова предлагать не будем. Отказ от копирования можно вернуть в разделе «Не копируется».</string>
+    <string name="sync_route_default">По умолчанию: %1$s</string>
+    <string name="sync_select_all">Выбрать все</string>
+    <string name="sync_unselect_all">Снять все</string>
+    <string name="question_badge">Вопрос</string>
+    <string name="sync_refusals_note">Снятые галочки запомнятся как отказ: %1$d</string>
+    <string name="sync_selected">Выбрано %1$d из %2$d</string>
+    <string name="sync_copy_now">Скопировать сейчас из «Не копируется»: %1$d</string>
+    <string name="sync_refused_title">Не копируется (%1$d)</string>
+    <string name="sync_refused_hint">От копирования этих событий вы отказались. Галочка — скопировать сейчас, «Вернуть в предложения» — снова предлагать копию.</string>
+    <string name="sync_refused_undo">Вернуть в предложения</string>
+    <string name="sync_refused_expand">Показать</string>
+    <string name="sync_refused_collapse">Скрыть</string>
+    <string name="sync_apply">Применить</string>
+    <string name="sync_preview_failed">Не удалось прочитать календари</string>
+    <string name="sync_apply_failed">Не удалось применить</string>
+    <string name="sync_retry">Построить предпросмотр заново</string>
+
+    <string name="action_create">Синхронизировать</string>
+    <string name="action_update">Обновить</string>
+    <string name="action_delete_copy">Удалить копию</string>
+    <string name="action_delete_extra">Удалить лишнюю копию</string>
+    <string name="action_delete_original">Удалить оригинал?</string>
+    <string name="action_delete_twin">Удалить второго двойника?</string>
+    <string name="action_twin">Это одна встреча?</string>
+    <string name="detail_from">из %1$s</string>
+    <string name="detail_changed">изменено: %1$s</string>
+    <string name="detail_attendees">участники получат письмо</string>
+    <string name="detail_original_gone">в %1$s · оригинал удалён</string>
+    <string name="detail_extra">в %1$s · у оригинала есть двойник</string>
+    <string name="detail_copy_gone">в %1$s · копия в %2$s удалена</string>
+    <string name="detail_twin_gone">в %1$s · двойник в %2$s удалён</string>
+    <string name="detail_same_title">одинаковые название и начало в %1$s и %2$s</string>
+    <string name="answer_delete_original_on">Удалим оригинал</string>
+    <string name="answer_delete_twin_on">Удалим это событие</string>
+    <string name="answer_delete_original_off">Оставим, больше не спрашиваем</string>
+    <string name="answer_twin_on">Да: связать, копию не создавать</string>
+    <string name="answer_twin_off">Нет: копировать как обычно, больше не спрашиваем</string>
+    <string name="answer_twin_time_on">Да, это одна встреча — лишние копии удалятся</string>
+    <string name="answer_twin_time_off">Нет: разные встречи, копировать как обычно</string>
+    <string name="answer_create_off">Не копировать: запомним отказ</string>
+    <string name="answer_refused_on">Скопируем сейчас</string>
+    <string name="answer_refused_off">Не копируется</string>
+    <string name="detail_same_time">одинаковые начало и конец в %1$s и %2$s, названия разные</string>
+    <string name="twin_title_in">%1$s: «%2$s»</string>
+    <string name="field_title">название</string>
+    <string name="field_time">время</string>
+    <string name="field_location">место</string>
+    <string name="field_description">описание</string>
+    <string name="all_day">весь день</string>
+
+    <string name="report_done">Готово</string>
+    <string name="report_almost_done">Почти готово</string>
+    <string name="report_errors">Не выполнено: %1$d</string>
+    <string name="report_errors_hint">Запустите предпросмотр ещё раз: невыполненные действия снова появятся в списке.</string>
+    <string name="report_finish">Готово</string>
+
+    <!-- Подключения -->
+    <string name="connections_title">Подключения</string>
+    <string name="connections_markers_hint">Копии помечаются [GC], [LN] или [MT]: по метке приложение узнаёт их и не копирует повторно.</string>
+    <string name="title_google">Google Календарь</string>
+    <string name="title_lotus">Lotus (Domino)</string>
+    <string name="title_teams">Microsoft Teams</string>
+    <string name="account_signed_out">Вход не выполнен</string>
+    <string name="account_signed_in">Вход выполнен</string>
+    <string name="account_signed_in_as">Вход выполнен: %1$s</string>
+    <string name="connection_sign_in">Войти</string>
+    <string name="connection_sign_out">Выйти</string>
+    <string name="connection_check">Проверить</string>
+    <string name="connection_sign_in_a11y">Войти в %1$s</string>
+    <string name="connection_sign_out_a11y">Выйти из %1$s</string>
+    <string name="connection_check_a11y">Проверить подключение к %1$s</string>
+    <string name="connection_sign_in_cancelled">Вход отменён</string>
+    <string name="connection_saved">Сохранено</string>
+    <string name="connection_failed">Ошибка: %1$s</string>
+    <string name="check_ok">Подключение работает</string>
+    <string name="check_ok_detail">Подключение работает: %1$s</string>
+    <string name="check_auth_failed">Сервер отверг вход. %1$s</string>
+    <string name="check_unreachable">Сервер недоступен. %1$s</string>
+    <string name="check_not_configured">Не настроено. %1$s</string>
+    <string name="google_calendar_current">Календарь для копий: %1$s</string>
+    <string name="google_calendar_primary">основной</string>
+    <string name="google_calendar_choose">Выбрать календарь</string>
+    <string name="domino_disabled">Lotus выключен: сервер отверг пароль. Введите пароль заново и нажмите «Сохранить».</string>
+    <string name="domino_not_configured">Не настроен</string>
+    <string name="domino_server">Адрес сервера</string>
+    <string name="domino_server_placeholder">https://domino.example.com</string>
+    <string name="domino_user">Имя пользователя</string>
+    <string name="domino_user_hint">Как в Notes: «Имя Фамилия/Организация»</string>
+    <string name="domino_password">Пароль</string>
+    <string name="domino_password_hint">Пароль от почты Notes</string>
+    <string name="domino_password_saved">Пароль сохранён. Оставьте пустым, чтобы не менять</string>
+    <string name="domino_save">Сохранить</string>
+    <string name="domino_incomplete">Укажите адрес сервера и имя пользователя</string>
+
+    <!-- Календарь Google -->
+    <string name="calendar_title">Календарь для копий</string>
+    <string name="calendar_hint">Сюда записываются копии событий из Lotus и Teams. Календари только для чтения выбрать нельзя.</string>
+    <string name="calendar_loading">Загружаем календари…</string>
+    <string name="calendar_list_failed">Не удалось загрузить календари: %1$s</string>
+    <string name="calendar_reload">Повторить</string>
+    <string name="calendar_not_found">Текущий календарь (%1$s) не найден в списке</string>
+    <string name="calendar_primary_mark">основной</string>
+    <string name="calendar_read_only">только чтение</string>
+    <string name="calendar_create">Новый календарь</string>
+    <string name="calendar_name">Название</string>
+    <string name="calendar_name_default">Notes</string>
+    <string name="calendar_create_button">Создать и выбрать</string>
+    <string name="calendar_name_required">Введите название календаря</string>
+    <string name="calendar_created">Календарь «%1$s» создан</string>
+    <string name="calendar_failed">Не удалось: %1$s</string>
+    <string name="calendar_switch_title">Перейти на «%1$s»?</string>
+    <plurals name="calendar_switch_question">
+        <item quantity="one">В прежнем календаре %1$d копия синхронизатора. Удалить её? В новом календаре она будет создана заново при следующей синхронизации.</item>
+        <item quantity="few">В прежнем календаре %1$d копии синхронизатора. Удалить их? В новом календаре они будут созданы заново при следующей синхронизации.</item>
+        <item quantity="many">В прежнем календаре %1$d копий синхронизатора. Удалить их? В новом календаре они будут созданы заново при следующей синхронизации.</item>
+        <item quantity="other">В прежнем календаре %1$d копии синхронизатора. Удалить их? В новом календаре они будут созданы заново при следующей синхронизации.</item>
+    </plurals>
+    <string name="calendar_switch_delete">Удалить и перейти</string>
+    <string name="calendar_switch_keep">Перейти без удаления</string>
+    <string name="calendar_switch_cancel">Отмена</string>
+    <string name="calendar_switched">Копии теперь пишутся в «%1$s»</string>
+    <plurals name="calendar_switched_deleted">
+        <item quantity="one">Удалена %1$d копия из прежнего календаря</item>
+        <item quantity="few">Удалено %1$d копии из прежнего календаря</item>
+        <item quantity="many">Удалено %1$d копий из прежнего календаря</item>
+        <item quantity="other">Удалено %1$d копии из прежнего календаря</item>
+    </plurals>
+    <string name="calendar_switched_errors">Не удалось удалить: %1$d</string>
+
+    <!-- Настройки -->
+    <string name="settings_title">Настройки</string>
+    <string name="window_title">Период синхронизации</string>
+    <string name="window_hint">Сколько дней от сегодня проверять в прошлом и в будущем.</string>
+    <string name="window_back">Дней назад</string>
+    <string name="window_forward">Дней вперёд</string>
+    <string name="window_invalid">Целое число от 0 до %1$d</string>
+    <string name="interval_title">Фоновая синхронизация</string>
+    <string name="interval_15m">Каждые 15 минут</string>
+    <string name="interval_1h">Каждый час</string>
+    <string name="interval_4h">Каждые 4 часа</string>
+    <string name="interval_off">Выключена</string>
+    <string name="interval_hint">В фоне выполняется всё, кроме вопросов: они ждут ручной синхронизации.</string>
+    <string name="language_title">Язык</string>
+    <string name="language_hint">Язык интерфейса — как в системе (русский или английский).</string>
+
+    <!-- Настройки: фон и уведомления -->
+    <string name="system_title">Фон и уведомления</string>
+    <string name="system_background_ok">Работа в фоне разрешена без ограничений</string>
+    <string name="system_background_limited">Система может откладывать или усыплять фоновую синхронизацию</string>
+    <string name="system_background_restricted">Фон запрещён в настройках батареи</string>
+    <string name="system_background_allow">Разрешить работу в фоне</string>
+    <string name="system_background_settings">Настройки батареи</string>
+    <string name="system_samsung_hint">На Samsung также добавьте приложение в «Никогда не спящие»: Обслуживание устройства → Батарея → Ограничения фонового использования</string>
+    <string name="system_notifications_on">Уведомления разрешены</string>
+    <string name="system_notifications_off">Уведомления выключены: вы не узнаете о вопросах и проблемах с подключением</string>
+    <string name="system_notifications_enable">Включить уведомления</string>
+    <string name="system_notifications_settings">Настроить уведомления</string>
+    <string name="system_notifications_hint">Каналы «Вопросы», «Проблемы с подключением» и «Итог фоновой синхронизации» настраиваются в системе отдельно.</string>
+    <string name="system_summary_switch">Сообщать итог каждой фоновой синхронизации</string>
+    <string name="system_summary_hint">Тихое уведомление вроде «Создано 3, обновлено 1»; новое заменяет прежнее.</string>
+    <string name="system_summary_blocked_app">Уведомления приложения выключены в системе: итог не появится. Включите переключатель, чтобы открыть настройки.</string>
+    <string name="system_summary_blocked_channel">Канал «Итог фоновой синхронизации» выключен в системе. Включите переключатель, чтобы открыть его настройки.</string>
+    <string name="about_title">О приложении</string>
+    <string name="about_version">Версия %1$s</string>
+    <string name="about_update_available">Вышла версия %1$s. Скачайте APK и установите его поверх текущего: настройки и связи сохранятся.</string>
+    <string name="about_update_download">Скачать</string>
+    <string name="about_update_hint">Раз в неделю приложение проверяет, не вышла ли новая версия, и сообщает о ней уведомлением.</string>
+</resources>

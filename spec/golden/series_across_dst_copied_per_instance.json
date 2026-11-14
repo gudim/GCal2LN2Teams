@@ -1,0 +1,330 @@
+{
+  "description": "Серия в поясе с переводом часов: каждый экземпляр копируется отдельным событием со своим моментом в UTC (08:00 UTC до перевода, 09:00 UTC после) — в обоих случаях 10:00 по Берлину.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-10-19T09:00:00Z",
+            "has_attendees": false,
+            "id": "domino-new-1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-10-19T08:00:00Z",
+            "private": false,
+            "source": "google",
+            "start": "2026-10-19T08:00:00Z",
+            "title": "Планёрка Берлин",
+            "uid": "W"
+          },
+          {
+            "description": "",
+            "end": "2026-10-26T10:00:00Z",
+            "has_attendees": false,
+            "id": "domino-new-2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-10-26T09:00:00Z",
+            "private": false,
+            "source": "google",
+            "start": "2026-10-26T09:00:00Z",
+            "title": "Планёрка Берлин",
+            "uid": "W"
+          }
+        ],
+        "google": [
+          {
+            "description": "",
+            "end": "2026-10-19T09:00:00Z",
+            "has_attendees": false,
+            "id": "g-w1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-10-19T08:00:00Z",
+            "private": false,
+            "source": null,
+            "start": "2026-10-19T08:00:00Z",
+            "title": "Планёрка Берлин",
+            "uid": "W"
+          },
+          {
+            "description": "",
+            "end": "2026-10-26T10:00:00Z",
+            "has_attendees": false,
+            "id": "g-w2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-10-26T09:00:00Z",
+            "private": false,
+            "source": null,
+            "start": "2026-10-26T09:00:00Z",
+            "title": "Планёрка Берлин",
+            "uid": "W"
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "google:g-w1->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-10-19T09:00:00+00:00",
+            "location": "",
+            "start": "2026-10-19T08:00:00+00:00",
+            "title": "Планёрка Берлин"
+          },
+          "source_id": "g-w1",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-10-19T09:00:00+00:00",
+            "location": "",
+            "start": "2026-10-19T08:00:00+00:00",
+            "title": "Планёрка Берлин"
+          },
+          "target_id": "domino-new-1",
+          "target_system": "domino"
+        },
+        {
+          "kept": false,
+          "key": "google:g-w2->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-10-26T10:00:00+00:00",
+            "location": "",
+            "start": "2026-10-26T09:00:00+00:00",
+            "title": "Планёрка Берлин"
+          },
+          "source_id": "g-w2",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-10-26T10:00:00+00:00",
+            "location": "",
+            "start": "2026-10-26T09:00:00+00:00",
+            "title": "Планёрка Берлин"
+          },
+          "target_id": "domino-new-2",
+          "target_system": "domino"
+        }
+      ],
+      "report": [
+        {
+          "created": 2,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "google",
+          "target": "domino",
+          "updated": 0
+        }
+      ]
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [],
+        "google": [
+          "g-w1",
+          "g-w2"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-10-19T09:00:00Z",
+            "has_attendees": false,
+            "id": "g-w1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-10-19T08:00:00Z",
+            "private": false,
+            "source": "google",
+            "start": "2026-10-19T08:00:00Z",
+            "title": "Планёрка Берлин",
+            "uid": "W"
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:google:g-w1->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "google:g-w1->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "g-w1",
+                "source_system": "google",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "google:g-w1>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-10-26T10:00:00Z",
+            "has_attendees": false,
+            "id": "g-w2",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": "2026-10-26T09:00:00Z",
+            "private": false,
+            "source": "google",
+            "start": "2026-10-26T09:00:00Z",
+            "title": "Планёрка Берлин",
+            "uid": "W"
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:google:g-w2->domino",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "google:g-w2->domino",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "g-w2",
+                "source_system": "google",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "domino"
+              },
+              "origin": "google",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "domino"
+            }
+          ],
+          "key": "google:g-w2>domino",
+          "kind": "create",
+          "link": null,
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "google:g-w1>domino",
+      "google:g-w2>domino"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [],
+      "google": [
+        {
+          "description": "",
+          "end": "2026-10-19T09:00:00Z",
+          "has_attendees": false,
+          "id": "g-w1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": "2026-10-19T08:00:00Z",
+          "private": false,
+          "source": null,
+          "start": "2026-10-19T08:00:00Z",
+          "title": "Планёрка Берлин",
+          "uid": "W"
+        },
+        {
+          "description": "",
+          "end": "2026-10-26T10:00:00Z",
+          "has_attendees": false,
+          "id": "g-w2",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": "2026-10-26T09:00:00Z",
+          "private": false,
+          "source": null,
+          "start": "2026-10-26T09:00:00Z",
+          "title": "Планёрка Берлин",
+          "uid": "W"
+        }
+      ]
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "series_across_dst_copied_per_instance"
+}

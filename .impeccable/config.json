@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "src/web/templates/v2.html"
+        ],
+        "createdAt": "2026-11-13T19:50:46.159Z",
+        "reason": "claude: indeterminate .progress bar shown only while /api/sync runs; same exception as index.html"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "src/web/templates/v2.html"
+        ],
+        "createdAt": "2026-11-13T19:50:46.163Z",
+        "reason": "claude: compact .pill status badges and .chip route tags (2px/6px inset) are deliberate small tags, same exception as index.html"
+      }
+    ]
+  }
+}

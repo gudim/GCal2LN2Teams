@@ -1,0 +1,89 @@
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('me')/calendarView(id,subject,body,bodyPreview,location,start,end,isAllDay,isCancelled,iCalUId,type,originalStart,isOrganizer,attendees,sensitivity,lastModifiedDateTime,responseStatus,singleValueExtendedProperties())",
+  "value": [
+    {
+      "id": "AAMkAGI1-copy",
+      "subject": "[GC] Release night",
+      "bodyPreview": "Deploy",
+      "body": {
+        "contentType": "text",
+        "content": "Deploy"
+      },
+      "location": {
+        "displayName": "Room 1"
+      },
+      "isAllDay": false,
+      "isCancelled": false,
+      "start": {
+        "dateTime": "2026-11-13T22:00:00.0000000",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2026-11-13T23:30:00.0000000",
+        "timeZone": "UTC"
+      },
+      "iCalUId": "040000008200E00074C5B7101A82E00800000000copy",
+      "type": "singleInstance",
+      "isOrganizer": true,
+      "attendees": [],
+      "sensitivity": "normal",
+      "lastModifiedDateTime": "2026-11-02T09:00:00Z"
+    },
+    {
+      "id": "AAMkAGI1-cancelled",
+      "subject": "Cancelled sync",
+      "isAllDay": false,
+      "isCancelled": true,
+      "start": {
+        "dateTime": "2026-11-14T08:00:00.0000000",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2026-11-14T09:00:00.0000000",
+        "timeZone": "UTC"
+      },
+      "iCalUId": "040000008200E00074C5B7101A82E00800000000canc",
+      "type": "singleInstance",
+      "isOrganizer": false,
+      "lastModifiedDateTime": "2026-11-03T09:00:00Z"
+    },
+    {
+      "id": "AAMkAGI1-hidden",
+      "subject": "Renamed by user",
+      "bodyPreview": "",
+      "body": {
+        "contentType": "text",
+        "content": ""
+      },
+      "location": {
+        "displayName": ""
+      },
+      "isAllDay": false,
+      "isCancelled": false,
+      "iCalUId": "040000008200E00074C5B7101A82E00800000000hidden",
+      "type": "singleInstance",
+      "isOrganizer": true,
+      "attendees": [],
+      "sensitivity": "normal",
+      "lastModifiedDateTime": "2026-11-04T09:00:00Z",
+      "singleValueExtendedProperties": [
+        {
+          "id": "String {66f5a359-4659-4830-9070-00047ec6ac6e} Name gcalsync_origin",
+          "value": "domino"
+        },
+        {
+          "id": "String {66f5a359-4659-4830-9070-00047ec6ac6e} Name gcalsync_origin_id",
+          "value": "A1B2/20261113T090000Z"
+        }
+      ],
+      "start": {
+        "dateTime": "2026-11-13T09:00:00.0000000",
+        "timeZone": "UTC"
+      },
+      "end": {
+        "dateTime": "2026-11-13T10:00:00.0000000",
+        "timeZone": "UTC"
+      }
+    }
+  ]
+}

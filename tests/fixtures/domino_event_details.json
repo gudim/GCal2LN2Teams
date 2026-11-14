@@ -1,0 +1,188 @@
+{
+  "/mail/user.nsf/api/calendar/events/A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated": {
+    "timezones": [
+      {
+        "tzid": "FLE Standard Time",
+        "standard": {
+          "start": {
+            "date": "1950-10-29",
+            "time": "02:00:00"
+          },
+          "offsetFrom": "+0300",
+          "offsetTo": "+0200",
+          "recurrenceRule": "FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU;BYHOUR=2;BYMINUTE=0"
+        },
+        "daylight": {
+          "start": {
+            "date": "1950-03-26",
+            "time": "02:00:00"
+          },
+          "offsetFrom": "+0200",
+          "offsetTo": "+0300",
+          "recurrenceRule": "FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU;BYHOUR=2;BYMINUTE=0"
+        }
+      }
+    ],
+    "events": [
+      {
+        "href": "/mail/user.nsf/api/calendar/events/A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+        "id": "A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+        "summary": "Budget review",
+        "location": "Room 2",
+        "description": "Q4\r\nfigures",
+        "start": {
+          "date": "2026-11-14",
+          "time": "00:00:00",
+          "tzid": "FLE Standard Time"
+        },
+        "end": {
+          "date": "2026-11-14",
+          "time": "01:00:00",
+          "tzid": "FLE Standard Time"
+        },
+        "class": "public",
+        "transparency": "opaque",
+        "sequence": 0,
+        "last-modified": "20261007T050045Z",
+        "x-lotus-notesversion": {
+          "data": "2"
+        },
+        "x-lotus-appttype": {
+          "data": "0"
+        }
+      }
+    ]
+  },
+  "/mail/user.nsf/api/calendar/events/C1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated/20261117T070000Z": {
+    "timezones": [
+      {
+        "tzid": "FLE Standard Time",
+        "standard": {
+          "start": {
+            "date": "1950-10-29",
+            "time": "02:00:00"
+          },
+          "offsetFrom": "+0300",
+          "offsetTo": "+0200",
+          "recurrenceRule": "FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU;BYHOUR=2;BYMINUTE=0"
+        },
+        "daylight": {
+          "start": {
+            "date": "1950-03-26",
+            "time": "02:00:00"
+          },
+          "offsetFrom": "+0200",
+          "offsetTo": "+0300",
+          "recurrenceRule": "FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU;BYHOUR=2;BYMINUTE=0"
+        }
+      }
+    ],
+    "events": [
+      {
+        "href": "/mail/user.nsf/api/calendar/events/C1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated/20261117T070000Z",
+        "id": "C1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+        "summary": "Weekly sync",
+        "location": "my home",
+        "description": "Standing agenda",
+        "start": {
+          "date": "2026-11-17",
+          "time": "09:00:00",
+          "tzid": "FLE Standard Time"
+        },
+        "end": {
+          "date": "2026-11-17",
+          "time": "09:30:00",
+          "tzid": "FLE Standard Time"
+        },
+        "recurrenceId": "20261117T070000Z",
+        "class": "public",
+        "transparency": "opaque",
+        "sequence": 0,
+        "last-modified": "20261113T202614Z",
+        "x-lotus-notesversion": {
+          "data": "2"
+        },
+        "x-lotus-appttype": {
+          "data": "0"
+        }
+      }
+    ]
+  },
+  "/mail/user.nsf/api/calendar/events/1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D-Lotus_Notes_Generated": {
+    "timezones": [
+      {
+        "tzid": "FLE Standard Time",
+        "standard": {
+          "start": {
+            "date": "1950-10-29",
+            "time": "02:00:00"
+          },
+          "offsetFrom": "+0300",
+          "offsetTo": "+0200",
+          "recurrenceRule": "FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU;BYHOUR=2;BYMINUTE=0"
+        },
+        "daylight": {
+          "start": {
+            "date": "1950-03-26",
+            "time": "02:00:00"
+          },
+          "offsetFrom": "+0200",
+          "offsetTo": "+0300",
+          "recurrenceRule": "FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU;BYHOUR=2;BYMINUTE=0"
+        }
+      }
+    ],
+    "events": [
+      {
+        "href": "/mail/user.nsf/api/calendar/events/1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D-Lotus_Notes_Generated",
+        "id": "1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D-Lotus_Notes_Generated",
+        "summary": "My meeting",
+        "location": "home office",
+        "description": "Line one\r\nLine two",
+        "start": {
+          "date": "2026-11-20",
+          "time": "12:00:00",
+          "tzid": "FLE Standard Time"
+        },
+        "end": {
+          "date": "2026-11-20",
+          "time": "13:00:00",
+          "tzid": "FLE Standard Time"
+        },
+        "class": "public",
+        "transparency": "opaque",
+        "sequence": 0,
+        "last-modified": "20261113T202927Z",
+        "attendees": [
+          {
+            "role": "chair",
+            "status": "accepted",
+            "rsvp": false,
+            "displayName": "Ivan Petrov/ACME",
+            "email": "IPetrov@example.com"
+          },
+          {
+            "role": "req-participant",
+            "status": "needs-action",
+            "rsvp": true,
+            "displayName": "Team Mailbox/acme",
+            "email": "team@example.com"
+          }
+        ],
+        "organizer": {
+          "displayName": "Ivan Petrov/ACME",
+          "email": "IPetrov@example.com"
+        },
+        "x-lotus-broadcast": {
+          "data": "FALSE"
+        },
+        "x-lotus-notesversion": {
+          "data": "2"
+        },
+        "x-lotus-appttype": {
+          "data": "3"
+        }
+      }
+    ]
+  }
+}

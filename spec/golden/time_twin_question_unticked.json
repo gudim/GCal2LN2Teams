@@ -1,0 +1,585 @@
+{
+  "description": "Своя встреча в Lotus и чужая в Teams: одинаковые начало и конец, разные названия. Вопрос «одна встреча?» без галочки. Пока он открыт, копии между ними — ответ «нет» (fallback), поэтому без ключей (как фон) ничего не создаётся и вопрос задаётся снова; в Google копируется только встреча из Lotus (она копирует за группу).",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "AI Agent Platform: status update (incl. demo of progress)",
+            "uid": null
+          }
+        ],
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "google-new-1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "AI Agent Platform: status update (incl. demo of progress)",
+            "uid": null
+          }
+        ],
+        "teams": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": false,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "AI Agent Platform: status update (дублирую в тимсе ...)",
+            "uid": null
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "domino:d1->google",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "AI Agent Platform: status update (incl. demo of progress)"
+          },
+          "source_id": "d1",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "AI Agent Platform: status update (incl. demo of progress)"
+          },
+          "target_id": "google-new-1",
+          "target_system": "google"
+        }
+      ],
+      "report": [
+        {
+          "created": 1,
+          "deleted": 0,
+          "errors": [],
+          "linked": 0,
+          "origin": "domino",
+          "target": "google",
+          "updated": 0
+        }
+      ]
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [
+          "d1"
+        ],
+        "google": [],
+        "teams": [
+          "t1"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": false,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "AI Agent Platform: status update (дублирую в тимсе ...)",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "t1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": false,
+                "original_start": null,
+                "private": false,
+                "source": "teams",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "AI Agent Platform: status update (дублирую в тимсе ...)",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "teams:t1>google",
+              "kind": "create",
+              "link": null,
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "google"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "d1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": true,
+                "original_start": null,
+                "private": false,
+                "source": "domino",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "AI Agent Platform: status update (incl. demo of progress)",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "domino:d1>teams",
+              "kind": "create",
+              "link": null,
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "teams"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "t1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": false,
+                "original_start": null,
+                "private": false,
+                "source": "teams",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "AI Agent Platform: status update (дублирую в тимсе ...)",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "teams:t1>domino",
+              "kind": "create",
+              "link": null,
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "domino"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:distinct:domino:d1->teams:t1",
+              "kind": "link",
+              "link": {
+                "kept": false,
+                "key": "distinct:domino:d1->teams:t1",
+                "kind": "distinct",
+                "source_fields": null,
+                "source_id": "d1",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": "t1",
+                "target_system": "teams"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "teams"
+            }
+          ],
+          "key": "twin:twin:domino:d1->teams:t1",
+          "kind": "twin",
+          "link": {
+            "kept": false,
+            "key": "twin:domino:d1->teams:t1",
+            "kind": "twin",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "AI Agent Platform: status update (incl. demo of progress)"
+            },
+            "source_id": "d1",
+            "source_system": "domino",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "AI Agent Platform: status update (дублирую в тимсе ...)"
+            },
+            "target_id": "t1",
+            "target_system": "teams"
+          },
+          "origin": "domino",
+          "reason": "одинаковые начало и конец, разные названия: это одна встреча?",
+          "selected": false,
+          "silent": false,
+          "subject": "",
+          "target": "teams"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "AI Agent Platform: status update (incl. demo of progress)",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:domino:d1->google",
+              "kind": "link",
+              "link": {
+                "kept": true,
+                "key": "domino:d1->google",
+                "kind": "copy",
+                "source_fields": null,
+                "source_id": "d1",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": null,
+                "target_system": "google"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "google"
+            }
+          ],
+          "key": "domino:d1>google",
+          "kind": "create",
+          "link": null,
+          "origin": "domino",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "google"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "t1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": false,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "AI Agent Platform: status update (дублирую в тимсе ...)",
+            "uid": null
+          },
+          "fallback": [
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "t1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": false,
+                "original_start": null,
+                "private": false,
+                "source": "teams",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "AI Agent Platform: status update (дублирую в тимсе ...)",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "teams:t1>google",
+              "kind": "create",
+              "link": null,
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "google"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "d1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": true,
+                "original_start": null,
+                "private": false,
+                "source": "domino",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "AI Agent Platform: status update (incl. demo of progress)",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "domino:d1>teams",
+              "kind": "create",
+              "link": null,
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "teams"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": {
+                "description": "",
+                "end": "2026-11-13T11:00:00Z",
+                "has_attendees": false,
+                "id": "t1",
+                "ignored": false,
+                "location": "",
+                "modified": null,
+                "organizer_is_me": false,
+                "original_start": null,
+                "private": false,
+                "source": "teams",
+                "start": "2026-11-13T10:00:00Z",
+                "title": "AI Agent Platform: status update (дублирую в тимсе ...)",
+                "uid": null
+              },
+              "fallback": [],
+              "key": "teams:t1>domino",
+              "kind": "create",
+              "link": null,
+              "origin": "teams",
+              "reason": "",
+              "selected": true,
+              "silent": false,
+              "subject": "",
+              "target": "domino"
+            },
+            {
+              "changed": [],
+              "depends_on": [],
+              "event": null,
+              "fallback": [],
+              "key": "link:distinct:domino:d1->teams:t1",
+              "kind": "link",
+              "link": {
+                "kept": false,
+                "key": "distinct:domino:d1->teams:t1",
+                "kind": "distinct",
+                "source_fields": null,
+                "source_id": "d1",
+                "source_system": "domino",
+                "target_fields": null,
+                "target_id": "t1",
+                "target_system": "teams"
+              },
+              "origin": "domino",
+              "reason": "",
+              "selected": true,
+              "silent": true,
+              "subject": "",
+              "target": "teams"
+            }
+          ],
+          "key": "twin:twin:domino:d1->teams:t1",
+          "kind": "twin",
+          "link": {
+            "kept": false,
+            "key": "twin:domino:d1->teams:t1",
+            "kind": "twin",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "AI Agent Platform: status update (incl. demo of progress)"
+            },
+            "source_id": "d1",
+            "source_system": "domino",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "AI Agent Platform: status update (дублирую в тимсе ...)"
+            },
+            "target_id": "t1",
+            "target_system": "teams"
+          },
+          "origin": "domino",
+          "reason": "одинаковые начало и конец, разные названия: это одна встреча?",
+          "selected": false,
+          "silent": false,
+          "subject": "",
+          "target": "teams"
+        }
+      ],
+      "refused": [],
+      "warnings": []
+    },
+    "select": [
+      "domino:d1>google"
+    ]
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "d1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "AI Agent Platform: status update (incl. demo of progress)",
+          "uid": null
+        }
+      ],
+      "google": [],
+      "teams": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "t1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": false,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "AI Agent Platform: status update (дублирую в тимсе ...)",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "all",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ],
+      [
+        "google",
+        "teams"
+      ],
+      [
+        "domino",
+        "teams"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "time_twin_question_unticked"
+}

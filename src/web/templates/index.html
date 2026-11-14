@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <title>Calendar Sync</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..800&family=Roboto+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <symbol id="i-sync" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3.9M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3.9M20 20v-4h-4"/></symbol>
+        <symbol id="i-tune" viewBox="0 0 24 24"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+        <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol>
+        <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+        <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    </defs>
+</svg>
+
+<div class="shell">
+    <nav class="rail" aria-label="Разделы">
+        <a class="fab-rail sl" href="#sync" aria-label="Перейти к синхронизации">
+            <svg class="ic"><use href="#i-sync"/></svg>
+        </a>
+        <a class="dest" href="#settings" data-view="settings">
+            <span class="ind sl"><svg class="ic"><use href="#i-tune"/></svg></span>
+            <span class="dest-label">Настройки</span>
+        </a>
+        <a class="dest" href="#sync" data-view="sync">
+            <span class="ind sl"><svg class="ic"><use href="#i-sync"/></svg></span>
+            <span class="dest-label">Синхронизация</span>
+        </a>
+        <a class="dest" href="#logs" data-view="logs">
+            <span class="ind sl"><svg class="ic"><use href="#i-list"/></svg></span>
+            <span class="dest-label">Логи</span>
+        </a>
+    </nav>
+
+    <main class="content">
+
+        <!-- ========== Настройки ========== -->
+        <section class="view" id="view-settings" aria-labelledby="h-settings">
+            <header class="page-head">
+                <div class="page-title">
+                    <h1 id="h-settings">Настройки</h1>
+                    <p class="lead">Подключения к календарям. Пароли и секреты хранятся в зашифрованном виде.</p>
+                </div>
+                <div class="server-chip" id="server-chip">
+                    <span class="dot"></span><span id="server-chip-text">Проверка сервера…</span>
+                </div>
+            </header>
+
+            <div class="card-grid">
+                <!-- Google -->
+                <form class="card" id="google-form" aria-labelledby="google-title">
+                    <div class="card-head">
+                        <div class="mono mono-google" aria-hidden="true">GC</div>
+                        <div class="card-titles">
+                            <h2 id="google-title">Google Calendar</h2>
+                            <p>Копии в других календарях: «[GC] …»</p>
+                        </div>
+                    </div>
+                    <div class="chip-status" id="google-chip" hidden></div>
+                    <div class="fields">
+                        <div class="field">
+                            <label for="google-credentials">Файл credentials</label>
+                            <input type="text" id="google-credentials" placeholder="config/google_credentials.json" required>
+                        </div>
+                        <div class="field">
+                            <label for="google-calendar-id">ID календаря</label>
+                            <input type="text" id="google-calendar-id" value="primary">
+                            <div class="support">primary — основной календарь аккаунта</div>
+                        </div>
+                    </div>
+                    <div class="note" id="google-status" role="status" hidden></div>
+                    <div class="actions">
+                        <button type="button" class="btn btn-text sl" onclick="testGoogle()">Проверить</button>
+                        <button type="button" class="btn btn-tonal sl" onclick="reauthorizeGoogle()">Переподключить</button>
+                        <button type="submit" class="btn btn-filled sl">Сохранить</button>
+                    </div>
+                </form>
+
+                <!-- Domino -->
+                <form class="card" id="domino-form" aria-labelledby="domino-title">
+                    <div class="card-head">
+                        <div class="mono mono-domino" aria-hidden="true">LN</div>
+                        <div class="card-titles">
+                            <h2 id="domino-title">HCL Domino</h2>
+                            <p>Копии в других календарях: «[LN] …»</p>
+                        </div>
+                    </div>
+                    <div class="chip-status" id="domino-chip" hidden></div>
+                    <div class="fields">
+                        <div class="field">
+                            <label for="domino-server">Адрес сервера</label>
+                            <input type="url" id="domino-server" placeholder="https://domino.example.com" required>
+                        </div>
+                        <div class="field">
+                            <label for="domino-username">Имя пользователя</label>
+                            <input type="text" id="domino-username" placeholder="Имя Фамилия/ORG" required>
+                            <div class="support">Как в Notes: «Имя Фамилия/Организация»</div>
+                        </div>
+                        <div class="field has-trailing">
+                            <label for="domino-password">Пароль</label>
+                            <input type="password" id="domino-password" autocomplete="current-password">
+                            <button type="button" class="icon-btn sl" aria-label="Показать пароль" aria-pressed="false" data-reveal="domino-password">
+                                <svg class="ic"><use href="#i-eye"/></svg>
+                            </button>
+                            <div class="support" id="domino-password-support">Пароль от почты Notes</div>
+                        </div>
+                        <details class="advanced" id="domino-advanced">
+                            <summary class="sl">Дополнительно</summary>
+                            <div class="switch-row">
+                                <div class="switch-text">
+                                    <div id="ssl-label">Проверять SSL-сертификат</div>
+                                    <div class="support-inline">Отключайте только для сервера с самоподписанным сертификатом</div>
+                                </div>
+                                <button type="button" class="switch sl" role="switch" aria-checked="false" aria-labelledby="ssl-label" id="domino-verify-ssl">
+                                    <span class="thumb"><svg class="ic ic-sm"><use href="#i-check"/></svg></span>
+                                </button>
+                            </div>
+                            <div class="note error" id="ssl-warning" hidden>Проверка отключена: соединение с сервером можно перехватить.</div>
+                        </details>
+                    </div>
+                    <div class="note" id="domino-status" role="status" hidden></div>
+                    <div class="actions">
+                        <button type="button" class="btn btn-text sl" onclick="testDomino()">Проверить</button>
+                        <button type="submit" class="btn btn-filled sl">Сохранить</button>
+                    </div>
+                </form>
+
+                <!-- Teams -->
+                <form class="card" id="teams-form" aria-labelledby="teams-title">
+                    <div class="card-head">
+                        <div class="mono mono-teams" aria-hidden="true">MT</div>
+                        <div class="card-titles">
+                            <h2 id="teams-title">Microsoft Teams</h2>
+                            <p>Копии в других календарях: «[MT] …»</p>
+                        </div>
+                    </div>
+                    <div class="chip-status" id="teams-chip" hidden></div>
+                    <div class="fields">
+                        <div class="field">
+                            <label for="teams-client-id">Client ID</label>
+                            <input type="text" id="teams-client-id" placeholder="00000000-0000-0000-0000-000000000000" required>
+                            <div class="support">Application (client) ID из Azure AD</div>
+                        </div>
+                        <div class="field has-trailing">
+                            <label for="teams-client-secret">Client secret</label>
+                            <input type="password" id="teams-client-secret" autocomplete="off">
+                            <button type="button" class="icon-btn sl" aria-label="Показать секрет" aria-pressed="false" data-reveal="teams-client-secret">
+                                <svg class="ic"><use href="#i-eye"/></svg>
+                            </button>
+                            <div class="support">Значение секрета (Value), не его ID</div>
+                        </div>
+                    </div>
+                    <div class="note" id="teams-status" role="status" hidden></div>
+                    <div class="actions">
+                        <button type="button" class="btn btn-text sl" onclick="testTeams()">Проверить</button>
+                        <button type="button" class="btn btn-tonal sl btn-icon" onclick="authorizeTeams()">
+                            <svg class="ic ic-sm"><use href="#i-lock"/></svg>Авторизовать
+                        </button>
+                        <button type="submit" class="btn btn-filled sl">Сохранить</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ========== Синхронизация ========== -->
+        <section class="view" id="view-sync" aria-labelledby="h-sync" hidden>
+            <header class="page-head">
+                <div class="page-title">
+                    <h1 id="h-sync">Синхронизация</h1>
+                    <p class="lead">Копирует новые события между календарями. Изменения и удаления не переносятся.</p>
+                </div>
+            </header>
+
+            <div class="sync-grid">
+                <form class="card card-roomy" id="sync-form" aria-labelledby="params-title">
+                    <h2 id="params-title">Параметры</h2>
+
+                    <div class="group" role="group" aria-labelledby="src-label">
+                        <div class="group-label" id="src-label">Календари</div>
+                        <div class="chips">
+                            <button type="button" class="chip sl" id="enable-google" aria-pressed="true"><svg class="ic ic-sm"><use href="#i-check"/></svg><span class="mono-xs mono-google" aria-hidden="true">GC</span>Google</button>
+                            <button type="button" class="chip sl" id="enable-domino" aria-pressed="true"><svg class="ic ic-sm"><use href="#i-check"/></svg><span class="mono-xs mono-domino" aria-hidden="true">LN</span>Domino</button>
+                            <button type="button" class="chip sl" id="enable-teams" aria-pressed="false"><svg class="ic ic-sm"><use href="#i-check"/></svg><span class="mono-xs mono-teams" aria-hidden="true">MT</span>Teams</button>
+                        </div>
+                        <div class="support support-error" id="src-error" hidden>Выберите хотя бы два календаря</div>
+                        <div class="support-inline" id="src-hint">События копируются между всеми выбранными календарями</div>
+                    </div>
+
+                    <div class="group" role="group" aria-labelledby="period-label">
+                        <div class="group-head">
+                            <div class="group-label" id="period-label">Период</div>
+                            <div class="period-text" id="period-text"></div>
+                        </div>
+                        <div class="btn-group" id="period-presets" role="group" aria-label="Готовые периоды">
+                            <button type="button" class="seg sl" data-back="1" data-fwd="7" aria-pressed="false"><svg class="ic ic-sm"><use href="#i-check"/></svg>Неделя</button>
+                            <button type="button" class="seg sl" data-back="1" data-fwd="30" aria-pressed="true"><svg class="ic ic-sm"><use href="#i-check"/></svg>Месяц</button>
+                            <button type="button" class="seg sl" data-back="1" data-fwd="90" aria-pressed="false"><svg class="ic ic-sm"><use href="#i-check"/></svg>3 месяца</button>
+                        </div>
+                        <div class="two-col">
+                            <div class="field">
+                                <label for="sync-days-back">Дней назад</label>
+                                <input type="number" inputmode="numeric" id="sync-days-back" value="1" min="0" max="365">
+                            </div>
+                            <div class="field">
+                                <label for="sync-days-forward">Дней вперёд</label>
+                                <input type="number" inputmode="numeric" id="sync-days-forward" value="30" min="1" max="365">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="run-actions">
+                        <button type="button" class="btn btn-tonal btn-lg sl" id="sync-preview">
+                            <svg class="ic"><use href="#i-eye"/></svg>Предпросмотр
+                        </button>
+                        <button type="submit" class="btn btn-filled btn-lg sl" id="sync-run">
+                            <svg class="ic"><use href="#i-sync"/></svg><span id="sync-run-label">Синхронизировать</span>
+                        </button>
+                    </div>
+                    <div class="support-inline">Предпросмотр покажет, сколько событий будет создано, ничего не меняя.</div>
+                </form>
+
+                <section class="card card-outlined card-roomy" id="results-card" aria-labelledby="res-title" aria-live="polite">
+                    <div>
+                        <h2 id="res-title">Результаты</h2>
+                        <div class="support-inline" id="res-sub">Синхронизация ещё не запускалась</div>
+                    </div>
+                    <div id="sync-results"></div>
+                </section>
+            </div>
+        </section>
+
+        <!-- ========== Логи ========== -->
+        <section class="view" id="view-logs" aria-labelledby="h-logs" hidden>
+            <header class="page-head">
+                <div class="page-title">
+                    <h1 id="h-logs">Логи</h1>
+                    <p class="lead">Последние 500 строк журнала приложения</p>
+                </div>
+                <button type="button" class="btn btn-tonal sl btn-icon" onclick="loadLogs()">
+                    <svg class="ic ic-sm"><use href="#i-sync"/></svg>Обновить
+                </button>
+            </header>
+            <div class="chips" role="group" aria-label="Уровень записей" id="log-filters">
+                <button type="button" class="chip sl" data-level="all" aria-pressed="true"><svg class="ic ic-sm"><use href="#i-check"/></svg>Все</button>
+                <button type="button" class="chip sl" data-level="warn" aria-pressed="false"><svg class="ic ic-sm"><use href="#i-check"/></svg>Предупреждения и ошибки</button>
+                <button type="button" class="chip sl" data-level="error" aria-pressed="false"><svg class="ic ic-sm"><use href="#i-check"/></svg>Только ошибки</button>
+            </div>
+            <div class="logs-box" id="logs-container">
+                <p class="support-inline">Логи загружаются…</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

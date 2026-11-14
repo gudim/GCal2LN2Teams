@@ -1,0 +1,59 @@
+{
+  "kind": "calendar#events",
+  "nextPageToken": "page-2",
+  "items": [
+    {
+      "id": "g-late",
+      "status": "confirmed",
+      "iCalUID": "g-late@google.com",
+      "updated": "2026-11-10T08:15:30.123Z",
+      "summary": "Release  night",
+      "location": "Room 1",
+      "description": "Deploy",
+      "eventType": "default",
+      "organizer": {"email": "me@example.com", "self": true},
+      "creator": {"email": "me@example.com", "self": true},
+      "start": {"dateTime": "2026-11-14T01:00:00+03:00", "timeZone": "Europe/Moscow"},
+      "end": {"dateTime": "2026-11-14T02:30:00+03:00", "timeZone": "Europe/Moscow"}
+    },
+    {
+      "id": "g-allday",
+      "status": "confirmed",
+      "iCalUID": "g-allday@google.com",
+      "updated": "2026-11-01T10:00:00.000Z",
+      "summary": "Holiday",
+      "visibility": "private",
+      "organizer": {"email": "me@example.com", "self": true},
+      "start": {"date": "2026-11-13"},
+      "end": {"date": "2026-11-14"}
+    },
+    {
+      "id": "g-birthday",
+      "status": "confirmed",
+      "iCalUID": "g-birthday@google.com",
+      "updated": "2026-01-01T00:00:00.000Z",
+      "summary": "Ivan's birthday",
+      "eventType": "birthday",
+      "visibility": "private",
+      "start": {"date": "2026-11-15"},
+      "end": {"date": "2026-11-16"}
+    },
+    {
+      "id": "g-meeting_20261117T070000Z",
+      "status": "confirmed",
+      "iCalUID": "g-meeting@google.com",
+      "recurringEventId": "g-meeting",
+      "originalStartTime": {"dateTime": "2026-11-17T10:00:00+03:00", "timeZone": "Europe/Moscow"},
+      "updated": "2026-11-05T12:00:00.000Z",
+      "summary": "Partner call",
+      "visibility": "confidential",
+      "organizer": {"email": "boss@example.com"},
+      "attendees": [
+        {"email": "boss@example.com", "organizer": true, "responseStatus": "accepted"},
+        {"email": "me@example.com", "self": true, "responseStatus": "declined"}
+      ],
+      "start": {"dateTime": "2026-11-17T10:30:00+03:00", "timeZone": "Europe/Moscow"},
+      "end": {"dateTime": "2026-11-17T11:00:00+03:00", "timeZone": "Europe/Moscow"}
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+-- Связи движка синхронизации (порт таблицы sync_history из Python, src/sync/links.py).
+-- Одна строка — одна связь; link_key = Link.key(), он же ключ в выгрузке (spec/links-export.md).
+-- source_fields/target_fields — снимки полей как JSON-объект строк (CalendarEvent.fields()),
+-- хранятся как есть; NULL — снимка нет (старая связь, distinct).
+-- google_calendar — календарь Google, к которому относится связь с Google; NULL у связей без
+-- Google (Domino <-> Teams). Связь с Google и NULL считается связью календаря "primary".
+CREATE TABLE sync_link (
+    link_key TEXT NOT NULL PRIMARY KEY,
+    kind TEXT NOT NULL,
+    source_system TEXT NOT NULL,
+    source_id TEXT NOT NULL,
+    target_system TEXT NOT NULL,
+    target_id TEXT,
+    source_fields TEXT,
+    target_fields TEXT,
+    kept INTEGER NOT NULL DEFAULT 0,
+    google_calendar TEXT
+);
+
+-- По ключу: тот же порядок, что у связей в эталонах и в выгрузке (порядок значим для плана).
+selectAll:
+SELECT * FROM sync_link ORDER BY link_key;
+
+upsert:
+INSERT OR REPLACE INTO sync_link(
+    link_key, kind, source_system, source_id, target_system, target_id,
+    source_fields, target_fields, kept, google_calendar
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+deleteByKey:
+DELETE FROM sync_link WHERE link_key = ?;

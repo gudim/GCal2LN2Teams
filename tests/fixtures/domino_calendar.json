@@ -1,0 +1,22 @@
+{
+  "calendars": [
+    {
+      "owner": {
+        "displayName": "Ivan Petrov",
+        "distinguishedName": "Ivan Petrov/ACME",
+        "homeServer": "MAIL/ACME",
+        "email": "IPetrov@example.com"
+      },
+      "links": [
+        {
+          "rel": "events",
+          "href": "/mail/user.nsf/api/calendar/events"
+        },
+        {
+          "rel": "invitations",
+          "href": "/mail/user.nsf/api/calendar/invitations"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "description": "Отказ: ни ручной, ни фоновый запуск не предлагает копию; она в refused плана. Связь не проверяется (kept) и не меняется.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [],
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": null,
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Личное",
+            "uid": null
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": true,
+          "key": "google:g1->domino",
+          "kind": "copy",
+          "source_fields": null,
+          "source_id": "g1",
+          "source_system": "google",
+          "target_fields": null,
+          "target_id": null,
+          "target_system": "domino"
+        }
+      ],
+      "report": []
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [],
+        "google": [
+          "g1"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [],
+      "refused": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Личное",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "google:g1>domino",
+          "kind": "create",
+          "link": {
+            "kept": true,
+            "key": "google:g1->domino",
+            "kind": "copy",
+            "source_fields": null,
+            "source_id": "g1",
+            "source_system": "google",
+            "target_fields": null,
+            "target_id": null,
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Личное",
+            "uid": null
+          },
+          "fallback": [],
+          "key": "google:g1>domino",
+          "kind": "create",
+          "link": {
+            "kept": true,
+            "key": "google:g1->domino",
+            "kind": "copy",
+            "source_fields": null,
+            "source_id": "g1",
+            "source_system": "google",
+            "target_fields": null,
+            "target_id": null,
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": false,
+          "subject": "",
+          "target": "domino"
+        }
+      ],
+      "warnings": []
+    },
+    "select": []
+  },
+  "input": {
+    "calendars": {
+      "domino": [],
+      "google": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": null,
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Личное",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "google-domino",
+    "failures": [],
+    "links": [
+      {
+        "kept": true,
+        "key": "google:g1->domino",
+        "kind": "copy",
+        "source_fields": null,
+        "source_id": "g1",
+        "source_system": "google",
+        "target_fields": null,
+        "target_id": null,
+        "target_system": "domino"
+      }
+    ],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "refusal_not_proposed"
+}

@@ -1,0 +1,232 @@
+{
+  "description": "Lotus недоступен, связи d1 -> t-ln и d1 -> g-ln есть. Копии не удаляются (оригинал не «исчез»), правка копии в Teams не уходит в Google, вопросов нет.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "google": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "g-ln",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Планёрка",
+            "uid": null
+          }
+        ],
+        "teams": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "t-ln",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "domino",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Планёрка 2",
+            "uid": null
+          }
+        ]
+      },
+      "links": [
+        {
+          "kept": false,
+          "key": "domino:d1->google",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Планёрка"
+          },
+          "source_id": "d1",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Планёрка"
+          },
+          "target_id": "g-ln",
+          "target_system": "google"
+        },
+        {
+          "kept": false,
+          "key": "domino:d1->teams",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Планёрка"
+          },
+          "source_id": "d1",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Планёрка"
+          },
+          "target_id": "t-ln",
+          "target_system": "teams"
+        }
+      ],
+      "report": []
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "google": [
+          "g-ln"
+        ],
+        "teams": [
+          "t-ln"
+        ]
+      }
+    },
+    "plan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": []
+  },
+  "input": {
+    "calendars": {
+      "google": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "g-ln",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "domino",
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Планёрка",
+          "uid": null
+        }
+      ],
+      "teams": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "t-ln",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "domino",
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Планёрка 2",
+          "uid": null
+        }
+      ]
+    },
+    "direction": "all",
+    "failures": [],
+    "links": [
+      {
+        "kept": false,
+        "key": "domino:d1->google",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Планёрка"
+        },
+        "source_id": "d1",
+        "source_system": "domino",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Планёрка"
+        },
+        "target_id": "g-ln",
+        "target_system": "google"
+      },
+      {
+        "kept": false,
+        "key": "domino:d1->teams",
+        "kind": "copy",
+        "source_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Планёрка"
+        },
+        "source_id": "d1",
+        "source_system": "domino",
+        "target_fields": {
+          "description": "",
+          "end": "2026-11-13T11:00:00+00:00",
+          "location": "",
+          "start": "2026-11-13T10:00:00+00:00",
+          "title": "Планёрка"
+        },
+        "target_id": "t-ln",
+        "target_system": "teams"
+      }
+    ],
+    "pairs": [
+      [
+        "google",
+        "domino"
+      ],
+      [
+        "google",
+        "teams"
+      ],
+      [
+        "domino",
+        "teams"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "unavailable": [
+      "domino"
+    ],
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "unavailable_keeps_copies_of_its_originals"
+}

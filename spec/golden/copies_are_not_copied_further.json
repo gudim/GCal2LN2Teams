@@ -1,0 +1,91 @@
+{
+  "description": "Копия ([GC] в Lotus) не копируется дальше в Teams.",
+  "expected": {
+    "apply": {
+      "calendars": {
+        "domino": [
+          {
+            "description": "",
+            "end": "2026-11-13T11:00:00Z",
+            "has_attendees": false,
+            "id": "d1",
+            "ignored": false,
+            "location": "",
+            "modified": null,
+            "organizer_is_me": true,
+            "original_start": null,
+            "private": false,
+            "source": "google",
+            "start": "2026-11-13T10:00:00Z",
+            "title": "Из Google",
+            "uid": null
+          }
+        ],
+        "teams": []
+      },
+      "links": [],
+      "report": []
+    },
+    "collect": {
+      "fetched": [],
+      "listed": {
+        "domino": [
+          "d1"
+        ],
+        "teams": []
+      }
+    },
+    "plan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "replan": {
+      "actions": [],
+      "refused": [],
+      "warnings": []
+    },
+    "select": []
+  },
+  "input": {
+    "calendars": {
+      "domino": [
+        {
+          "description": "",
+          "end": "2026-11-13T11:00:00Z",
+          "has_attendees": false,
+          "id": "d1",
+          "ignored": false,
+          "location": "",
+          "modified": null,
+          "organizer_is_me": true,
+          "original_start": null,
+          "private": false,
+          "source": "google",
+          "start": "2026-11-13T10:00:00Z",
+          "title": "Из Google",
+          "uid": null
+        }
+      ],
+      "teams": []
+    },
+    "direction": "domino-teams",
+    "failures": [],
+    "links": [],
+    "pairs": [
+      [
+        "domino",
+        "teams"
+      ]
+    ],
+    "select": {
+      "keys": null,
+      "routes": null
+    },
+    "window": {
+      "end": "2027-01-01T00:00:00Z",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  },
+  "name": "copies_are_not_copied_further"
+}

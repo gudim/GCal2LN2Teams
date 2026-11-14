@@ -1,0 +1,255 @@
+{
+  "events": [
+    {
+      "href": "/mail/user.nsf/api/calendar/events/A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+      "id": "A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+      "summary": "Budget review",
+      "location": "Room 2",
+      "start": {
+        "date": "2026-11-13",
+        "time": "22:00:00",
+        "utc": true
+      },
+      "end": {
+        "date": "2026-11-13",
+        "time": "23:00:00",
+        "utc": true
+      },
+      "class": "public",
+      "transparency": "opaque",
+      "sequence": 0,
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-appttype": {
+        "data": "0"
+      }
+    },
+    {
+      "href": "/mail/user.nsf/api/calendar/events/B1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+      "id": "B1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+      "summary": "Day off",
+      "start": {
+        "date": "2026-11-16"
+      },
+      "end": {
+        "date": "2026-11-17"
+      },
+      "class": "public",
+      "transparency": "opaque",
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-appttype": {
+        "data": "2"
+      }
+    },
+    {
+      "href": "/mail/user.nsf/api/calendar/events/C1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated/20261117T070000Z",
+      "id": "C1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+      "summary": "Weekly sync",
+      "location": "my home",
+      "start": {
+        "date": "2026-11-17",
+        "time": "07:00:00",
+        "utc": true
+      },
+      "end": {
+        "date": "2026-11-17",
+        "time": "07:30:00",
+        "utc": true
+      },
+      "recurrenceId": "20261117T070000Z",
+      "class": "public",
+      "transparency": "opaque",
+      "sequence": 0,
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-appttype": {
+        "data": "0"
+      }
+    },
+    {
+      "href": "/mail/user.nsf/api/calendar/events/D1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+      "id": "D1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+      "summary": "[GC] Release night",
+      "start": {
+        "date": "2026-11-13",
+        "time": "22:00:00",
+        "utc": true
+      },
+      "end": {
+        "date": "2026-11-13",
+        "time": "23:30:00",
+        "utc": true
+      },
+      "class": "public",
+      "transparency": "opaque",
+      "sequence": 0,
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-appttype": {
+        "data": "0"
+      }
+    },
+    {
+      "href": "/mail/user.nsf/api/calendar/events/E1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+      "id": "E1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated",
+      "summary": "Local time event",
+      "start": {
+        "date": "2026-11-18",
+        "time": "10:00:00",
+        "tzid": "FLE Standard Time"
+      },
+      "end": {
+        "date": "2026-11-18",
+        "time": "11:00:00",
+        "tzid": "FLE Standard Time"
+      },
+      "class": "public",
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-appttype": {
+        "data": "0"
+      }
+    },
+    {
+      "href": "/mail/user.nsf/api/calendar/events/B5CE1C4E7BDE61AA43258E6F0049A90E-Lotus_Notes_Generated",
+      "id": "B5CE1C4E7BDE61AA43258E6F0049A90E-Lotus_Notes_Generated",
+      "summary": "Partner presentation",
+      "start": {
+        "date": "2026-11-19",
+        "time": "08:00:00",
+        "utc": true
+      },
+      "end": {
+        "date": "2026-11-19",
+        "time": "09:00:00",
+        "utc": true
+      },
+      "class": "private",
+      "transparency": "opaque",
+      "sequence": 0,
+      "x-lotus-organizer": {
+        "data": "CN=Anna Smirnova/O=ACME"
+      },
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-noticetype": {
+        "data": "A"
+      },
+      "x-lotus-appttype": {
+        "data": "3"
+      }
+    },
+    {
+      "href": "/mail/user.nsf/api/calendar/events/1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D-Lotus_Notes_Generated",
+      "id": "1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D-Lotus_Notes_Generated",
+      "summary": "My meeting",
+      "location": "home office",
+      "start": {
+        "date": "2026-11-20",
+        "time": "10:00:00",
+        "utc": true
+      },
+      "end": {
+        "date": "2026-11-20",
+        "time": "11:00:00",
+        "utc": true
+      },
+      "class": "public",
+      "transparency": "opaque",
+      "sequence": 0,
+      "x-lotus-organizer": {
+        "data": "CN=Ivan Petrov/O=ACME"
+      },
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-appttype": {
+        "data": "3"
+      }
+    },
+    {
+      "href": "/mail/user.nsf/api/calendar/events/C336D9E087D931E343258D8F0031CCC7-Lotus_Notes_Generated/20261126T080000Z",
+      "id": "C336D9E087D931E343258D8F0031CCC7-Lotus_Notes_Generated",
+      "summary": "Cancelled retro",
+      "location": "https://zoom.example/j/1",
+      "start": {
+        "date": "2026-11-26",
+        "time": "07:00:00",
+        "utc": true
+      },
+      "end": {
+        "date": "2026-11-26",
+        "time": "08:30:00",
+        "utc": true
+      },
+      "recurrenceId": "20261126T080000Z",
+      "class": "public",
+      "transparency": "transparent",
+      "status": "cancelled",
+      "sequence": 10,
+      "x-lotus-organizer": {
+        "data": "CN=Anna Smirnova/O=ACME"
+      },
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-noticetype": {
+        "data": "A"
+      },
+      "x-lotus-appttype": {
+        "data": "3"
+      },
+      "x-lotus-onlinemeeting-url": {
+        "data": "https://zoom.example/j/1"
+      },
+      "x-lotus-unid": {
+        "data": "B1A3589DF68FA0F243258E74004F64B2"
+      }
+    },
+    {
+      "href": "/mail/user.nsf/api/calendar/events/F0B8B7D78FB3F97243258E9F002CA635-Lotus_Notes_Generated",
+      "id": "F0B8B7D78FB3F97243258E9F002CA635-Lotus_Notes_Generated",
+      "summary": "Business trip",
+      "start": {
+        "date": "2026-11-23"
+      },
+      "end": {
+        "date": "2026-11-24"
+      },
+      "class": "public",
+      "transparency": "opaque",
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-appttype": {
+        "data": "2"
+      }
+    },
+    {
+      "href": "/mail/user.nsf/api/calendar/events/F0B8B7D78FB3F97243258E9F002CA635-Lotus_Notes_Generated",
+      "id": "F0B8B7D78FB3F97243258E9F002CA635-Lotus_Notes_Generated",
+      "summary": "Business trip",
+      "start": {
+        "date": "2026-11-24"
+      },
+      "end": {
+        "date": "2026-11-25"
+      },
+      "class": "public",
+      "transparency": "opaque",
+      "x-lotus-summarydataonly": {
+        "data": "TRUE"
+      },
+      "x-lotus-appttype": {
+        "data": "2"
+      }
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calendar Sync</string>
+
+    <!-- Common -->
+    <string name="system_google">Google</string>
+    <string name="system_lotus">Lotus</string>
+    <string name="system_teams">Teams</string>
+    <string name="route_label">%1$s → %2$s</string>
+    <string name="action_back">Back</string>
+    <string name="action_open_connections">Connections</string>
+    <string name="progress_busy">Working…</string>
+    <string name="nothing_changed">Nothing changed</string>
+    <plurals name="count_created">
+        <item quantity="one">%1$d copy created</item>
+        <item quantity="other">%1$d copies created</item>
+    </plurals>
+    <plurals name="count_updated">
+        <item quantity="one">%1$d event updated</item>
+        <item quantity="other">%1$d events updated</item>
+    </plurals>
+    <plurals name="count_deleted">
+        <item quantity="one">%1$d event deleted</item>
+        <item quantity="other">%1$d events deleted</item>
+    </plurals>
+    <plurals name="count_linked">
+        <item quantity="one">%1$d pair of twins linked</item>
+        <item quantity="other">%1$d pairs of twins linked</item>
+    </plurals>
+
+    <!-- Bottom bar -->
+    <string name="tab_status">Status</string>
+    <string name="tab_sync">Sync</string>
+    <string name="tab_connections">Accounts</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- Status -->
+    <string name="status_title">Status</string>
+    <string name="status_domino_disabled">Lotus is turned off: the server rejected the password. Enter the password again in Connections, or Lotus will not sync.</string>
+    <string name="domino_unavailable_run">Lotus is unavailable in this run: %1$s</string>
+    <string name="status_domino_unavailable">Lotus did not respond during the last run. Check the network or VPN.</string>
+    <string name="status_unavailable_other">%1$s did not respond during the last run.</string>
+    <plurals name="status_open_questions">
+        <item quantity="one">%1$d question needs your decision</item>
+        <item quantity="other">%1$d questions need your decision</item>
+    </plurals>
+    <string name="status_open_preview">Open preview</string>
+    <string name="status_last_run">Last run</string>
+    <string name="status_never">Sync has not run yet</string>
+    <string name="status_last_run_manual">Manual, %1$s</string>
+    <string name="status_last_run_background">In background, %1$s</string>
+    <string name="status_failed">Failed: %1$s</string>
+    <string name="status_errors">Errors: %1$d</string>
+    <string name="status_background_every">Background sync: %1$s</string>
+    <string name="status_background_off">Background sync is off</string>
+    <string name="status_background_next">Next background sync around %1$s</string>
+    <string name="status_background_soon">Next background sync: soon</string>
+    <string name="status_background_pending">Background sync is off — it turns on after the first manual sync</string>
+    <string name="status_sync_now">Sync now</string>
+
+    <!-- Sync -->
+    <string name="sync_title">Sync</string>
+    <string name="routes_title">Routes</string>
+    <string name="routes_hint">From → to. New events, changes and deletions are carried over.</string>
+    <string name="routes_none">Choose at least one route</string>
+    <string name="sync_preview">Preview</string>
+    <string name="sync_preview_hint">You see the list first: nothing changes without your confirmation.</string>
+    <string name="sync_loading">Reading calendars and matching copies…</string>
+    <string name="sync_applying">Applying…</string>
+    <string name="sync_back_to_routes">← Routes</string>
+    <string name="sync_preview_rebuilt">A background sync ran while you were looking at the preview. The preview has been updated: check it and apply again.</string>
+    <string name="sync_background_running">A background sync is running. Until it finishes, Preview and Apply do nothing.</string>
+    <string name="sync_domino_disabled_now">Lotus rejected the password and is turned off until you enter it again. The other systems keep syncing.</string>
+    <string name="skipped_not_configured">%1$s is skipped: not signed in or not set up</string>
+    <string name="skipped_domino_disabled">Lotus is turned off after a wrong password: enter the password in Connections</string>
+    <string name="sync_warnings">Attention:</string>
+    <string name="sync_nothing">Nothing to sync</string>
+    <string name="sync_nothing_hint">No new, changed or deleted events in this period.</string>
+    <string name="sync_questions_note">A tick means “do it”. Unticking a copy means “don’t copy”; unticking a question (highlighted) means “no”. After Apply this is remembered and not offered again. You can take back a refusal to copy in “Not copied”.</string>
+    <string name="sync_route_default">By default: %1$s</string>
+    <string name="sync_select_all">Select all</string>
+    <string name="sync_unselect_all">Clear all</string>
+    <string name="question_badge">Question</string>
+    <string name="sync_refusals_note">Unticked items will be remembered as refusals: %1$d</string>
+    <string name="sync_selected">%1$d of %2$d selected</string>
+    <string name="sync_copy_now">To copy now from “Not copied”: %1$d</string>
+    <string name="sync_refused_title">Not copied (%1$d)</string>
+    <string name="sync_refused_hint">You chose not to copy these events. Tick one to copy it now, or tap “Offer again” to have the copy offered again.</string>
+    <string name="sync_refused_undo">Offer again</string>
+    <string name="sync_refused_expand">Show</string>
+    <string name="sync_refused_collapse">Hide</string>
+    <string name="sync_apply">Apply</string>
+    <string name="sync_preview_failed">Could not read the calendars</string>
+    <string name="sync_apply_failed">Could not apply</string>
+    <string name="sync_retry">Build the preview again</string>
+
+    <string name="action_create">Sync</string>
+    <string name="action_update">Update</string>
+    <string name="action_delete_copy">Delete copy</string>
+    <string name="action_delete_extra">Delete redundant copy</string>
+    <string name="action_delete_original">Delete the original?</string>
+    <string name="action_delete_twin">Delete the other twin?</string>
+    <string name="action_twin">Is this the same meeting?</string>
+    <string name="detail_from">from %1$s</string>
+    <string name="detail_changed">changed: %1$s</string>
+    <string name="detail_attendees">attendees will get an email</string>
+    <string name="detail_original_gone">in %1$s · the original was deleted</string>
+    <string name="detail_extra">in %1$s · the original has a twin</string>
+    <string name="detail_copy_gone">in %1$s · the copy in %2$s was deleted</string>
+    <string name="detail_twin_gone">in %1$s · the twin in %2$s was deleted</string>
+    <string name="detail_same_title">same title and start in %1$s and %2$s</string>
+    <string name="answer_delete_original_on">The original will be deleted</string>
+    <string name="answer_delete_twin_on">This event will be deleted</string>
+    <string name="answer_delete_original_off">Keep it and don’t ask again</string>
+    <string name="answer_twin_on">Yes: link them, no copy</string>
+    <string name="answer_twin_off">No: copy as usual and don’t ask again</string>
+    <string name="answer_twin_time_on">Yes, it’s the same meeting — extra copies will be deleted</string>
+    <string name="answer_twin_time_off">No: different meetings, copy as usual</string>
+    <string name="answer_create_off">Don’t copy: remembered as a refusal</string>
+    <string name="answer_refused_on">Will be copied now</string>
+    <string name="answer_refused_off">Not copied</string>
+    <string name="detail_same_time">same start and end in %1$s and %2$s, different titles</string>
+    <string name="twin_title_in">%1$s: “%2$s”</string>
+    <string name="field_title">title</string>
+    <string name="field_time">time</string>
+    <string name="field_location">location</string>
+    <string name="field_description">description</string>
+    <string name="all_day">all day</string>
+
+    <string name="report_done">Done</string>
+    <string name="report_almost_done">Almost done</string>
+    <string name="report_errors">Not done: %1$d</string>
+    <string name="report_errors_hint">Run the preview again: the actions that failed will show up in the list again.</string>
+    <string name="report_finish">Done</string>
+
+    <!-- Connections -->
+    <string name="connections_title">Connections</string>
+    <string name="connections_markers_hint">Copies are marked [GC], [LN] or [MT]: the app recognises them by the marker and does not copy them again.</string>
+    <string name="title_google">Google Calendar</string>
+    <string name="title_lotus">Lotus (Domino)</string>
+    <string name="title_teams">Microsoft Teams</string>
+    <string name="account_signed_out">Not signed in</string>
+    <string name="account_signed_in">Signed in</string>
+    <string name="account_signed_in_as">Signed in as %1$s</string>
+    <string name="connection_sign_in">Sign in</string>
+    <string name="connection_sign_out">Sign out</string>
+    <string name="connection_check">Check</string>
+    <string name="connection_sign_in_a11y">Sign in to %1$s</string>
+    <string name="connection_sign_out_a11y">Sign out of %1$s</string>
+    <string name="connection_check_a11y">Check the connection to %1$s</string>
+    <string name="connection_sign_in_cancelled">Sign-in cancelled</string>
+    <string name="connection_saved">Saved</string>
+    <string name="connection_failed">Error: %1$s</string>
+    <string name="check_ok">Connection works</string>
+    <string name="check_ok_detail">Connection works: %1$s</string>
+    <string name="check_auth_failed">The server rejected the sign-in. %1$s</string>
+    <string name="check_unreachable">The server is unreachable. %1$s</string>
+    <string name="check_not_configured">Not set up. %1$s</string>
+    <string name="google_calendar_current">Calendar for copies: %1$s</string>
+    <string name="google_calendar_primary">primary</string>
+    <string name="google_calendar_choose">Choose calendar</string>
+    <string name="domino_disabled">Lotus is turned off: the server rejected the password. Enter the password again and tap Save.</string>
+    <string name="domino_not_configured">Not set up</string>
+    <string name="domino_server">Server address</string>
+    <string name="domino_server_placeholder">https://domino.example.com</string>
+    <string name="domino_user">User name</string>
+    <string name="domino_user_hint">As in Notes: “First Last/Organisation”</string>
+    <string name="domino_password">Password</string>
+    <string name="domino_password_hint">Your Notes mail password</string>
+    <string name="domino_password_saved">Password saved. Leave empty to keep it</string>
+    <string name="domino_save">Save</string>
+    <string name="domino_incomplete">Enter the server address and user name</string>
+
+    <!-- Google calendar -->
+    <string name="calendar_title">Calendar for copies</string>
+    <string name="calendar_hint">Copies of Lotus and Teams events go here. Read-only calendars cannot be chosen.</string>
+    <string name="calendar_loading">Loading calendars…</string>
+    <string name="calendar_list_failed">Could not load calendars: %1$s</string>
+    <string name="calendar_reload">Retry</string>
+    <string name="calendar_not_found">The current calendar (%1$s) is not in the list</string>
+    <string name="calendar_primary_mark">primary</string>
+    <string name="calendar_read_only">read-only</string>
+    <string name="calendar_create">New calendar</string>
+    <string name="calendar_name">Name</string>
+    <string name="calendar_name_default">Notes</string>
+    <string name="calendar_create_button">Create and choose</string>
+    <string name="calendar_name_required">Enter a calendar name</string>
+    <string name="calendar_created">Calendar “%1$s” created</string>
+    <string name="calendar_failed">Failed: %1$s</string>
+    <string name="calendar_switch_title">Switch to “%1$s”?</string>
+    <plurals name="calendar_switch_question">
+        <item quantity="one">The previous calendar has %1$d copy made by the sync. Delete it? It will be created again in the new calendar on the next sync.</item>
+        <item quantity="other">The previous calendar has %1$d copies made by the sync. Delete them? They will be created again in the new calendar on the next sync.</item>
+    </plurals>
+    <string name="calendar_switch_delete">Delete and switch</string>
+    <string name="calendar_switch_keep">Switch without deleting</string>
+    <string name="calendar_switch_cancel">Cancel</string>
+    <string name="calendar_switched">Copies now go to “%1$s”</string>
+    <plurals name="calendar_switched_deleted">
+        <item quantity="one">%1$d copy deleted from the previous calendar</item>
+        <item quantity="other">%1$d copies deleted from the previous calendar</item>
+    </plurals>
+    <string name="calendar_switched_errors">Could not delete: %1$d</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="window_title">Sync period</string>
+    <string name="window_hint">How many days from today to check in the past and in the future.</string>
+    <string name="window_back">Days back</string>
+    <string name="window_forward">Days forward</string>
+    <string name="window_invalid">A whole number from 0 to %1$d</string>
+    <string name="interval_title">Background sync</string>
+    <string name="interval_15m">Every 15 minutes</string>
+    <string name="interval_1h">Every hour</string>
+    <string name="interval_4h">Every 4 hours</string>
+    <string name="interval_off">Off</string>
+    <string name="interval_hint">In the background everything runs except questions: they wait for a manual sync.</string>
+    <string name="language_title">Language</string>
+    <string name="language_hint">The app follows the system language (Russian or English).</string>
+
+    <!-- Settings: background and notifications -->
+    <string name="system_title">Background &amp; notifications</string>
+    <string name="system_background_ok">Background work is allowed without restrictions</string>
+    <string name="system_background_limited">The system may delay or put background sync to sleep</string>
+    <string name="system_background_restricted">Background is blocked in battery settings</string>
+    <string name="system_background_allow">Allow background work</string>
+    <string name="system_background_settings">Battery settings</string>
+    <string name="system_samsung_hint">On Samsung, also add the app to “Never sleeping apps”: Device care → Battery → Background usage limits</string>
+    <string name="system_notifications_on">Notifications are allowed</string>
+    <string name="system_notifications_off">Notifications are off: you will not hear about questions or connection problems</string>
+    <string name="system_notifications_enable">Turn on notifications</string>
+    <string name="system_notifications_settings">Notification settings</string>
+    <string name="system_notifications_hint">The “Questions”, “Connection problems” and “Background sync result” channels are tuned separately in the system.</string>
+    <string name="system_summary_switch">Notify the result of every background sync</string>
+    <string name="system_summary_hint">A silent notification like “Created 3, updated 1”; each new one replaces the previous.</string>
+    <string name="system_summary_blocked_app">App notifications are off in the system, so the result will not appear. Turn the switch on to open the settings.</string>
+    <string name="system_summary_blocked_channel">The “Background sync result” channel is off in the system. Turn the switch on to open its settings.</string>
+    <string name="about_title">About</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_update_available">Version %1$s is out. Download the APK and install it over this one: settings and links are kept.</string>
+    <string name="about_update_download">Download</string>
+    <string name="about_update_hint">Once a week the app checks for a new version and tells you with a notification.</string>
+</resources>
