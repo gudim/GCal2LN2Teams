@@ -173,7 +173,7 @@
 
     <!-- Google calendar -->
     <string name="calendar_title">Calendar for copies</string>
-    <string name="calendar_hint">Copies of Lotus and Teams events go here. Read-only calendars cannot be chosen.</string>
+    <string name="calendar_hint">Copies of Lotus and Teams events go here. Select a calendar and tap Save. Read-only calendars cannot be chosen.</string>
     <string name="calendar_loading">Loading calendars…</string>
     <string name="calendar_list_failed">Could not load calendars: %1$s</string>
     <string name="calendar_reload">Retry</string>
@@ -185,7 +185,8 @@
     <string name="calendar_name_default">Notes</string>
     <string name="calendar_create_button">Create and choose</string>
     <string name="calendar_name_required">Enter a calendar name</string>
-    <string name="calendar_created">Calendar “%1$s” created</string>
+    <string name="calendar_created">Calendar “%1$s” created and selected. Tap Save to send copies there</string>
+    <string name="calendar_save">Save</string>
     <string name="calendar_failed">Failed: %1$s</string>
     <string name="calendar_switch_title">Switch to “%1$s”?</string>
     <plurals name="calendar_switch_question">

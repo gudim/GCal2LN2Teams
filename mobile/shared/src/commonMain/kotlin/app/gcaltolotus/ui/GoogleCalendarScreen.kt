@@ -48,6 +48,7 @@ import app.gcaltolotus.shared.resources.calendar_not_found
 import app.gcaltolotus.shared.resources.calendar_primary_mark
 import app.gcaltolotus.shared.resources.calendar_read_only
 import app.gcaltolotus.shared.resources.calendar_reload
+import app.gcaltolotus.shared.resources.calendar_save
 import app.gcaltolotus.shared.resources.calendar_switch_cancel
 import app.gcaltolotus.shared.resources.calendar_switch_delete
 import app.gcaltolotus.shared.resources.calendar_switch_keep
@@ -98,6 +99,13 @@ internal fun GoogleCalendarScreen(model: GoogleCalendarModel, onBack: () -> Unit
                     }
                     for (calendar in state.calendars) CalendarRow(calendar, state, model)
                 }
+                Button(
+                    onClick = { model.save() },
+                    enabled = !state.busy && !state.loading && state.calendars.any { state.isSelected(it) },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(stringResource(Res.string.calendar_save))
+                }
             }
 
             SectionCard {
@@ -140,7 +148,7 @@ internal fun GoogleCalendarScreen(model: GoogleCalendarModel, onBack: () -> Unit
 
 @Composable
 private fun CalendarRow(calendar: GoogleCalendarInfo, state: GoogleCalendarState, model: GoogleCalendarModel) {
-    val selected = state.isCurrent(calendar)
+    val selected = state.isSelected(calendar)
     Row(
         Modifier.fillMaxWidth().selectable(
             selected = selected,

@@ -6,6 +6,6 @@ import kotlin.test.assertEquals
 class SmokeTest {
     @Test
     fun sharedVersionIsSet() {
-        assertEquals("0.1.0", SHARED_VERSION)
+        assertEquals("0.1.1", SHARED_VERSION)
     }
 }

@@ -29,12 +29,14 @@ data class PendingSwitch(val target: GoogleCalendarInfo, val oldCopies: Int)
 
 /**
  * @property current id календаря, куда пишутся копии.
+ * @property selected id календаря, отмеченного в списке, но ещё не сохранённого; `null` — отмечен [current].
  * @property loadError список не загрузился (например, нет входа в Google).
  */
 data class GoogleCalendarState(
     val loading: Boolean = false,
     val calendars: List<GoogleCalendarInfo> = emptyList(),
     val current: String = PRIMARY_CALENDAR_ID,
+    val selected: String? = null,
     val loadError: String? = null,
     val busy: Boolean = false,
     val pending: PendingSwitch? = null,
@@ -43,9 +45,16 @@ data class GoogleCalendarState(
     /** Текущий календарь есть в списке (`primary` совпадает с основным календарём). */
     fun isCurrent(calendar: GoogleCalendarInfo): Boolean =
         calendar.id == current || (current == PRIMARY_CALENDAR_ID && calendar.primary)
+
+    /** Календарь отмечен в списке (до «Сохранить» — [current]). */
+    fun isSelected(calendar: GoogleCalendarInfo): Boolean =
+        if (selected != null) calendar.id == selected else isCurrent(calendar)
 }
 
-/** Выбор календаря Google для копий: список, создание, смена с удалением старых копий. */
+/**
+ * Выбор календаря Google для копий: список, создание, смена с удалением старых копий.
+ * Касание календаря только отмечает его ([select]); применяет выбор [save].
+ */
 class GoogleCalendarModel(
     private val scope: CoroutineScope,
     private val settings: SettingsStore,
@@ -56,7 +65,7 @@ class GoogleCalendarModel(
     val state: StateFlow<GoogleCalendarState> = mutable.asStateFlow()
 
     fun load(): Job {
-        mutable.update { it.copy(loading = true, loadError = null) }
+        mutable.update { it.copy(loading = true, loadError = null, selected = null) }
         return scope.launch {
             val current = settings.load().googleCalendarId
             try {
@@ -70,7 +79,7 @@ class GoogleCalendarModel(
         }
     }
 
-    /** Создать календарь и сразу перейти на него (с вопросом о старых копиях, если они есть). */
+    /** Создать календарь и отметить его; перейти на него — [save]. */
     fun create(name: String): Job? {
         val summary = name.trim()
         if (summary.isEmpty()) {
@@ -79,15 +88,31 @@ class GoogleCalendarModel(
         }
         return work {
             val created = calendars.create(summary)
-            mutable.update { it.copy(calendars = it.calendars + created, notice = CalendarNotice.Created(created.name)) }
-            requestSwitch(created)
+            mutable.update {
+                it.copy(calendars = it.calendars + created, selected = created.id, notice = CalendarNotice.Created(created.name))
+            }
         }
     }
 
-    /** Выбрать календарь: если в текущем есть наши копии, сначала спросить, удалять ли их. */
-    fun select(calendar: GoogleCalendarInfo): Job? {
-        if (mutable.value.isCurrent(calendar) || !calendar.writable) return null
-        return work { requestSwitch(calendar) }
+    /** Отметить календарь в списке; сохраняет выбор [save]. */
+    fun select(calendar: GoogleCalendarInfo) {
+        if (!calendar.writable || mutable.value.busy) return
+        mutable.update { it.copy(selected = calendar.id, notice = null) }
+    }
+
+    /**
+     * Сохранить отмеченный календарь. Тот же, что и текущий, — только подтверждение. Другой: если в
+     * текущем есть наши копии, сначала спросить, удалять ли их.
+     */
+    fun save(): Job? {
+        val s = mutable.value
+        val target = s.calendars.firstOrNull { s.isSelected(it) } ?: return null
+        if (s.busy || !target.writable && !s.isCurrent(target)) return null
+        if (s.isCurrent(target)) {
+            mutable.update { it.copy(selected = null, notice = CalendarNotice.Switched(target.name, 0, emptyList())) }
+            return null
+        }
+        return work { requestSwitch(target) }
     }
 
     fun confirmSwitch(deleteOld: Boolean): Job? {
@@ -96,7 +121,7 @@ class GoogleCalendarModel(
         return work { switch(pending.target, deleteOld) }
     }
 
-    fun cancelSwitch() = mutable.update { it.copy(pending = null) }
+    fun cancelSwitch() = mutable.update { it.copy(pending = null, selected = null) }
 
     fun dismissNotice() = mutable.update { it.copy(notice = null) }
 
@@ -112,7 +137,7 @@ class GoogleCalendarModel(
     private suspend fun switch(target: GoogleCalendarInfo, deleteOld: Boolean) {
         val result = sync.switchGoogleCalendar(target.id, deleteOld)
         mutable.update {
-            it.copy(current = target.id, notice = CalendarNotice.Switched(target.name, result.deleted, result.errors))
+            it.copy(current = target.id, selected = null, notice = CalendarNotice.Switched(target.name, result.deleted, result.errors))
         }
     }
 

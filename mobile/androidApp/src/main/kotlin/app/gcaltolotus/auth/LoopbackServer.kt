@@ -78,17 +78,28 @@ object LoopbackHttp {
     }
 
     /**
-     * Ответ на redirect: сразу отправить браузер в приложение ([RETURN_TO_APP]). Код уже получен,
-     * поэтому, даже если браузер не откроет ссылку, вход завершится, когда пользователь сам
-     * вернётся в приложение.
+     * Страница после redirect: сразу пробует открыть приложение ([RETURN_TO_APP]) и показывает
+     * кнопку для того же. Голый 302 на [RETURN_TO_APP] не годится: Chrome открывает приложение
+     * по redirect только сразу после нажатия пользователя, а при первом входе (согласие, MFA)
+     * цепочка доходит сюда без нажатия, и вкладка застревает на странице Microsoft. Код уже
+     * получен, поэтому вход завершится и когда пользователь вернётся в приложение сам.
      */
-    fun redirectToApp(): ByteArray = (
-        "HTTP/1.1 302 Found\r\n" +
-            "Location: $RETURN_TO_APP\r\n" +
-            "Content-Length: 0\r\n" +
-            "Cache-Control: no-store\r\n" +
-            "Connection: close\r\n\r\n"
-        ).encodeToByteArray()
+    fun callbackPage(query: Map<String, String>): String {
+        val (ru, en) = if (query.containsKey("error")) {
+            "Вход не выполнен. Вернитесь в приложение." to "Sign-in failed. Please return to the app."
+        } else {
+            "Вход выполнен. Вернитесь в приложение." to "Signed in. Please return to the app."
+        }
+        return """
+            <!doctype html>
+            <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+            <title>gcaltolotus</title></head>
+            <body style="font-family:sans-serif;padding:24px"><h2>$ru</h2><p>$en</p>
+            <p><a href="$RETURN_TO_APP" style="display:inline-block;padding:12px 20px;background:#1a73e8;color:#fff;border-radius:8px;text-decoration:none">Открыть приложение / Open the app</a></p>
+            <script>location.replace("$RETURN_TO_APP")</script>
+            </body></html>
+        """.trimIndent()
+    }
 
     /** Полный HTTP-ответ с закрытием соединения. */
     fun response(status: String, html: String): ByteArray {
@@ -107,7 +118,7 @@ object LoopbackHttp {
  * Создаётся [open] на свободном порту: redirect для входа — `http://localhost:<[port]>`
  * (Microsoft не сравнивает порт у loopback-redirect). Принимает
  * соединения, пока не придёт запрос на [path], отправляет браузер обратно в приложение
- * ([LoopbackHttp.redirectToApp]), возвращает query и закрывается. Прочие запросы (например,
+ * ([LoopbackHttp.callbackPage]), возвращает query и закрывается. Прочие запросы (например,
  * `/favicon.ico`) получают 404.
  *
  * @param timeout сколько ждать redirect.
@@ -178,7 +189,7 @@ class LoopbackServer private constructor(
                 out.flush()
                 return null
             }
-            out.write(LoopbackHttp.redirectToApp())
+            out.write(LoopbackHttp.response("200 OK", LoopbackHttp.callbackPage(request.query)))
             out.flush()
             request.query
         } catch (e: CancellationException) {

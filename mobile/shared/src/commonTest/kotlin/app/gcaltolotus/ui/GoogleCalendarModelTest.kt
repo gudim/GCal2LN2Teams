@@ -63,19 +63,36 @@ class GoogleCalendarModelTest {
     }
 
     @Test
-    fun switchWithoutOldCopiesHappensAtOnce() = runTest {
+    fun selectOnlyMarksAndSaveSwitches() = runTest {
         val m = model()
-        m.select(notes)!!.join()
+        m.load().join()
+        m.select(notes)
+        assertTrue(m.state.value.isSelected(notes))
+        assertEquals(PRIMARY_CALENDAR_ID, settings.load().googleCalendarId) // до «Сохранить» не меняется
+
+        m.save()!!.join()
         assertEquals("notes@group", settings.load().googleCalendarId)
         assertEquals(CalendarNotice.Switched("Notes", 0, emptyList()), m.state.value.notice)
         assertTrue(m.state.value.isCurrent(notes))
+        assertNull(m.state.value.selected)
+    }
+
+    @Test
+    fun savingTheCurrentCalendarConfirmsIt() = runTest {
+        val m = model()
+        m.load().join()
+        assertNull(m.save())
+        assertEquals(PRIMARY_CALENDAR_ID, settings.load().googleCalendarId)
+        assertEquals(CalendarNotice.Switched(primary.name, 0, emptyList()), m.state.value.notice)
     }
 
     @Test
     fun switchAsksAboutOldCopiesAndDeletesThem() = runTest {
         withOldCopy()
         val m = model()
-        m.select(notes)!!.join()
+        m.load().join()
+        m.select(notes)
+        m.save()!!.join()
         assertEquals(PendingSwitch(notes, 1), m.state.value.pending)
         assertEquals(PRIMARY_CALENDAR_ID, settings.load().googleCalendarId) // ещё не переключили
 
@@ -90,30 +107,38 @@ class GoogleCalendarModelTest {
     fun cancelledSwitchChangesNothing() = runTest {
         withOldCopy()
         val m = model()
-        m.select(notes)!!.join()
+        m.load().join()
+        m.select(notes)
+        m.save()!!.join()
         m.cancelSwitch()
         assertNull(m.state.value.pending)
+        assertTrue(m.state.value.isSelected(primary))
         assertEquals(PRIMARY_CALENDAR_ID, settings.load().googleCalendarId)
         assertEquals(1, google.events.size)
     }
 
     @Test
-    fun readOnlyAndCurrentCalendarsCannotBeSelected() = runTest {
+    fun readOnlyCalendarCannotBeSelected() = runTest {
         val m = model()
         m.load().join()
-        assertNull(m.select(holidays))
-        assertNull(m.select(primary))
+        m.select(holidays)
+        assertTrue(m.state.value.isSelected(primary))
     }
 
     @Test
-    fun createAddsCalendarAndSwitchesToIt() = runTest {
+    fun createAddsCalendarAndSelectsItUntilSaved() = runTest {
         val m = model()
+        m.load().join()
         assertNull(m.create("  "))
         assertEquals(CalendarNotice.NameRequired, m.state.value.notice)
 
         m.create(" Работа ")!!.join()
-        assertEquals("new@group", settings.load().googleCalendarId)
         assertEquals("Работа", m.state.value.calendars.last().name)
+        assertEquals(CalendarNotice.Created("Работа"), m.state.value.notice)
+        assertEquals(PRIMARY_CALENDAR_ID, settings.load().googleCalendarId)
+
+        m.save()!!.join()
+        assertEquals("new@group", settings.load().googleCalendarId)
         assertEquals(CalendarNotice.Switched("Работа", 0, emptyList()), m.state.value.notice)
     }
 }

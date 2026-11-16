@@ -45,8 +45,8 @@ class LoopbackServerTest {
         assertEquals(mapOf("code" to "abc", "state" to "xyz"), query)
         Thread.sleep(300)
         assertTrue(replies[0].startsWith("HTTP/1.1 404"))
-        assertTrue(replies[1].startsWith("HTTP/1.1 302"))
-        assertTrue("Location: ${LoopbackHttp.RETURN_TO_APP}" in replies[1])
+        assertTrue(replies[1].startsWith("HTTP/1.1 200"))
+        assertTrue("href=\"${LoopbackHttp.RETURN_TO_APP}\"" in replies[1])
     }
 
     @Test

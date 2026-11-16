@@ -50,10 +50,11 @@ class LoopbackHttpTest {
     }
 
     @Test
-    fun redirectSendsBrowserBackToTheApp() {
-        val text = LoopbackHttp.redirectToApp().decodeToString()
-        assertTrue(text.startsWith("HTTP/1.1 302 Found\r\n"))
-        assertTrue("\r\nLocation: app.gcaltolotus://signed-in\r\n" in text)
-        assertTrue(text.endsWith("Connection: close\r\n\r\n"))
+    fun callbackPageOpensTheAppByItselfAndByButton() {
+        val page = LoopbackHttp.callbackPage(mapOf("code" to "c", "state" to "s"))
+        assertTrue("Вход выполнен" in page)
+        assertTrue("<a href=\"${LoopbackHttp.RETURN_TO_APP}\"" in page)
+        assertTrue("location.replace(\"${LoopbackHttp.RETURN_TO_APP}\")" in page)
+        assertTrue("Вход не выполнен" in LoopbackHttp.callbackPage(mapOf("error" to "access_denied")))
     }
 }

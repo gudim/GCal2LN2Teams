@@ -183,7 +183,7 @@
 
     <!-- Календарь Google -->
     <string name="calendar_title">Календарь для копий</string>
-    <string name="calendar_hint">Сюда записываются копии событий из Lotus и Teams. Календари только для чтения выбрать нельзя.</string>
+    <string name="calendar_hint">Сюда записываются копии событий из Lotus и Teams. Отметьте календарь и нажмите «Сохранить». Календари только для чтения выбрать нельзя.</string>
     <string name="calendar_loading">Загружаем календари…</string>
     <string name="calendar_list_failed">Не удалось загрузить календари: %1$s</string>
     <string name="calendar_reload">Повторить</string>
@@ -195,7 +195,8 @@
     <string name="calendar_name_default">Notes</string>
     <string name="calendar_create_button">Создать и выбрать</string>
     <string name="calendar_name_required">Введите название календаря</string>
-    <string name="calendar_created">Календарь «%1$s» создан</string>
+    <string name="calendar_created">Календарь «%1$s» создан и отмечен. Нажмите «Сохранить», чтобы копии шли в него</string>
+    <string name="calendar_save">Сохранить</string>
     <string name="calendar_failed">Не удалось: %1$s</string>
     <string name="calendar_switch_title">Перейти на «%1$s»?</string>
     <plurals name="calendar_switch_question">
