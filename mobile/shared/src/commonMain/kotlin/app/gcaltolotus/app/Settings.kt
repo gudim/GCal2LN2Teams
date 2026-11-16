@@ -53,6 +53,11 @@ data class Route(val origin: System, val target: System) {
  *   недоступен ([shouldNotifyDominoUnreachable]).
  * @property notifyBackgroundSummary после каждой фоновой синхронизации показывать тихое
  *   уведомление с итогом («Создано 3, обновлено 1»). По умолчанию выключено.
+ * @property confirmEachAction ручная синхронизация всегда показывает предпросмотр всех действий
+ *   и ждёт «Применить» (как до ADR 0004). По умолчанию выключено: см. [autoApply].
+ * @property manualApplied ручное применение уже было хотя бы раз ([afterManualApply]).
+ * @property attendeeAnswers запомненные ответы на вопрос «правка встречи с участниками» по ключу
+ *   действия `update:<система>:<id>` (ADR 0004).
  */
 data class SyncSettings(
     val dominoUrl: String = "",
@@ -67,6 +72,9 @@ data class SyncSettings(
     val dominoDisabled: Boolean = false,
     val lastDominoSuccess: Instant? = null,
     val notifyBackgroundSummary: Boolean = false,
+    val confirmEachAction: Boolean = false,
+    val manualApplied: Boolean = false,
+    val attendeeAnswers: Map<String, AttendeeAnswer> = emptyMap(),
 ) {
     init {
         require(direction in DIRECTIONS) { "Неизвестное направление: '$direction'" }
@@ -83,6 +91,13 @@ data class SyncSettings(
     }
 
     /** Системы, нужные для [activeRoutes]. */
+    /**
+     * Ручная синхронизация применяет всё, кроме вопросов, сразу, а показывает только вопросы
+     * (ADR 0004). Только после первого ручного применения: на нём пользователь отказывается от
+     * лишних копий (ADR 0003).
+     */
+    val autoApply: Boolean get() = manualApplied && !confirmEachAction
+
     fun activeSystems(): Set<System> = activeRoutes().flatMap { listOf(it.origin, it.target) }.toSet()
 
     /**
@@ -90,8 +105,12 @@ data class SyncSettings(
      * умолчанию. Выбор пользователя (в том числе «выключена») не трогается.
      */
     fun afterManualApply(): SyncSettings =
-        if (backgroundConfigured) this
-        else copy(backgroundIntervalMinutes = DEFAULT_BACKGROUND_INTERVAL_MINUTES, backgroundConfigured = true)
+        if (backgroundConfigured) copy(manualApplied = true)
+        else copy(
+            backgroundIntervalMinutes = DEFAULT_BACKGROUND_INTERVAL_MINUTES,
+            backgroundConfigured = true,
+            manualApplied = true,
+        )
 
     /**
      * Пользователь выбрал период фона ([BACKGROUND_INTERVALS]; 0 — выключить). Выбор считается
@@ -102,6 +121,12 @@ data class SyncSettings(
         return copy(backgroundIntervalMinutes = minutes, backgroundConfigured = true)
     }
 }
+
+/**
+ * Ответ на вопрос «правка встречи с участниками» (ADR 0004): [allow] — обновлять встречу, хотя
+ * участники получат письмо. Действует, пока у встречи название [title] и правка его не меняет.
+ */
+data class AttendeeAnswer(val title: String, val allow: Boolean)
 
 /** Периоды фоновой синхронизации в минутах, из которых выбирает пользователь; 0 — выключена. */
 val BACKGROUND_INTERVALS: List<Int> = listOf(15, 60, 240, 0)

@@ -30,11 +30,13 @@ sealed interface SyncPhase {
      *   закончился другой запуск, предпросмотр устарел и строится заново.
      * @property rebuiltAfterRun предпросмотр построен заново вместо применения: пока он был
      *   открыт, прошла другая синхронизация (баннер на экране).
+     * @property autoApplied уже выполнено автоприменением (ADR 0004); в предпросмотре — вопросы.
      */
     data class Ready(
         val built: SyncRuns.Built,
         val selected: Set<String>,
         val rebuiltAfterRun: Boolean = false,
+        val autoApplied: RunReport? = null,
     ) : SyncPhase {
         val preview: Preview get() = built.preview
 
@@ -62,9 +64,11 @@ sealed interface SyncPhase {
     data class Failed(val message: String, val applying: Boolean) : SyncPhase
 }
 
+/** @property autoApply «Синхронизировать» применяет сразу и спрашивает только вопросы ([SyncSettings.autoApply]). */
 data class SyncState(
     val routes: Set<Route> = ALL_ROUTES.toSet(),
     val phase: SyncPhase = SyncPhase.Idle,
+    val autoApply: Boolean = false,
 )
 
 /** Все шесть маршрутов в каноническом порядке систем. */
@@ -97,10 +101,10 @@ class SyncModel(
     /** Идёт фоновая синхронизация: нажатия «Предпросмотр» и «Применить» сейчас пропускаются. */
     val backgroundRunning: StateFlow<Boolean> = runs.backgroundRunning
 
-    /** Прочитать выбранные маршруты из настроек. */
+    /** Прочитать выбранные маршруты и режим подтверждения из настроек. */
     fun load(): Job = scope.launch {
-        val enabled = settings.load().activeRoutes().toSet()
-        mutable.update { it.copy(routes = enabled) }
+        val s = settings.load()
+        mutable.update { it.copy(routes = s.activeRoutes().toSet(), autoApply = s.autoApply) }
     }
 
     fun setRoute(route: Route, enabled: Boolean): Job {
@@ -113,13 +117,27 @@ class SyncModel(
         }
     }
 
-    /** Построить предпросмотр. Пока он строится или применяется, повторный вызов ничего не делает. */
-    fun preview(): Job? {
+    /**
+     * Построить предпросмотр, а при автоприменении ([SyncSettings.autoApply], ADR 0004) — сразу
+     * выполнить всё, кроме вопросов, и показать предпросмотр только с вопросами (или отчёт, если
+     * их нет). [full] — всегда полный предпросмотр без применения (кнопка «Предпросмотр» в режиме
+     * автоприменения: в нём же строки «Не копируется»). Пока идёт шаг, повторный вызов ничего не делает.
+     */
+    fun preview(full: Boolean = false): Job? {
         val before = mutable.value.phase
         if (before is SyncPhase.Loading || before is SyncPhase.Applying) return null
         mutable.update { it.copy(phase = SyncPhase.Loading) }
         return step(before, applying = false) {
-            runs.preview()?.let { SyncPhase.Ready(it, it.preview.defaultKeys) }
+            val auto = settings.load().autoApply
+            mutable.update { it.copy(autoApply = auto) }
+            if (auto && !full) {
+                runs.autoRun()?.let { run ->
+                    run.questions?.let { SyncPhase.Ready(it, it.preview.defaultKeys, autoApplied = run.report) }
+                        ?: SyncPhase.Done(run.report)
+                }
+            } else {
+                runs.preview()?.let { SyncPhase.Ready(it, it.preview.defaultKeys) }
+            }
         }
     }
 
@@ -162,11 +180,13 @@ class SyncModel(
         return step(ready, applying = true) {
             when (val outcome = runs.apply(ready.built, ready.selected)) {
                 null -> null
-                is SyncRuns.Applied.Stale ->
-                    SyncPhase.Ready(outcome.rebuilt, carrySelection(ready, outcome.rebuilt.preview), rebuiltAfterRun = true)
+                is SyncRuns.Applied.Stale -> SyncPhase.Ready(
+                    outcome.rebuilt, carrySelection(ready, outcome.rebuilt.preview),
+                    rebuiltAfterRun = true, autoApplied = ready.autoApplied,
+                )
                 is SyncRuns.Applied.Done -> {
                     enableBackgroundAfterFirstApply()
-                    SyncPhase.Done(outcome.report)
+                    SyncPhase.Done(ready.autoApplied?.plus(outcome.report) ?: outcome.report)
                 }
             }
         }

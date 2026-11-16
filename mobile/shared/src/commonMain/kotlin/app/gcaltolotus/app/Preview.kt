@@ -169,6 +169,22 @@ data class RunReport(
 
     /** Все ошибки с маршрутом: `google>teams: Обзор: HTTP 500`. */
     val errors: List<String> get() = routes.flatMap { (route, r) -> r.errors.map { "$route: $it" } }
+
+    /** Два запуска подряд как один отчёт (автоприменение, затем ответы на вопросы; ADR 0004). */
+    operator fun plus(next: RunReport): RunReport {
+        val merged = LinkedHashMap(routes)
+        for ((route, r) in next.routes) {
+            val prev = merged[route]
+            merged[route] = if (prev == null) r else RouteResult(prev.counts + r.counts, prev.errors + r.errors)
+        }
+        return RunReport(
+            routes = merged,
+            skipped = next.skipped,
+            dominoDisabledNow = dominoDisabledNow || next.dominoDisabledNow,
+            warnings = (warnings + next.warnings).distinct(),
+            dominoUnavailable = next.dominoUnavailable ?: dominoUnavailable,
+        )
+    }
 }
 
 /**

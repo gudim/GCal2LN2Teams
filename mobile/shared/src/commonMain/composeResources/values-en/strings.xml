@@ -65,6 +65,10 @@
     <string name="routes_none">Choose at least one route</string>
     <string name="sync_preview">Preview</string>
     <string name="sync_preview_hint">You see the list first: nothing changes without your confirmation.</string>
+    <string name="sync_preview_full_hint">Show every action before applying, as before. Events you chose not to copy are listed there too.</string>
+    <string name="sync_run">Sync</string>
+    <string name="sync_run_hint">Creates, updates, moves and deletes are applied at once. You are asked only about what needs a decision: deleting an original, “same meeting?”, editing a meeting with attendees. Confirming each action can be turned on in Settings.</string>
+    <string name="sync_auto_applied">Already applied: %1$s. Questions remain: answer them and tap Apply.</string>
     <string name="sync_loading">Reading calendars and matching copies…</string>
     <string name="sync_applying">Applying…</string>
     <string name="sync_back_to_routes">← Routes</string>
@@ -233,6 +237,11 @@
     <string name="system_notifications_settings">Notification settings</string>
     <string name="system_notifications_hint">The “Questions”, “Connection problems” and “Background sync result” channels are tuned separately in the system.</string>
     <string name="system_summary_switch">Notify the result of every background sync</string>
+    <string name="confirm_title">Confirmation</string>
+    <string name="confirm_switch">Confirm each action</string>
+    <string name="confirm_hint_on">A manual sync shows every action and waits for Apply.</string>
+    <string name="confirm_hint_off">After the first sync everything except questions is applied at once. Your answer about editing a meeting with attendees is remembered while the meeting keeps its title.</string>
+    <string name="confirm_forget">Forget answers about meetings with attendees (%1$d)</string>
     <string name="system_summary_hint">A silent notification like “Created 3, updated 1”; each new one replaces the previous.</string>
     <string name="system_summary_blocked_app">App notifications are off in the system, so the result will not appear. Turn the switch on to open the settings.</string>
     <string name="system_summary_blocked_channel">The “Background sync result” channel is off in the system. Turn the switch on to open its settings.</string>

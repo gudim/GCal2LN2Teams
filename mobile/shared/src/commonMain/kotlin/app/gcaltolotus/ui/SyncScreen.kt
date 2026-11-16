@@ -106,6 +106,10 @@ import app.gcaltolotus.shared.resources.sync_nothing_hint
 import app.gcaltolotus.shared.resources.sync_preview
 import app.gcaltolotus.shared.resources.sync_preview_failed
 import app.gcaltolotus.shared.resources.sync_preview_hint
+import app.gcaltolotus.shared.resources.sync_preview_full_hint
+import app.gcaltolotus.shared.resources.sync_auto_applied
+import app.gcaltolotus.shared.resources.sync_run
+import app.gcaltolotus.shared.resources.sync_run_hint
 import app.gcaltolotus.shared.resources.sync_questions_note
 import app.gcaltolotus.shared.resources.sync_copy_now
 import app.gcaltolotus.shared.resources.sync_refusals_note
@@ -144,7 +148,7 @@ internal fun SyncScreen(model: SyncModel, onOpenConnections: () -> Unit, modifie
     }
 
     when (phase) {
-        SyncPhase.Idle -> RoutesPane(state.routes, backgroundRunning, model, modifier)
+        SyncPhase.Idle -> RoutesPane(state.routes, state.autoApply, backgroundRunning, model, modifier)
         SyncPhase.Loading -> Progress(stringResource(Res.string.sync_loading), modifier)
         is SyncPhase.Applying -> Progress(stringResource(Res.string.sync_applying), modifier)
         is SyncPhase.Ready -> PreviewPane(phase, backgroundRunning, model, onOpenConnections, modifier)
@@ -154,7 +158,7 @@ internal fun SyncScreen(model: SyncModel, onOpenConnections: () -> Unit, modifie
 }
 
 @Composable
-private fun RoutesPane(routes: Set<Route>, backgroundRunning: Boolean, model: SyncModel, modifier: Modifier) {
+private fun RoutesPane(routes: Set<Route>, autoApply: Boolean, backgroundRunning: Boolean, model: SyncModel, modifier: Modifier) {
     Column(
         modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -178,8 +182,16 @@ private fun RoutesPane(routes: Set<Route>, backgroundRunning: Boolean, model: Sy
             onClick = { model.preview() },
             enabled = routes.isNotEmpty(),
             modifier = Modifier.fillMaxWidth(),
-        ) { Text(stringResource(Res.string.sync_preview)) }
-        Hint(stringResource(Res.string.sync_preview_hint))
+        ) { Text(stringResource(if (autoApply) Res.string.sync_run else Res.string.sync_preview)) }
+        Hint(stringResource(if (autoApply) Res.string.sync_run_hint else Res.string.sync_preview_hint))
+        if (autoApply) {
+            OutlinedButton(
+                onClick = { model.preview(full = true) },
+                enabled = routes.isNotEmpty(),
+                modifier = Modifier.fillMaxWidth(),
+            ) { Text(stringResource(Res.string.sync_preview)) }
+            Hint(stringResource(Res.string.sync_preview_full_hint))
+        }
     }
 }
 
@@ -222,6 +234,9 @@ private fun PreviewPane(
             }
             if (backgroundRunning) {
                 item { Banner(stringResource(Res.string.sync_background_running), Tone.INFO) }
+            }
+            phase.autoApplied?.let { report ->
+                item { Banner(stringResource(Res.string.sync_auto_applied, countsText(report.totals)), Tone.SUCCESS) }
             }
             if (phase.rebuiltAfterRun) {
                 item { Banner(stringResource(Res.string.sync_preview_rebuilt), Tone.WARNING) }

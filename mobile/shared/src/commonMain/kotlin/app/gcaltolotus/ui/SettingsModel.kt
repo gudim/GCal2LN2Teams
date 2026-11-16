@@ -26,6 +26,8 @@ const val MAX_WINDOW_DAYS: Int = 365
  * @property update вышла версия новее установленной (по последней еженедельной проверке).
  * @property notifySummary пользователь включил уведомление с итогом фоновой синхронизации
  *   (сохранённая настройка; появится ли оно, решает ещё и система, см. [summaryShown]).
+ * @property confirmEach [SyncSettings.confirmEachAction].
+ * @property attendeeAnswers сколько ответов о встречах с участниками запомнено.
  */
 data class SettingsState(
     val daysBack: String = SyncSettings().daysBack.toString(),
@@ -36,6 +38,8 @@ data class SettingsState(
     val notifySummary: Boolean = false,
     val appVersion: String? = null,
     val update: AppRelease? = null,
+    val confirmEach: Boolean = false,
+    val attendeeAnswers: Int = 0,
 ) {
     val daysBackValid: Boolean get() = parseDays(daysBack) != null
     val daysForwardValid: Boolean get() = parseDays(daysForward) != null
@@ -69,6 +73,8 @@ class SettingsModel(
                 daysForward = s.daysForward.toString(),
                 intervalMinutes = s.backgroundIntervalMinutes,
                 notifySummary = s.notifyBackgroundSummary,
+                confirmEach = s.confirmEachAction,
+                attendeeAnswers = s.attendeeAnswers.size,
             )
         }
         readSystem()
@@ -137,6 +143,18 @@ class SettingsModel(
             }
         }
         return scope.launch { settings.update { it.copy(notifyBackgroundSummary = on) } }
+    }
+
+    /** Подтверждать каждое действие ручной синхронизации (иначе — автоприменение, ADR 0004). */
+    fun setConfirmEach(on: Boolean): Job {
+        mutable.update { it.copy(confirmEach = on) }
+        return scope.launch { settings.update { it.copy(confirmEachAction = on) } }
+    }
+
+    /** Забыть ответы о встречах с участниками: вопросы о них зададутся снова. */
+    fun forgetAttendeeAnswers(): Job {
+        mutable.update { it.copy(attendeeAnswers = 0) }
+        return scope.launch { settings.update { it.copy(attendeeAnswers = emptyMap()) } }
     }
 
     fun editDaysBack(text: String): Job? {

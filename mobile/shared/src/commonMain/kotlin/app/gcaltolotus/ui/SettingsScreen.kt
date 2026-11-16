@@ -59,6 +59,11 @@ import app.gcaltolotus.shared.resources.system_notifications_enable
 import app.gcaltolotus.shared.resources.system_notifications_settings
 import app.gcaltolotus.shared.resources.system_notifications_hint
 import app.gcaltolotus.shared.resources.system_summary_switch
+import app.gcaltolotus.shared.resources.confirm_forget
+import app.gcaltolotus.shared.resources.confirm_hint_off
+import app.gcaltolotus.shared.resources.confirm_hint_on
+import app.gcaltolotus.shared.resources.confirm_switch
+import app.gcaltolotus.shared.resources.confirm_title
 import app.gcaltolotus.shared.resources.system_summary_hint
 import app.gcaltolotus.shared.resources.system_summary_blocked_app
 import app.gcaltolotus.shared.resources.system_summary_blocked_channel
@@ -110,6 +115,8 @@ internal fun SettingsScreen(model: SettingsModel, modifier: Modifier = Modifier)
             Hint(stringResource(Res.string.interval_hint))
         }
 
+        ConfirmSection(state, model)
+
         SystemSection(state, model)
 
         SectionCard {
@@ -135,6 +142,32 @@ private fun AboutSection(state: SettingsState) {
             Button(onClick = { uriHandler.openUri(update.pageUrl) }) { Text(stringResource(Res.string.about_update_download)) }
         }
         Hint(stringResource(Res.string.about_update_hint))
+    }
+}
+
+/** «Подтверждение»: подтверждать ли каждое действие ручной синхронизации (ADR 0004). */
+@Composable
+private fun ConfirmSection(state: SettingsState, model: SettingsModel) {
+    SectionCard {
+        SectionTitle(stringResource(Res.string.confirm_title))
+        Row(
+            Modifier.fillMaxWidth().toggleable(
+                value = state.confirmEach,
+                role = Role.Switch,
+                onValueChange = { model.setConfirmEach(it) },
+            ),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Text(stringResource(Res.string.confirm_switch), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.weight(1f))
+            Switch(checked = state.confirmEach, onCheckedChange = null)
+        }
+        Hint(stringResource(if (state.confirmEach) Res.string.confirm_hint_on else Res.string.confirm_hint_off))
+        if (state.attendeeAnswers > 0) {
+            OutlinedButton(onClick = { model.forgetAttendeeAnswers() }) {
+                Text(stringResource(Res.string.confirm_forget, state.attendeeAnswers))
+            }
+        }
     }
 }
 

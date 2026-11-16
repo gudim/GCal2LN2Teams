@@ -75,6 +75,10 @@
     <string name="routes_none">Выберите хотя бы один маршрут</string>
     <string name="sync_preview">Предпросмотр</string>
     <string name="sync_preview_hint">Сначала покажем список: без вашего подтверждения ничего не меняется.</string>
+    <string name="sync_preview_full_hint">Показать все действия перед применением, как раньше. Здесь же — события, которые вы решили не копировать.</string>
+    <string name="sync_run">Синхронизировать</string>
+    <string name="sync_run_hint">Создания, обновления, переносы и удаления применяются сразу. Спросим только о том, что требует решения: удалить оригинал, «одна встреча?», правка встречи с участниками. Подтверждать каждое действие можно включить в настройках.</string>
+    <string name="sync_auto_applied">Уже применено: %1$s. Остались вопросы — ответьте на них и нажмите «Применить».</string>
     <string name="sync_loading">Читаем календари и сверяем копии…</string>
     <string name="sync_applying">Применяем…</string>
     <string name="sync_back_to_routes">← Маршруты</string>
@@ -247,6 +251,11 @@
     <string name="system_notifications_settings">Настроить уведомления</string>
     <string name="system_notifications_hint">Каналы «Вопросы», «Проблемы с подключением» и «Итог фоновой синхронизации» настраиваются в системе отдельно.</string>
     <string name="system_summary_switch">Сообщать итог каждой фоновой синхронизации</string>
+    <string name="confirm_title">Подтверждение</string>
+    <string name="confirm_switch">Подтверждать каждое действие</string>
+    <string name="confirm_hint_on">Ручная синхронизация показывает все действия и ждёт «Применить».</string>
+    <string name="confirm_hint_off">После первой синхронизации всё, кроме вопросов, применяется сразу. Ответ на правку встречи с участниками запоминается, пока у встречи то же название.</string>
+    <string name="confirm_forget">Забыть ответы о встречах с участниками (%1$d)</string>
     <string name="system_summary_hint">Тихое уведомление вроде «Создано 3, обновлено 1»; новое заменяет прежнее.</string>
     <string name="system_summary_blocked_app">Уведомления приложения выключены в системе: итог не появится. Включите переключатель, чтобы открыть настройки.</string>
     <string name="system_summary_blocked_channel">Канал «Итог фоновой синхронизации» выключен в системе. Включите переключатель, чтобы открыть его настройки.</string>

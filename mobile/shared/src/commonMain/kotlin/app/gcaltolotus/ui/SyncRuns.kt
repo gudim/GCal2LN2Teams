@@ -57,6 +57,12 @@ class SyncRuns(
     }
 
     /**
+     * Итог ручного запуска с автоприменением (ADR 0004): [report] — выполненное без вопросов;
+     * [questions] — предпросмотр, построенный после него, если остались вопросы.
+     */
+    class AutoRun(val report: RunReport, val questions: Built?)
+
+    /**
      * Фоновый запуск: ждёт окончания ручного шага, если тот идёт. Ошибка записывается в историю
      * и пробрасывается (уведомления по ней решает вызывающий).
      */
@@ -76,6 +82,22 @@ class SyncRuns(
             finished++
             running.value = false
         }
+    }
+
+    /**
+     * Ручной запуск с автоприменением: выполнить всё, кроме вопросов (как фон), и, если вопросы
+     * остались, построить предпросмотр заново — в нём только они и то, что от них зависит.
+     * `null` — идёт фоновый запуск.
+     */
+    suspend fun autoRun(): AutoRun? = manual {
+        val report = try {
+            sync.runBackground().also {
+                record(LastRun.manual(it.run, clock.now(), it.openQuestions), RunOutcome.Finished(it.run, it.openQuestions, background = false))
+            }
+        } finally {
+            finished++
+        }
+        AutoRun(report.run, if (report.openQuestions > 0) Built(sync.preview(), finished) else null)
     }
 
     /** Построить предпросмотр; `null` — идёт фоновый запуск. */

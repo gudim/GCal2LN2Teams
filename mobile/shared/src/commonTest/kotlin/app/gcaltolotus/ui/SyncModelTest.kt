@@ -74,6 +74,64 @@ class SyncModelTest {
     }
 
     @Test
+    fun firstManualRunAlwaysShowsThePreview() = runTest {
+        val teams = memory(System.TEAMS)
+        val m = model(memory(System.GOOGLE, event("g1", "Обзор")), teams)
+        m.preview()!!.join()
+        ready(m)
+        assertTrue(teams.events.isEmpty())
+        m.apply()!!.join()
+        assertTrue(settings.load().manualApplied)
+        assertTrue(settings.load().autoApply)
+    }
+
+    @Test
+    fun autoApplyRunsEverythingAndReportsWhenThereAreNoQuestions() = runTest {
+        settings.update { it.copy(manualApplied = true) }
+        val teams = memory(System.TEAMS)
+        val m = model(memory(System.GOOGLE, event("g1", "Обзор")), teams)
+        m.load().join()
+        assertTrue(m.state.value.autoApply)
+        m.preview()!!.join()
+
+        val done = assertIs<SyncPhase.Done>(m.state.value.phase)
+        assertEquals(1, done.report.totals.created)
+        assertEquals(listOf("Обзор"), teams.events.map { it.title })
+        assertEquals(false, history.last()!!.background)
+    }
+
+    @Test
+    fun autoApplyShowsOnlyQuestionsAndMergesTheReport() = runTest {
+        settings.update { it.copy(manualApplied = true) }
+        // g1 копируется сразу; g2 и t9 совпадают по названию и началу — вопрос «одна встреча?»
+        val google = memory(System.GOOGLE, event("g1", "Обзор"), event("g2", "Планёрка", start = "2026-11-14T12:00:00Z", end = "2026-11-14T13:00:00Z"))
+        val teams = memory(System.TEAMS, event("t9", "Планёрка", start = "2026-11-14T12:00:00Z", end = "2026-11-14T13:00:00Z"))
+        val m = model(google, teams)
+        m.preview()!!.join()
+
+        val r = ready(m)
+        assertEquals(1, r.autoApplied!!.totals.created)
+        assertTrue("Обзор" in teams.events.map { it.title })
+        assertTrue(r.preview.actions.any { it.isQuestion })
+        assertTrue(r.preview.actions.none { it.title == "Обзор" })
+
+        m.apply()!!.join()
+        val done = assertIs<SyncPhase.Done>(m.state.value.phase)
+        assertEquals(1, done.report.totals.created)
+        assertEquals(1, done.report.totals.linked)
+    }
+
+    @Test
+    fun confirmEachActionKeepsTheFullPreview() = runTest {
+        settings.update { it.copy(manualApplied = true, confirmEachAction = true) }
+        val teams = memory(System.TEAMS)
+        val m = model(memory(System.GOOGLE, event("g1", "Обзор")), teams)
+        m.preview()!!.join()
+        assertNull(ready(m).autoApplied)
+        assertTrue(teams.events.isEmpty())
+    }
+
+    @Test
     fun firstManualApplyTurnsBackgroundOnOnce() = runTest {
         assertEquals(0, settings.load().backgroundIntervalMinutes)
         val m = model(memory(System.GOOGLE, event("g1", "Обзор")), memory(System.TEAMS))
@@ -87,7 +145,7 @@ class SyncModelTest {
         // Пользователь выключил фон; следующие применения его выбор не трогают.
         settings.save(settings.load().copy(backgroundIntervalMinutes = 0))
         m.reset()
-        m.preview()!!.join()
+        m.preview(full = true)!!.join()
         m.apply()!!.join()
         assertEquals(0, settings.load().backgroundIntervalMinutes)
     }
@@ -279,7 +337,7 @@ class SyncModelTest {
 
         m.apply()!!.join()
         m.reset()
-        m.preview()!!.join()
+        m.preview(full = true)!!.join()
         val again = ready(m)
         assertEquals(listOf(REFUSED), again.preview.refused.map { it.key })
         assertTrue(again.refusals.isEmpty()) // строка «Не копируется» без галочки — не новый отказ
@@ -296,7 +354,7 @@ class SyncModelTest {
         refuseCopy(m)
         assertTrue(teams.events.isEmpty())
 
-        m.preview()!!.join()
+        m.preview(full = true)!!.join()
         assertTrue(ready(m).preview.actions.isEmpty())
         m.toggle(REFUSED)
         assertTrue(REFUSED in ready(m).selected) // ключ уходит в applySelected
@@ -304,7 +362,7 @@ class SyncModelTest {
 
         assertEquals(listOf("Обзор"), teams.events.map { it.title })
         m.reset()
-        m.preview()!!.join()
+        m.preview(full = true)!!.join()
         assertTrue(ready(m).preview.refused.isEmpty())
     }
 
@@ -312,7 +370,7 @@ class SyncModelTest {
     fun undoRefusalRebuildsPreviewWithTheCopyTicked() = runTest {
         val m = model(memory(System.GOOGLE, event("g1", "Обзор"), event("g2", "Обед")), memory(System.TEAMS))
         refuseCopy(m)
-        m.preview()!!.join()
+        m.preview(full = true)!!.join()
         val other = "google:g2>teams"
         m.toggle(other) // выбор пользователя переносится в новый предпросмотр
         val before = ready(m).preview

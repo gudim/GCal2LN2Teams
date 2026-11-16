@@ -6,12 +6,14 @@ import app.gcaltolotus.adapters.domino.DominoHttpException
 import app.gcaltolotus.adapters.google.GoogleCalendarDirectory
 import app.gcaltolotus.adapters.google.GoogleCalendarInfo
 import app.gcaltolotus.sync.Action
+import app.gcaltolotus.sync.ActionKind
 import app.gcaltolotus.sync.Calendar
 import app.gcaltolotus.sync.CalendarEvent
 import app.gcaltolotus.sync.Collected
 import app.gcaltolotus.sync.DIRECTIONS
 import app.gcaltolotus.sync.Link
 import app.gcaltolotus.sync.Plan
+import app.gcaltolotus.sync.REASON_ATTENDEES
 import app.gcaltolotus.sync.System
 import app.gcaltolotus.sync.Window
 import app.gcaltolotus.sync.apply
@@ -120,12 +122,22 @@ class SyncService(
      * В отличие от веб-версии план не строится заново: выполняется тот, что показан в [preview],
      * поэтому отказ запоминается только по вопросам, которые пользователь видел. Предпросмотр
      * выполняется один раз; повтор — [IllegalStateException].
+     *
+     * Ответы на «правку встречи с участниками» запоминаются ([SyncSettings.attendeeAnswers], ADR 0004).
      */
     suspend fun applySelected(preview: Preview, keys: Collection<String>): RunReport {
         check(!preview.applied) { "Этот предпросмотр уже выполнен: постройте новый" }
         preview.applied = true
         val run = preview.prepared
-        return execute(run, select(run.plan.actions, run.routes, keys.toSet(), run.plan.refused))
+        val chosen = keys.toSet()
+        val report = execute(run, select(run.plan.actions, run.routes, chosen, run.plan.refused))
+        val asked = preview.actions.filter { it.kind == ActionKind.UPDATE && it.reason == REASON_ATTENDEES }
+        if (asked.isNotEmpty()) {
+            settings.update { s ->
+                s.copy(attendeeAnswers = s.attendeeAnswers + asked.associate { it.key to AttendeeAnswer(it.title, it.key in chosen) })
+            }
+        }
+        return report
     }
 
     /**
@@ -252,7 +264,7 @@ class SyncService(
         }
         val result = plan(
             checkNotNull(collected).snapshot, DIRECTIONS.getValue(s.direction), known, collected.found, down,
-        )
+        ).withAttendeeAnswers(s.attendeeAnswers)
         return PreparedRun(
             window = window,
             routes = s.routes?.map { it.pair },
@@ -328,6 +340,26 @@ suspend fun saveDominoCredentials(
 }
 
 /** Всё, что нужно, чтобы выполнить план: календари, маршруты, план и куда писать связи. */
+/**
+ * Подставить запомненные ответы на «правку встречи с участниками» (ADR 0004): «да» — правка
+ * выполняется без вопроса, «нет» — правки в этом запуске нет. Ответ действует, пока название
+ * встречи то же, что при ответе, и правка его не меняет; иначе вопрос задаётся снова.
+ */
+internal fun Plan.withAttendeeAnswers(answers: Map<String, AttendeeAnswer>): Plan {
+    if (answers.isEmpty()) return this
+    return copy(
+        actions = actions.mapNotNull { a ->
+            val answer = answers[a.key]
+            when {
+                a.kind != ActionKind.UPDATE || a.reason != REASON_ATTENDEES || answer == null -> a
+                answer.title != a.event.title || "title" in a.changed -> a
+                answer.allow -> a.copy(selected = true)
+                else -> null
+            }
+        },
+    )
+}
+
 internal class PreparedRun(
     val window: Window,
     val routes: List<Pair<System, System>>?,

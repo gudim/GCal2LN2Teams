@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.mutablePreferencesOf
 import androidx.datastore.preferences.core.stringPreferencesKey
 import app.gcaltolotus.adapters.teams.TeamsTokens
 import app.gcaltolotus.app.AppRelease
+import app.gcaltolotus.app.AttendeeAnswer
 import app.gcaltolotus.app.GoogleTokens
 import app.gcaltolotus.app.Route
 import app.gcaltolotus.app.SyncSettings
@@ -51,6 +52,12 @@ class SettingsCodecTest {
             dominoDisabled = true,
             lastDominoSuccess = Instant.parse("2026-11-14T10:00:00Z"),
             notifyBackgroundSummary = true,
+            confirmEachAction = true,
+            manualApplied = true,
+            attendeeAnswers = mapOf(
+                "update:domino:d1" to AttendeeAnswer("Обзор | 1", allow = true),
+                "update:teams:t1" to AttendeeAnswer("", allow = false),
+            ),
         )
         val p = mutablePreferencesOf()
         SettingsCodec.write(s, p)
@@ -69,6 +76,9 @@ class SettingsCodecTest {
         val p = mutablePreferencesOf()
         SettingsCodec.write(s.copy(daysBack = 5), p)
         assertFalse(SettingsCodec.read(p).backgroundConfigured)
+        // До первого ручного применения автоприменения нет (ADR 0004).
+        assertFalse(s.autoApply)
+        assertFalse(SettingsCodec.read(p).manualApplied)
     }
 
     @Test
@@ -81,6 +91,9 @@ class SettingsCodecTest {
         assertEquals(s, s.afterManualApply())
         // Ключа итога фоновой синхронизации в прежних версиях не было: он выключен.
         assertFalse(s.notifyBackgroundSummary)
+        // Фон настроен — ручное применение было: автоприменение включено (ADR 0004).
+        assertTrue(s.manualApplied)
+        assertTrue(s.autoApply)
     }
 
     @Test

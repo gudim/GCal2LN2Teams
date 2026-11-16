@@ -8,6 +8,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
+import app.gcaltolotus.app.AttendeeAnswer
 import app.gcaltolotus.app.Route
 import app.gcaltolotus.app.SettingsStore
 import app.gcaltolotus.app.SyncSettings
@@ -66,6 +67,26 @@ internal object SettingsCodec {
     /** Ключа нет (установка из прежней версии) — итог фоновой синхронизации не показывается. */
     private val NOTIFY_BACKGROUND_SUMMARY = booleanPreferencesKey("notify_background_summary")
 
+    private val CONFIRM_EACH_ACTION = booleanPreferencesKey("confirm_each_action")
+
+    /**
+     * [SyncSettings.manualApplied]. Ключа нет — установка из версии до 0.1.2: ручное применение
+     * было, если фон уже настроен (его включает первое применение).
+     */
+    private val MANUAL_APPLIED = booleanPreferencesKey("manual_applied")
+
+    /** [SyncSettings.attendeeAnswers]: строки `<1|0>␟<ключ действия>␟<название>`. */
+    private val ATTENDEE_ANSWERS = stringSetPreferencesKey("attendee_answers")
+    private const val SEP = '\u001F'
+
+    internal fun encodeAnswers(answers: Map<String, AttendeeAnswer>): Set<String> =
+        answers.mapTo(LinkedHashSet()) { (key, a) -> "${if (a.allow) 1 else 0}$SEP$key$SEP${a.title}" }
+
+    internal fun decodeAnswers(rows: Set<String>): Map<String, AttendeeAnswer> = rows.mapNotNull { row ->
+        val parts = row.split(SEP, limit = 3)
+        if (parts.size != 3 || parts[0] !in setOf("0", "1")) null else parts[1] to AttendeeAnswer(parts[2], parts[0] == "1")
+    }.toMap()
+
     fun read(p: Preferences): SyncSettings {
         val d = SyncSettings()
         return SyncSettings(
@@ -81,6 +102,9 @@ internal object SettingsCodec {
             dominoDisabled = p[DOMINO_DISABLED] ?: d.dominoDisabled,
             lastDominoSuccess = p[LAST_DOMINO_SUCCESS]?.let { runCatching { Instant.parse(it) }.getOrNull() },
             notifyBackgroundSummary = p[NOTIFY_BACKGROUND_SUMMARY] ?: d.notifyBackgroundSummary,
+            confirmEachAction = p[CONFIRM_EACH_ACTION] ?: d.confirmEachAction,
+            manualApplied = p[MANUAL_APPLIED] ?: p[BACKGROUND_CONFIGURED] ?: (BACKGROUND_INTERVAL in p),
+            attendeeAnswers = p[ATTENDEE_ANSWERS]?.let(::decodeAnswers) ?: d.attendeeAnswers,
         )
     }
 
@@ -99,5 +123,8 @@ internal object SettingsCodec {
         val last = s.lastDominoSuccess
         if (last == null) p.remove(LAST_DOMINO_SUCCESS) else p[LAST_DOMINO_SUCCESS] = last.toString()
         p[NOTIFY_BACKGROUND_SUMMARY] = s.notifyBackgroundSummary
+        p[CONFIRM_EACH_ACTION] = s.confirmEachAction
+        p[MANUAL_APPLIED] = s.manualApplied
+        p[ATTENDEE_ANSWERS] = encodeAnswers(s.attendeeAnswers)
     }
 }

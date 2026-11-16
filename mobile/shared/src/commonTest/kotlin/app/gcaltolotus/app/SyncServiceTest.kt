@@ -260,6 +260,58 @@ class SyncServiceTest {
         assertEquals("Обзор", google.events.single().title)
     }
 
+    /** Google-оригинал с участниками и его копия в Teams, перенесённая на 12:00: вопрос о правке оригинала. */
+    private suspend fun attendeesQuestion(): Pair<InMemoryCalendar, InMemoryCalendar> {
+        val old = CalendarEvent("Обзор", at("2026-11-14T10:00:00Z"), at("2026-11-14T11:00:00Z"), id = "g1")
+        val google = memory(System.GOOGLE, old.copy(hasAttendees = true))
+        val teams = memory(System.TEAMS, old.copy(id = "t1", source = System.GOOGLE))
+        links.save(PRIMARY_CALENDAR_ID, Link(System.GOOGLE, "g1", System.TEAMS, "t1", sourceFields = old.fields(), targetFields = old.fields()))
+        moveCopy(teams, "2026-11-14T12:00:00Z", "2026-11-14T13:00:00Z")
+        return google to teams
+    }
+
+    private suspend fun moveCopy(teams: InMemoryCalendar, start: String, end: String, title: String? = null) {
+        val copy = teams.events.single()
+        teams.update("t1", copy.copy(start = at(start), end = at(end), title = title ?: copy.title))
+    }
+
+    @Test
+    fun attendeesYesIsRememberedWhileTitleStaysTheSame() = runTest {
+        val (google, teams) = attendeesQuestion()
+        val svc = service(FakeCalendarSource(google, teams))
+        val preview = svc.preview()
+        val question = preview.actions.single { it.isQuestion }
+        assertEquals("update:google:g1", question.key)
+        svc.applySelected(preview, preview.defaultKeys + question.key)
+        assertEquals(AttendeeAnswer("Обзор", allow = true), settings.load().attendeeAnswers["update:google:g1"])
+        assertEquals(at("2026-11-14T12:00:00Z"), google.events.single().start)
+
+        // Второй перенос: без вопроса, в том числе в фоне
+        moveCopy(teams, "2026-11-14T14:00:00Z", "2026-11-14T15:00:00Z")
+        val report = svc.runBackground()
+        assertEquals(0, report.openQuestions)
+        assertEquals(at("2026-11-14T14:00:00Z"), google.events.single().start)
+
+        // Перенос со сменой названия — снова вопрос
+        moveCopy(teams, "2026-11-14T16:00:00Z", "2026-11-14T17:00:00Z", title = "Обзор итогов")
+        assertEquals(1, svc.runBackground().openQuestions)
+        assertEquals("Обзор", google.events.single().title)
+    }
+
+    @Test
+    fun attendeesNoIsRememberedToo() = runTest {
+        val (google, teams) = attendeesQuestion()
+        val svc = service(FakeCalendarSource(google, teams))
+        val preview = svc.preview()
+        svc.applySelected(preview, preview.defaultKeys) // галочка у вопроса снята
+        assertEquals(AttendeeAnswer("Обзор", allow = false), settings.load().attendeeAnswers["update:google:g1"])
+
+        val next = svc.preview()
+        assertTrue(next.actions.none { it.key == "update:google:g1" })
+        assertEquals(0, next.openQuestions)
+        assertEquals(at("2026-11-14T10:00:00Z"), google.events.single().start)
+    }
+
     @Test
     fun unauthorizedDominoDisablesLotusAndTheRestContinues() = runTest {
         val domino = UnauthorizedDomino()
