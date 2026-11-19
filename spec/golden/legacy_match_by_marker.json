@@ -1,5 +1,5 @@
 {
-  "description": "Копии без связи (сделаны до появления связей) узнаются по source + название + начало (в UTC, 01:00 МСК = 22:00 UTC). Ни копий, ни связей не создаётся.",
+  "description": "Копии без связи (сделаны до появления связей или прежней установкой) узнаются по source + название + начало (в UTC, 01:00 МСК = 22:00 UTC). Новых копий нет; для найденных копий тихо записываются связи (ADR 0005), и дальше они синхронизируются как обычные.",
   "expected": {
     "apply": {
       "calendars": {
@@ -72,7 +72,54 @@
           }
         ]
       },
-      "links": [],
+      "links": [
+        {
+          "kept": false,
+          "key": "domino:d1->google",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Созвон"
+          },
+          "source_id": "d1",
+          "source_system": "domino",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T11:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T10:00:00+00:00",
+            "title": "Созвон"
+          },
+          "target_id": "g-copy",
+          "target_system": "google"
+        },
+        {
+          "kept": false,
+          "key": "google:g1->domino",
+          "kind": "copy",
+          "source_fields": {
+            "description": "",
+            "end": "2026-11-13T23:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T22:00:00+00:00",
+            "title": "Релиз"
+          },
+          "source_id": "g1",
+          "source_system": "google",
+          "target_fields": {
+            "description": "",
+            "end": "2026-11-13T23:00:00+00:00",
+            "location": "",
+            "start": "2026-11-13T22:00:00+00:00",
+            "title": "Релиз"
+          },
+          "target_id": "d-copy",
+          "target_system": "domino"
+        }
+      ],
       "report": []
     },
     "collect": {
@@ -89,7 +136,82 @@
       }
     },
     "plan": {
-      "actions": [],
+      "actions": [
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": null,
+          "fallback": [],
+          "key": "link:google:g1->domino",
+          "kind": "link",
+          "link": {
+            "kept": false,
+            "key": "google:g1->domino",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T23:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T22:00:00+00:00",
+              "title": "Релиз"
+            },
+            "source_id": "g1",
+            "source_system": "google",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T23:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T22:00:00+00:00",
+              "title": "Релиз"
+            },
+            "target_id": "d-copy",
+            "target_system": "domino"
+          },
+          "origin": "google",
+          "reason": "",
+          "selected": true,
+          "silent": true,
+          "subject": "",
+          "target": "domino"
+        },
+        {
+          "changed": [],
+          "depends_on": [],
+          "event": null,
+          "fallback": [],
+          "key": "link:domino:d1->google",
+          "kind": "link",
+          "link": {
+            "kept": false,
+            "key": "domino:d1->google",
+            "kind": "copy",
+            "source_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Созвон"
+            },
+            "source_id": "d1",
+            "source_system": "domino",
+            "target_fields": {
+              "description": "",
+              "end": "2026-11-13T11:00:00+00:00",
+              "location": "",
+              "start": "2026-11-13T10:00:00+00:00",
+              "title": "Созвон"
+            },
+            "target_id": "g-copy",
+            "target_system": "google"
+          },
+          "origin": "domino",
+          "reason": "",
+          "selected": true,
+          "silent": true,
+          "subject": "",
+          "target": "google"
+        }
+      ],
       "refused": [],
       "warnings": []
     },
@@ -98,7 +220,10 @@
       "refused": [],
       "warnings": []
     },
-    "select": []
+    "select": [
+      "link:google:g1->domino",
+      "link:domino:d1->google"
+    ]
   },
   "input": {
     "calendars": {

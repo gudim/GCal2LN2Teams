@@ -42,6 +42,7 @@ internal val UNITS: List<List<String>> =
     listOf(listOf("title"), listOf("start", "end"), listOf("location"), listOf("description"))
 
 internal const val REASON_ORIGINAL_GONE = "оригинал удалён"
+internal const val REASON_ORIGINAL_CANCELLED = "оригинал отменён"
 internal const val REASON_COPY_GONE = "копия удалена — удалить оригинал?"
 internal const val REASON_TWIN_GONE = "двойник удалён — удалить и этот?"
 internal const val REASON_SAME_TITLE = "одинаковые название и начало: это одна встреча?"
@@ -384,6 +385,11 @@ fun plan(
         matchIndex[s] = events.filter { it.source != null && !it.id.isNullOrEmpty() }
             .map { it.source!! to it.matchKey() }.toSet()
     }
+    // Все события, у которых есть связь: копию без связи (создана прежней установкой, связи
+    // потерялись) узнаём по метке, названию и началу и «усыновляем» или удаляем (ADR 0005).
+    val linkedMembers = links.flatMap { link ->
+        listOfNotNull(Member(link.sourceSystem, link.sourceId), link.targetId?.let { Member(link.targetSystem, it) })
+    }.toSet()
     val copyOf = LinkedHashMap<Member, Pair<Member, Link>>()
     for (link in links) {
         if (link.kind == LinkKind.COPY && !link.targetId.isNullOrEmpty() && !link.kept) {
@@ -405,6 +411,22 @@ fun plan(
             if (origin == null) {
                 val o = originals[cSource].orEmpty().firstOrNull { it.matchKey() == c.matchKey() }
                 origin = o?.let { Member(cSource, it.id) }
+            }
+            if (origin == null && entry == null && Member(s, c.id) !in linkedMembers) {
+                // Копия без связи, а живого оригинала нет: если он отменён (в списке, но ignored),
+                // удаляем копию, как удалили бы связанную
+                val cancelled = snapshot[cSource].orEmpty().firstOrNull {
+                    it.ignored && it.source == null && !it.id.isNullOrEmpty() && it.matchKey() == c.matchKey()
+                }
+                if (cancelled != null) {
+                    leftovers += Member(s, c.id)
+                    goneOriginals += Member(cSource, cancelled.id)
+                    actions += Action(
+                        ActionKind.DELETE, s, c, cSource,
+                        reason = REASON_ORIGINAL_CANCELLED, silent = true, subject = DeleteSubject.COPY,
+                    )
+                }
+                continue
             }
             if (origin == null || origin in frozen) continue
             val group = candidates.members(origin)
@@ -444,6 +466,7 @@ fun plan(
     // 4. Новые копии (у двойников — одна на группу)
     val fallbacks = LinkedHashMap<String, MutableList<Action>>()
     val refused = mutableListOf<Action>()
+    val adopted = mutableSetOf<Member>()
     for (pair in sortedActive) {
         val (p1, p2) = inOrder(pair)
         for ((originSystem, target) in listOf(p1 to p2, p2 to p1)) {
@@ -451,7 +474,13 @@ fun plan(
             for (e in originals.getValue(originSystem)) {
                 val m = Member(originSystem, e.id)
                 if (m in frozen || Copied(originSystem, e.id, target) in copied) continue
-                if ((originSystem to e.matchKey()) in index) continue
+                if ((originSystem to e.matchKey()) in index) {
+                    adopt(e, originSystem, target, snapshot, linkedMembers, leftovers, adopted)?.let { link ->
+                        copied += Copied(originSystem, e.id, target)
+                        actions += Action.bookkeeping(ActionKind.LINK, link)
+                    }
+                    continue
+                }
                 val create = Action(ActionKind.CREATE, target, e.copy(source = originSystem), originSystem)
                 if (covered(m, target, confirmed, copied, index, listed, active)) continue
                 val refusedLink = refusals[Copied(originSystem, e.id, target)]
@@ -515,6 +544,30 @@ private fun frozen(links: Collection<Link>, unavailable: Set<System>): MutableSe
     val members = uf.parent.keys.toList()
     val roots = members.filter { it.system in unavailable }.map { uf.find(it) }.toSet()
     return members.filter { uf.find(it) in roots }.toMutableSet()
+}
+
+/**
+ * Связь для копии оригинала [e] в [target], найденной по метке, названию и началу, если у копии
+ * ещё нет связи (ADR 0005). Снимки — текущие поля обеих сторон: дальше правки синхронизируются
+ * как у обычной копии. `null` — копия уже связана, будет удалена как лишняя или усыновлена другим.
+ */
+private fun adopt(
+    e: CalendarEvent,
+    origin: System,
+    target: System,
+    snapshot: Map<System, List<CalendarEvent>>,
+    linked: Set<Member>,
+    leftovers: Set<Member>,
+    adopted: MutableSet<Member>,
+): Link? {
+    val originId = e.id ?: return null
+    val copy = snapshot[target].orEmpty().firstOrNull { c ->
+        val m = Member(target, c.id)
+        c.source == origin && !c.id.isNullOrEmpty() && c.matchKey() == e.matchKey() &&
+            m !in linked && m !in leftovers && m !in adopted
+    } ?: return null
+    adopted += Member(target, copy.id)
+    return Link(origin, originId, target, copy.id, sourceFields = e.fields(), targetFields = copy.fields())
 }
 
 /** Вид совпадения при поиске двойников: UID — связать сразу; название, время — вопрос. */

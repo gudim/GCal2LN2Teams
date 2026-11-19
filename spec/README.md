@@ -7,6 +7,11 @@ Kotlin-движок считается перенесённым, когда на
 
 Эталоны остаются в репозитории и после удаления Python-версии.
 
+**С ADR 0005 эталон — Kotlin-движок, Python-версия больше не поддерживается.** Новые сценарии и
+изменения поведения вносятся в `golden/*.json` по выводу `runGolden` из Kotlin (приёмочный тест
+`GoldenPlansTest`); Python-генератор и `pytest tests/test_golden_plans.py` их уже не повторяют.
+Сценарии `legacy_match_by_marker` и `legacy_copy_of_cancelled_original` расходятся с Python.
+
 - Сценарии: `src/sync/golden.py` (список `SCENARIOS`).
 - Генератор: `python scripts/export_golden_plans.py` (из корня репозитория). Перезаписывает
   изменившиеся файлы и удаляет файлы сценариев, которых больше нет.

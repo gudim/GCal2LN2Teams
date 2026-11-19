@@ -89,4 +89,50 @@ class PlannerTest {
         assertTrue(pyCompare("a", "ab") < 0)
         assertEquals(0, pyCompare("g1", "g1"))
     }
+
+    // --- Копии без связи (созданы прежней установкой): «усыновление» и отмена оригинала ---
+
+    private val pair = listOf(setOf(System.DOMINO, System.GOOGLE))
+    private val lotus = CalendarEvent("Статус", start, end, id = "d1/20261113T100000Z")
+    private val orphan = lotus.copy(id = "gc1", source = System.DOMINO)
+
+    @Test
+    fun unlinkedCopyIsAdoptedWithALinkInsteadOfCopiedAgain() {
+        val plan = plan(mapOf(System.DOMINO to listOf(lotus), System.GOOGLE to listOf(orphan)), pair)
+        val adopt = plan.actions.single()
+        assertEquals(ActionKind.LINK, adopt.kind)
+        assertTrue(adopt.silent)
+        assertEquals(
+            Link(System.DOMINO, "d1/20261113T100000Z", System.GOOGLE, "gc1", sourceFields = lotus.fields(), targetFields = orphan.fields()),
+            adopt.link,
+        )
+        // со связью копия — обычная: в следующем плане ничего не происходит
+        assertTrue(plan(mapOf(System.DOMINO to listOf(lotus), System.GOOGLE to listOf(orphan)), pair, listOf(adopt.link!!)).actions.isEmpty())
+    }
+
+    @Test
+    fun linkedCopyIsNotAdoptedTwice() {
+        val other = Link(System.DOMINO, "d9", System.GOOGLE, "gc1")
+        val plan = plan(mapOf(System.DOMINO to listOf(lotus), System.GOOGLE to listOf(orphan)), pair, listOf(other))
+        assertTrue(plan.actions.none { it.kind == ActionKind.LINK && it.link?.targetId == "gc1" && it.link?.sourceId == lotus.id })
+    }
+
+    @Test
+    fun unlinkedCopyOfCancelledOriginalIsDeleted() {
+        val cancelled = lotus.copy(ignored = true)
+        val plan = plan(mapOf(System.DOMINO to listOf(cancelled), System.GOOGLE to listOf(orphan)), pair)
+        val delete = plan.actions.single()
+        assertEquals(ActionKind.DELETE, delete.kind)
+        assertEquals(System.GOOGLE, delete.target)
+        assertEquals("gc1", delete.event.id)
+        assertEquals(DeleteSubject.COPY, delete.subject)
+        assertTrue(delete.silent)
+    }
+
+    @Test
+    fun unlinkedCopyStaysWhileALiveOriginalMatchesToo() {
+        val cancelled = lotus.copy(id = "d2", ignored = true)
+        val plan = plan(mapOf(System.DOMINO to listOf(lotus, cancelled), System.GOOGLE to listOf(orphan)), pair)
+        assertTrue(plan.actions.none { it.kind == ActionKind.DELETE })
+    }
 }
