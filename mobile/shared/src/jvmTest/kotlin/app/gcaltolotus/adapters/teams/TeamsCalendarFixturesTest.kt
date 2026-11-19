@@ -22,7 +22,7 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.put
 
-/** Текст фикстуры из tests/fixtures (путь передаёт Gradle, свойство gcaltolotus.fixturesDir). */
+/** Текст фикстуры из spec/fixtures (путь передаёт Gradle, свойство gcaltolotus.fixturesDir). */
 private fun fixtureText(name: String): String {
     val dir = java.lang.System.getProperty("gcaltolotus.fixturesDir")
         ?: error("Нет системного свойства gcaltolotus.fixturesDir (задаётся в shared/build.gradle.kts)")

@@ -20,7 +20,7 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 
-/** Фикстура из tests/fixtures (путь передаёт Gradle, свойство `gcaltolotus.fixturesDir`). */
+/** Фикстура из spec/fixtures (путь передаёт Gradle, свойство `gcaltolotus.fixturesDir`). */
 internal fun fixture(name: String): JsonElement {
     val dir = java.lang.System.getProperty("gcaltolotus.fixturesDir")
         ?: error("Нет системного свойства gcaltolotus.fixturesDir (задаётся в shared/build.gradle.kts)")
@@ -32,7 +32,7 @@ private const val W_ID = "C1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6-Lotus_Notes_Generated
 private const val ME_ID = "1A2B3C4D5E6F7A8B9C0D1E2F3A4B5C6D-Lotus_Notes_Generated"
 
 /**
- * Тесты адаптера Domino на ответах по форме реального сервера (tests/fixtures/domino_*.json).
+ * Тесты адаптера Domino на ответах по форме реального сервера (spec/fixtures/domino_*.json).
  * Порт tests/test_domino_adapter.py.
  */
 class DominoFixturesTest {

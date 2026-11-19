@@ -19,7 +19,7 @@ internal const val SERVER = "https://domino.example"
 internal const val EVENTS_URL = "$SERVER/mail/user.nsf/api/calendar/events"
 internal val OWNER = DominoOwner(distinguishedName = "Ivan Petrov/ACME", email = "IPetrov@example.com")
 
-/** Ответ `GET /api/calendar` (как tests/fixtures/domino_calendar.json). */
+/** Ответ `GET /api/calendar` (как spec/fixtures/domino_calendar.json). */
 internal val CALENDAR_JSON: JsonObject = obj(
     """
     {"calendars": [{

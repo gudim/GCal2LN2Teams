@@ -79,9 +79,9 @@ sqldelight {
 
 // Тесты читают приёмочную спецификацию движка прямо из репозитория (spec/golden/*.json,
 // spec/links-export.md), без копий. Путь передаётся системным свойством gcaltolotus.specDir.
-// Фикстуры ответов API (tests/fixtures/*.json) для тестов адаптеров — свойство gcaltolotus.fixturesDir.
+// Фикстуры ответов API (spec/fixtures/*.json) для тестов адаптеров — свойство gcaltolotus.fixturesDir.
 val specDir = rootProject.layout.projectDirectory.dir("../spec")
-val fixturesDir = rootProject.layout.projectDirectory.dir("../tests/fixtures")
+val fixturesDir = rootProject.layout.projectDirectory.dir("../spec/fixtures")
 tasks.withType<Test>().configureEach {
     inputs.dir(specDir).withPropertyName("specDir").withPathSensitivity(PathSensitivity.RELATIVE)
     inputs.dir(fixturesDir).withPropertyName("fixturesDir").withPathSensitivity(PathSensitivity.RELATIVE)
